@@ -1,13 +1,15 @@
-let Endpoint = "http://localhost:3000/students"
-let studentContainer = document.getElementById("students-list")
-let form = document.getElementById("studentForm")
+let Endpoint = "http://localhost:3000/students";
+let studentContainer = document.getElementById("students-list");
+let form = document.getElementById("studentForm");
 let editingStudentId = null;
 let submitStudentBtn = document.getElementById("submitStudentBtn");
 
 
+// Render Student
 function RenderStudent(student) {
+
     studentContainer.insertAdjacentHTML("afterbegin", `
-              <tr>
+        <tr>
             <td>
                 <strong>${student.name}</strong>
                 <small>${student.studentId}</small>
@@ -19,7 +21,11 @@ function RenderStudent(student) {
 
             <td>
                 ${student.courses
-            .map(course => `<span class="course">${course}</span>`)
+            .map(course => `
+                        <span class="course">
+                            ${course.name}
+                        </span>
+                    `)
             .join("")}
             </td>
 
@@ -31,79 +37,137 @@ function RenderStudent(student) {
 
             <td>
                 <div class="actions">
-                    <button class="action-btn update-btn" title="Update"
-                     onclick="updatestudent('${student.id}')">
+
+                    <button
+                        class="action-btn update-btn"
+                        title="Update"
+                        onclick="updatestudent('${student.id}')">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </button>
 
-                    <button class="action-btn delete-btn" title="Delete"
-                     onclick="deletestudent('${student.id}')">
+                    <button
+                        class="action-btn delete-btn"
+                        title="Delete"
+                        onclick="deletestudent('${student.id}')">
                         <i class="fa-solid fa-trash"></i>
                     </button>
+
                 </div>
             </td>
         </tr>
-            `);
+    `);
 }
 
-//GET 
+
+// GET
 async function getstudent() {
 
     try {
+
         let response = await fetch(Endpoint);
-        if (!response.ok) throw new Error("Failed to fetch Students")
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch Students");
+        }
 
         let data = await response.json();
 
-        data.filter(student => !student.isDeleted).forEach((student) => RenderStudent(student));
+        data
+            .filter(student => !student.isDeleted)
+            .forEach(student => RenderStudent(student));
+
     } catch (error) {
-        console.log("Error" + error)
+
+        console.log("Error:", error);
 
     }
-
 }
-//POST
+
+
+// POST / PUT
 async function addstudent(event) {
+
     event.preventDefault();
 
     try {
 
-        // Get data from form 
+        // Get form data
         let student = Object.fromEntries(new FormData(form));
-            student.isDeleted = false;
-        // Convert courses from string to array 
-         student.courses = student.courses .split(",") .map(course => course.trim()) .filter(Boolean);
 
-       let response ;
+        student.isDeleted = false;
 
-       if (editingStudentId){
-        response = await fetch(`${Endpoint}/${editingStudentId}`, {
-            method: "PUT",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(student)
-        });
-       }
-         else {
-            response = await fetch(Endpoint, {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(student)
-            });
+
+        // Convert courses input to objects
+        student.courses = student.courses
+            .split(",")
+            .map(course => {
+
+                let [name, grade] = course.split(":");
+
+                return {
+                    name: name.trim(),
+                    grade: Number(grade)
+                };
+
+            })
+            .filter(course => course.name && !isNaN(course.grade));
+
+
+        let response;
+
+
+        // UPDATE
+        if (editingStudentId) {
+
+            response = await fetch(
+                `${Endpoint}/${editingStudentId}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(student)
+                }
+            );
+
         }
+
+        // ADD
+        else {
+
+            response = await fetch(
+                Endpoint,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(student)
+                }
+            );
+
+        }
+
 
         if (!response.ok) {
             throw new Error("Failed to save student");
         }
 
-                // Reset form
+
+        // Reset form
         form.reset();
 
         // Reset editing mode
         editingStudentId = null;
 
-        // Refresh students table
+        // Reset button
+        submitStudentBtn.textContent = "Add Student";
+
+        // Refresh table
         studentContainer.innerHTML = "";
+
         getstudent();
+
 
         // Close modal
         let modal = bootstrap.Modal.getInstance(
@@ -113,72 +177,103 @@ async function addstudent(event) {
         if (modal) {
             modal.hide();
         }
-          
-      
 
     } catch (error) {
-        console.log("Error" + error)
+
+        console.log("Error:", error);
 
     }
-
 }
-form.addEventListener("submit", addstudent);
 
+
+form.addEventListener("submit", addstudent);
 
 
 // DELETE - Soft Delete
 async function deletestudent(id) {
+
     try {
-        let response = await fetch(`${Endpoint}/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                isDeleted: true
-            })
-        });
+
+        let response = await fetch(
+            `${Endpoint}/${id}`,
+            {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    isDeleted: true
+                })
+            }
+        );
+
 
         if (!response.ok) {
             throw new Error("Failed to delete student");
         }
+
 
         studentContainer.innerHTML = "";
 
         getstudent();
 
     } catch (error) {
+
         console.log("Error:", error);
+
     }
 }
 
 
-//PUT - Update
+// PUT - Update
 async function updatestudent(id) {
+
     try {
+
         let response = await fetch(`${Endpoint}/${id}`);
+
 
         if (!response.ok) {
             throw new Error("Failed to fetch student");
         }
 
+
         let student = await response.json();
 
-        // Save the ID of the student we are editing
+
+        // Save ID
         editingStudentId = id;
+
+        // Change button text
         submitStudentBtn.textContent = "Update Student";
-        // Put student data inside the form
-        document.getElementById("f-name").value = student.name;
-        document.getElementById("f-code").value = student.studentId;
-        document.getElementById("f-email").value = student.email;
-        document.getElementById("f-phone").value = student.phone || "";
+
+
+        // Put student data inside form
+        document.getElementById("f-name").value =
+            student.name;
+
+        document.getElementById("f-code").value =
+            student.studentId;
+
+        document.getElementById("f-email").value =
+            student.email;
+
+        document.getElementById("f-phone").value =
+            student.phone || "";
+
+
+        // Convert courses objects back to text
         document.getElementById("f-courses").value =
-            student.courses.join(", ");
+            student.courses
+                .map(course => `${course.name}:${course.grade}`)
+                .join(", ");
+
 
         // Select status
         document.querySelector(
             `input[name="status"][value="${student.status}"]`
         ).checked = true;
+
 
         // Open modal
         let modal = new bootstrap.Modal(
@@ -188,11 +283,11 @@ async function updatestudent(id) {
         modal.show();
 
     } catch (error) {
+
         console.log("Error:", error);
+
     }
 }
-
-
 
 
 getstudent();

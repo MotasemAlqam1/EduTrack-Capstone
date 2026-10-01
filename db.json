@@ -8,8 +8,14 @@
       "email": "omar@gmail.com",
       "phone": "0790000001",
       "courses": [
-        "JavaScript",
-        "HTML & CSS"
+        {
+          "name": "JavaScript",
+          "grade": 90
+        },
+        {
+          "name": "Web Development",
+          "grade": 85
+        }
       ],
       "status": "active",
       "isDeleted": true
@@ -22,8 +28,14 @@
       "email": "lina@gmail.com",
       "phone": "0790000002",
       "courses": [
-        "React",
-        "JavaScript"
+        {
+          "name": "Web Development",
+          "grade": 95
+        },
+        {
+          "name": "JavaScript",
+          "grade": 88
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -36,7 +48,10 @@
       "email": "mohammad@gmail.com",
       "phone": "0790000003",
       "courses": [
-        "HTML & CSS"
+        {
+          "name": "Web Development",
+          "grade": 78
+        }
       ],
       "status": "archived",
       "isDeleted": false
@@ -49,8 +64,14 @@
       "email": "rana@gmail.com",
       "phone": "0790000004",
       "courses": [
-        "Python",
-        "Database"
+        {
+          "name": "Database",
+          "grade": 92
+        },
+        {
+          "name": "UI Design",
+          "grade": 86
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -60,7 +81,10 @@
       "studentId": "123",
       "email": "ahmedkayyali2002@gmail.com",
       "courses": [
-        "javascript"
+        {
+          "name": "JavaScript",
+          "grade": 94
+        }
       ],
       "phone": "0777874159",
       "status": "active",
@@ -72,7 +96,10 @@
       "studentId": "123",
       "email": "Nour@gmail.com",
       "courses": [
-        "javascript"
+        {
+          "name": "UI Design",
+          "grade": 81
+        }
       ],
       "phone": "0783634422",
       "status": "active",
@@ -84,7 +111,10 @@
       "studentId": "12323",
       "email": "ahmad@asdasd",
       "courses": [
-        "react"
+        {
+          "name": "Web Development",
+          "grade": 89
+        }
       ],
       "phone": "0777864159",
       "status": "active",
@@ -96,7 +126,10 @@
       "studentId": "1233",
       "email": "aaaaaaa@aaaaaaa",
       "courses": [
-        "asdas"
+        {
+          "name": "Database",
+          "grade": 76
+        }
       ],
       "phone": "0777777773",
       "status": "active",
@@ -108,7 +141,10 @@
       "studentId": "3423",
       "email": "muatsm@sads",
       "courses": [
-        "react"
+        {
+          "name": "JavaScript",
+          "grade": 84
+        }
       ],
       "phone": "05324324234",
       "status": "active",
@@ -120,12 +156,30 @@
       "studentId": "321123",
       "email": "kayyaliahmed33@gmail.com",
       "courses": [
-        "php"
+        {
+          "name": "UI Design",
+          "grade": 91
+        }
       ],
       "phone": "0777874159",
       "status": "active",
       "isDeleted": true,
       "id": "DohXVayS3Ug"
+    },
+    {
+      "name": "kayyaliahmad",
+      "studentId": "weq",
+      "email": "kayyaliahmad2002@gmail.com",
+      "courses": [
+        {
+          "name": "react",
+          "grade": 90
+        }
+      ],
+      "phone": "0777874159",
+      "status": "active",
+      "isDeleted": false,
+      "id": "4RzGpBBoiLQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
