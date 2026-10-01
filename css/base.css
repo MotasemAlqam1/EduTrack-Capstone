@@ -1,0 +1,19 @@
+body {
+  font-family: "Outfit", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+.btn-green {
+  background: var(--g5);
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 500;
+}
+.btn-green:hover {
+  background: var(--g7);
+  color: #fff;
+}
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
