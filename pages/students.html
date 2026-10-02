@@ -231,9 +231,16 @@
     <aside class="sidebar offcanvas-lg offcanvas-start" id="sidebar" tabindex="-1">
       <div class="d-flex justify-content-between align-items-start">
         <a href="dashboard.html" class="brand">
-          <span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>
-          EduTrack
-        </a>
+  <img
+    class="brand-logo theme-logo"
+    src="../images/light mode.png"
+    data-light-src="../images/light mode.png"
+    data-dark-src="../images/dark mode.png"
+    alt="EduTrack"
+  />
+
+  <span>EduTrack</span>
+</a>
         <button class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
@@ -282,6 +289,14 @@
           <input class="form-control" type="search" name="q" placeholder="Search students"
             aria-label="Search students" />
         </form>
+        <button
+  class="icon-btn"
+  id="themeToggle"
+  type="button"
+  aria-label="Change theme"
+>
+  <i class="bi bi-moon-fill" id="themeIcon"></i>
+</button>
 
         <!-- Profile -->
         <div class="dropdown">
@@ -508,6 +523,7 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../js/student.js"></script>
+  <script src="../JS/theme.js"></script>
 </body>
 
 </html>
