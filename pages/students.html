@@ -231,49 +231,44 @@
     <aside class="sidebar offcanvas-lg offcanvas-start" id="sidebar" tabindex="-1">
       <div class="d-flex justify-content-between align-items-start">
         <a href="dashboard.html" class="brand">
-  <img
-    class="brand-logo theme-logo"
-    src="../images/light mode.png"
-    data-light-src="../images/light mode.png"
-    data-dark-src="../images/dark mode.png"
-    alt="EduTrack"
-  />
+          <img class="brand-logo theme-logo" src="../images/light mode.png" data-light-src="../images/light mode.png"
+            data-dark-src="../images/dark mode.png" alt="EduTrack" />
 
-  <span>EduTrack</span>
-</a>
+          <span>EduTrack</span>
+        </a>
         <button class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
-     <nav class="nav flex-column gap-1">
+      <nav class="nav flex-column gap-1">
 
 
-                <a class="nav-link" href="dashboard.html">
+        <a class="nav-link" href="dashboard.html">
 
-                    <i class="bi bi-grid-1x2-fill"></i>
-                    Dashboard
-                </a>
+          <i class="bi bi-grid-1x2-fill"></i>
+          Dashboard
+        </a>
 
-                <a class="nav-link active" href="students.html">
-                    <i class="bi bi-people"></i>
-                    Students
-                </a>
-                <!-- <a class="nav-link" href="assessments.html?new=true"><i class="bi bi-plus-lg"></i>New student</a> -->
-    
-                <!-- <a class="nav-link" href="assessments.html"><i class="bi bi-clipboard-check"></i>Assessments</a> -->
-                <!-- <a class="nav-link" href="assessments.html?new=true"><i class="bi bi-plus-lg"></i>New assessment</a> -->
-                <a class="nav-link" href="courses.html">
+        <a class="nav-link active" href="students.html">
+          <i class="bi bi-people"></i>
+          Students
+        </a>
+        <!-- <a class="nav-link" href="assessments.html?new=true"><i class="bi bi-plus-lg"></i>New student</a> -->
 
-                    <i class="bi bi-book"></i>
+        <!-- <a class="nav-link" href="assessments.html"><i class="bi bi-clipboard-check"></i>Assessments</a> -->
+        <!-- <a class="nav-link" href="assessments.html?new=true"><i class="bi bi-plus-lg"></i>New assessment</a> -->
+        <a class="nav-link" href="courses.html">
 
-                    Courses
+          <i class="bi bi-book"></i>
 
-                </a>
-                <a class="nav-link " href="resources.html">
-                    <i class="bi bi-book"></i>
-                    Resources
-                </a>
+          Courses
 
-            </nav>
+        </a>
+        <a class="nav-link " href="resources.html">
+          <i class="bi bi-book"></i>
+          Resources
+        </a>
+
+      </nav>
 
       <nav class="nav flex-column bottom">
         <a class="nav-link" href="../index.html">
@@ -305,14 +300,9 @@
           <input class="form-control" type="search" name="q" placeholder="Search students"
             aria-label="Search students" />
         </form>
-        <button
-  class="icon-btn"
-  id="themeToggle"
-  type="button"
-  aria-label="Change theme"
->
-  <i class="bi bi-moon-fill" id="themeIcon"></i>
-</button>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Change theme">
+          <i class="bi bi-moon-fill" id="themeIcon"></i>
+        </button>
 
         <!-- Profile -->
         <div class="dropdown">
@@ -348,7 +338,7 @@
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
           <p class="text-muted mb-0">Manage your students and track their progress.</p>
 
-          <button class="btn btn-green px-3" data-bs-toggle="modal" data-bs-target="#studentModal">
+          <button id="addStudentBtn" class="btn btn-green px-3" data-bs-toggle="modal" data-bs-target="#studentModal">
             <i class="bi bi-plus-lg me-1"></i> Add student
           </button>
         </div>
@@ -356,20 +346,28 @@
         <!-- Filters -->
         <div class="nav-tabs-x mb-3">
           <div class="nav-tabs-x">
-            <button class="btn active">All (6)</button>
-            <button class="btn">Active (2)</button>
-            <button class="btn">At risk (3)</button>
-            <button class="btn">Archived (1)</button>
+            <button class="btn active" data-filter="all">
+              All
+            </button>
+
+            <button class="btn" data-filter="active">
+              Active
+            </button>
+
+            <button class="btn" data-filter="archived">
+              Archived
+            </button>
           </div>
 
-          <select class="form-select form-select-sm w-auto ms-auto" aria-label="Filter by course">
-            <option>All courses</option>
-            <option>Web Development</option>
-            <option>JavaScript</option>
-            <option>Databases</option>
+          <select id="courseFilter" class="form-select form-select-sm w-auto ms-auto" aria-label="Filter by course">
+            <option value="all">All courses</option>
+            <option value="Web Development">Web Development</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Databases">Databases</option>
+            <option value="UI Design">UI Design</option>
           </select>
 
-          <button class="btn">
+          <button id="exportBtn" class="btn">
             <i class="bi bi-download me-1"></i> Export CSV
           </button>
         </div>
@@ -395,7 +393,7 @@
     </div>
   </div>
 
-    </main>
+  </main>
   </div>
   </div>
 

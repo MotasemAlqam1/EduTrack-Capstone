@@ -3,6 +3,36 @@ let studentContainer = document.getElementById("students-list");
 let form = document.getElementById("studentForm");
 let editingStudentId = null;
 let submitStudentBtn = document.getElementById("submitStudentBtn");
+let archivedInput = document.getElementById("status-archived");
+let archivedLabel = document.querySelector('label[for="status-archived"]');
+let addStudentBtn = document.getElementById("addStudentBtn");
+let filterButtons = document.querySelectorAll("[data-filter]");
+let currentFilter = "all";
+let students = [];
+let courseFilter = document.getElementById("courseFilter");
+let exportBtn = document.getElementById("exportBtn");
+
+// Hide Archived option 
+function hideArchived() {
+    archivedInput.hidden = true;
+    archivedLabel.hidden = true;
+    document.getElementById("status-active").checked = true;
+
+}
+// Show Archived option 
+function showArchived() {
+    archivedInput.hidden = false;
+    archivedLabel.hidden = false;
+}
+
+// Add Student button
+addStudentBtn.addEventListener("click", () => {
+    editingStudentId = null;
+    submitStudentBtn.textContent = "Add Student";
+    hideArchived();
+    form.reset();
+    document.getElementById("status-active").checked = true;
+});
 
 
 // Render Student
@@ -58,6 +88,92 @@ function RenderStudent(student) {
     `);
 }
 
+function filterStudents() {
+
+    studentContainer.innerHTML = "";
+
+    let selectedCourse = courseFilter.value;
+
+    let filteredStudents = students.filter(student => {
+
+        let statusMatch =
+            currentFilter === "all" ||
+            student.status === currentFilter;
+
+        let courseMatch =
+            selectedCourse === "all" ||
+            student.courses.some(course =>
+                course.name === selectedCourse
+            );
+
+        return statusMatch && courseMatch;
+    });
+
+    filteredStudents.forEach(student => RenderStudent(student));
+
+    return filteredStudents;
+}
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        currentFilter = button.dataset.filter;
+
+        filterStudents();
+    });
+
+});
+
+
+courseFilter.addEventListener("change", () => {
+
+    filterStudents();
+
+});
+
+exportBtn.addEventListener("click", () => {
+
+    let filteredStudents = filterStudents();
+
+    if (filteredStudents.length === 0) {
+        alert("No students to export.");
+        return;
+    }
+
+    let csv = "Name,Student ID,Email,Phone,Courses,Status\n";
+
+    filteredStudents.forEach(student => {
+
+        let courses = student.courses
+            .map(course => `${course.name}:${course.grade}`)
+            .join(" | ");
+
+        csv += `"${student.name}","${student.studentId}","${student.email}","${student.phone || ""}","${courses}","${student.status}"\n`;
+    });
+
+    let blob = new Blob([csv], {
+        type: "text/csv;charset=utf-8;"
+    });
+
+    let url = URL.createObjectURL(blob);
+
+    let link = document.createElement("a");
+
+    link.href = url;
+    link.download = "students.csv";
+
+    link.click();
+
+    URL.revokeObjectURL(url);
+});
+
 
 // GET
 async function getstudent() {
@@ -72,9 +188,9 @@ async function getstudent() {
 
         let data = await response.json();
 
-        data
-            .filter(student => !student.isDeleted)
-            .forEach(student => RenderStudent(student));
+        students = data.filter(student => !student.isDeleted);
+
+        filterStudents();
 
     } catch (error) {
 
@@ -96,6 +212,9 @@ async function addstudent(event) {
 
         student.isDeleted = false;
 
+        if (!editingStudentId) {
+            student.status = "active";
+        }
 
         // Convert courses input to objects
         student.courses = student.courses
@@ -288,6 +407,5 @@ async function updatestudent(id) {
 
     }
 }
-
 
 getstudent();
