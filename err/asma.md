@@ -22,4 +22,7 @@ The chart of grades distribution display wrong data
 **Must Use the updated student object with grade added not the original**
 
 *-----------------[ Error: 4 ]-------------------*
+```bash
+There were many conflicts when we were trying to push our work and 
+Comp
 
