@@ -1,0 +1,283 @@
+/* ================= STUDENT MODAL ================= */
+
+.student-modal {
+  --sm-primary: var(--g5);
+  --sm-primary-dark: var(--g7);
+
+  --sm-primary-rgb: 25, 211, 154;
+
+  --sm-primary-soft: var(--g1);
+
+  --sm-field-bg: var(--input-bg);
+  --sm-field-border: var(--line);
+
+  --sm-label: var(--muted);
+  --sm-placeholder: var(--muted);
+
+  --sm-title: var(--ink);
+
+  background: var(--surface);
+
+  color: var(--ink);
+
+  border: 1px solid var(--line);
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 24px 60px var(--shadow);
+}
+
+
+/* ================= HEADER ================= */
+
+.student-modal .modal-header {
+  padding: 28px 28px 22px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+
+.student-modal .modal-title {
+  color: var(--sm-title);
+
+  font-family:
+    "Outfit",
+    system-ui,
+    sans-serif;
+
+  font-size: 1.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.01em;
+}
+
+
+/* ================= BODY ================= */
+
+.student-modal .modal-body {
+  padding: 28px;
+
+  background: var(--surface);
+
+  color: var(--ink);
+}
+
+
+/* ================= FOOTER ================= */
+
+.student-modal .modal-footer {
+  padding: 8px 28px 28px;
+
+  gap: 16px;
+
+  flex-wrap: nowrap;
+
+  border-top: 0;
+
+  background: var(--surface);
+}
+
+
+/* ================= LABELS ================= */
+
+.student-modal .form-label {
+  margin-bottom: 0.6rem;
+
+  color: var(--sm-label);
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
+
+  text-transform: uppercase;
+}
+
+
+.student-modal .label-optional {
+  margin-left: 0.5rem;
+
+  color: var(--sm-placeholder);
+
+  font-size: 0.85rem;
+
+  letter-spacing: 0;
+
+  text-transform: none;
+}
+
+
+/* ================= INPUTS ================= */
+
+.student-modal .form-control {
+  height: 60px;
+
+  padding: 0 1.25rem;
+
+  border: 1px solid var(--sm-field-border);
+
+  border-radius: 14px;
+
+  background: var(--sm-field-bg);
+
+  color: var(--sm-title);
+
+  font-size: 1rem;
+
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s,
+    background-color 0.15s;
+}
+
+
+.student-modal .form-control::placeholder {
+  color: var(--sm-placeholder);
+}
+
+
+.student-modal .form-control:focus {
+  background: var(--surface);
+
+  color: var(--ink);
+
+  border-color: var(--sm-primary);
+
+  box-shadow:
+    0 0 0 4px rgba(var(--sm-primary-rgb), 0.15);
+
+  outline: 0;
+}
+
+
+/* ================= STATUS ================= */
+
+.status-toggle {
+  display: flex;
+
+  height: 60px;
+
+  border: 1px solid var(--sm-field-border);
+
+  border-radius: 14px;
+
+  background: var(--sm-field-bg);
+
+  overflow: hidden;
+}
+
+
+.status-option {
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+
+.status-toggle .btn-check:checked + .status-option {
+  background: var(--sm-primary-soft);
+
+  color: var(--sm-primary);
+
+  font-weight: 600;
+}
+
+
+.status-toggle .btn-check:focus-visible + .status-option {
+  outline: 2px solid var(--sm-primary);
+
+  outline-offset: -2px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.student-modal .btn-cancel,
+.student-modal .btn-add {
+  flex: 1;
+
+  height: 60px;
+
+  margin: 0;
+
+  border-radius: 14px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+}
+
+
+.student-modal .btn-cancel {
+  background: var(--surface-soft);
+
+  color: var(--ink);
+
+  border: 1px solid var(--line);
+}
+
+
+.student-modal .btn-cancel:hover {
+  background: var(--g1);
+
+  color: var(--ink);
+}
+
+
+.student-modal .btn-add {
+  background: var(--sm-primary);
+
+  color: #04271d;
+
+  border: 1px solid var(--sm-primary);
+}
+
+
+.student-modal .btn-add:hover {
+  background: var(--sm-primary-dark);
+
+  color: #ffffff;
+
+  border-color: var(--sm-primary-dark);
+}
+
+
+/* ================= SCROLLBAR ================= */
+
+.student-modal .modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+
+.student-modal .modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.student-modal .modal-body::-webkit-scrollbar-thumb {
+  background: var(--line);
+
+  border-radius: 8px;
+}
