@@ -1,0 +1,36 @@
+/* Type badges */
+.t-assign {
+  background: #e3f3fb;
+  color: #1b7fa8;
+}
+
+.t-quiz {
+  background: #fdf1d6;
+  color: #8a5e00;
+}
+
+.t-exam {
+  background: #ece8fd;
+  color: #5a49c9;
+}
+
+/* Table */
+.table-assess th,
+.table-assess td {
+  white-space: nowrap;
+}
+
+.table-assess td:first-child {
+  min-width: 190px;
+}
+
+/* Statistics cards: 3 equal columns, content centered */
+.box.strip .it {
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .box.strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,573 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EduTrack – Assessments</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../css/assessments.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- CSS-only toggle for the desktop burger (no JavaScript) -->
+    <input type="checkbox" id="navToggle" class="d-none" aria-hidden="true" />
+
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside
+        class="sidebar offcanvas-lg offcanvas-start"
+        id="sidebar"
+        tabindex="-1"
+      >
+        <div class="d-flex justify-content-between align-items-start">
+          <a href="dashboard.html" class="brand">
+            <span class="brand-mark">
+              <i class="bi bi-mortarboard-fill"></i>
+            </span>
+            EduTrack
+          </a>
+
+          <button
+            class="btn-close btn-close-white d-lg-none"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <nav class="nav flex-column gap-1">
+          <a class="nav-link" href="dashboard.html">
+            <i class="bi bi-grid-1x2-fill"></i>Dashboard
+          </a>
+
+          <a class="nav-link" href="students.html">
+            <i class="bi bi-people"></i>Students
+          </a>
+
+          <a
+            class="nav-link active"
+            id="assessmentsLink"
+            href="assessments.html"
+          >
+            <i class="bi bi-clipboard-check"></i>Assessments
+          </a>
+
+          <a
+            class="nav-link"
+            id="newAssessmentLink"
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#assessmentModal"
+          >
+            <i class="bi bi-plus-lg"></i>New assessment
+          </a>
+        </nav>
+
+        <nav class="nav flex-column bottom">
+          <a class="nav-link" href="../index.html">
+            <i class="bi bi-box-arrow-left"></i>Log out
+          </a>
+        </nav>
+      </aside>
+
+      <div class="content">
+        <!-- Top navbar -->
+        <header class="topbar">
+          <button
+            class="icon-btn d-lg-none"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebar"
+            aria-label="Open menu"
+          >
+            <i class="bi bi-list fs-5"></i>
+          </button>
+
+          <label
+            for="navToggle"
+            class="icon-btn d-none d-lg-grid"
+            style="place-items: center; cursor: pointer"
+            aria-label="Toggle menu"
+          >
+            <i class="bi bi-list fs-5"></i>
+          </label>
+
+          <h1 class="me-auto">Assessments</h1>
+
+          <form class="search" role="search" action="students.html">
+            <i class="bi bi-search"></i>
+
+            <input
+              class="form-control"
+              type="search"
+              name="q"
+              placeholder="Search students"
+              aria-label="Search students"
+            />
+          </form>
+
+          <div class="dropdown">
+            <button
+              class="avatar"
+              data-bs-toggle="dropdown"
+              aria-label="Profile menu"
+            >
+              AM
+            </button>
+
+            <div class="dropdown-menu dropdown-menu-end p-3 shadow border-0 dd">
+              <div class="d-flex gap-3 align-items-center mb-2">
+                <span class="avatar avatar-lg">AM</span>
+
+                <div>
+                  <b>Dr. Ahmad Mohammad</b>
+
+                  <div class="small text-muted">
+                    Instructor · Computer Science
+                  </div>
+
+                  <div class="small text-muted">demo@edutrack.com</div>
+                </div>
+              </div>
+
+              <hr class="my-2" />
+
+              <a
+                class="dropdown-item rounded"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#profileModal"
+              >
+                <i class="bi bi-person me-2"></i>My profile
+              </a>
+
+              <a class="dropdown-item rounded text-danger" href="../index.html">
+                <i class="bi bi-box-arrow-right me-2"></i>Log out
+              </a>
+            </div>
+          </div>
+        </header>
+
+        <main class="p-3 p-lg-4">
+          <div
+            class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"
+          >
+            <p class="text-muted mb-0">
+              Create and manage your assignments, quizzes and exams.
+            </p>
+
+            <button
+              class="btn btn-green px-3"
+              data-bs-toggle="modal"
+              data-bs-target="#assessmentModal"
+            >
+              <i class="bi bi-plus-lg me-1"></i>New assessment
+            </button>
+          </div>
+
+          <!-- Statistics -->
+          <div class="box strip mb-3">
+            <div class="it">
+              <span class="ico" style="background: var(--g1); color: var(--g5)">
+                <i class="bi bi-clipboard-check"></i>
+              </span>
+
+              <div>
+                <b id="totalAssessments">0</b>
+                <small>Total assessments</small>
+              </div>
+            </div>
+
+            <div class="it">
+              <span
+                class="ico"
+                style="background: #fdf1d6; color: var(--amber)"
+              >
+                <i class="bi bi-check2-circle"></i>
+              </span>
+
+              <div>
+                <b id="gradedAssessments">0</b>
+                <small>Ended</small>
+              </div>
+            </div>
+
+            <div class="it">
+              <span class="ico" style="background: #fde8e4; color: var(--red)">
+                <i class="bi bi-hourglass-split"></i>
+              </span>
+
+              <div>
+                <b id="openAssessments">0</b>
+                <small>Active</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs / Filters -->
+          <div class="nav-tabs-x mb-3">
+            <div class="nav-tabs-x">
+              <button
+                class="btn active"
+                id="allTab"
+                onclick="filterByType('All')"
+              >
+                All (0)
+              </button>
+
+              <button
+                class="btn"
+                id="assignmentsTab"
+                onclick="filterByType('Assignment')"
+              >
+                Assignments (0)
+              </button>
+
+              <button
+                class="btn"
+                id="quizzesTab"
+                onclick="filterByType('Quiz')"
+              >
+                Quizzes (0)
+              </button>
+
+              <button class="btn" id="examsTab" onclick="filterByType('Exam')">
+                Exams (0)
+              </button>
+            </div>
+
+            <select
+              class="form-select form-select-sm w-auto ms-auto"
+              aria-label="Filter by course"
+              id="courseFilter"
+              onchange="filterByCourse(this.value)"
+            >
+              <option>All courses</option>
+              <option>Web Development</option>
+              <option>JavaScript</option>
+              <option>Database</option>
+              <option>UI Design</option>
+            </select>
+
+            <button class="btn" id="exportCsvBtn" onclick="exportCsv()">
+              <i class="bi bi-download me-1"></i>Export CSV
+            </button>
+          </div>
+
+          <!-- Assessments table -->
+          <div class="box">
+            <div class="table-responsive">
+              <table class="table table-assess mb-0">
+                <thead>
+                  <tr>
+                    <th>Assessment</th>
+                    <th>Course</th>
+                    <th>Type</th>
+                    <th>Due</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                  </tr>
+                </thead>
+
+                <!-- JavaScript will generate the rows -->
+                <tbody id="assessmentsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- My profile -->
+    <div
+      class="modal fade"
+      id="profileModal"
+      tabindex="-1"
+      aria-labelledby="profileTitle"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0" style="border-radius: 16px">
+          <form action="#">
+            <div class="modal-header border-0">
+              <h2 class="modal-title h5 fw-bold" id="profileTitle">
+                My profile
+              </h2>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <span class="avatar avatar-lg">AM</span>
+
+                <div>
+                  <label class="btn btn-light btn-sm mb-1" for="pPhoto">
+                    Upload photo
+                  </label>
+
+                  <input
+                    id="pPhoto"
+                    type="file"
+                    accept="image/*"
+                    class="d-none"
+                  />
+
+                  <div class="small text-muted">JPG or PNG, up to 5 MB</div>
+                </div>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label" for="p-name"> Full name </label>
+
+                  <input
+                    id="p-name"
+                    class="form-control"
+                    value="Dr. Ahmad Mohammad"
+                  />
+                </div>
+
+                <div class="col-6">
+                  <label class="form-label" for="p-role"> Role </label>
+
+                  <select id="p-role" class="form-select">
+                    <option selected>Instructor</option>
+                    <option>University lecturer</option>
+                    <option>Trainer</option>
+                  </select>
+                </div>
+
+                <div class="col-6">
+                  <label class="form-label" for="p-dept">
+                    Department / subject
+                  </label>
+
+                  <input
+                    id="p-dept"
+                    class="form-control"
+                    value="Computer Science"
+                  />
+                </div>
+
+                <div class="col-6">
+                  <label class="form-label" for="p-phone"> Phone number </label>
+
+                  <input
+                    id="p-phone"
+                    type="tel"
+                    class="form-control"
+                    placeholder="+962 7X XXX XXXX"
+                  />
+                </div>
+
+                <div class="col-6">
+                  <label class="form-label" for="p-pemail">
+                    Personal email
+                  </label>
+
+                  <input
+                    id="p-pemail"
+                    type="email"
+                    class="form-control"
+                    placeholder="you@gmail.com"
+                  />
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label"> Sign-in email </label>
+
+                  <input
+                    class="form-control"
+                    value="demo@edutrack.com"
+                    disabled
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer border-0">
+              <button
+                type="button"
+                class="btn btn-light"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+
+              <button type="submit" class="btn btn-green">Save profile</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- New / edit assessment -->
+    <div
+      class="modal fade"
+      id="assessmentModal"
+      tabindex="-1"
+      aria-labelledby="assessmentTitle"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0" style="border-radius: 16px">
+          <form action="#" id="assessmentForm">
+            <div class="modal-header border-0">
+              <h2 class="modal-title h5 fw-bold" id="assessmentTitle">
+                New assessment
+              </h2>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label" for="a-title"> Title </label>
+
+                  <input
+                    id="a-title"
+                    name="title"
+                    type="text"
+                    class="form-control"
+                    placeholder="e.g. Midterm Exam"
+                    required
+                  />
+                </div>
+
+                <div class="col-6">
+                  <label class="form-label" for="a-type"> Type </label>
+
+                  <select id="a-type" name="type" class="form-select">
+                    <option>Assignment</option>
+                    <option>Quiz</option>
+                    <option>Exam</option>
+                  </select>
+                </div>
+
+                <div class="col-6">
+                  <label class="form-label" for="a-course"> Course </label>
+
+                  <select id="a-course" name="course" class="form-select">
+                    <option>Web Development</option>
+                    <option>JavaScript</option>
+                    <option>Database</option>
+                    <option>UI Design</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label" for="a-due"> Due date </label>
+
+                  <input
+                    id="a-due"
+                    name="dueDate"
+                    type="date"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer border-0">
+              <button
+                type="button"
+                class="btn btn-light"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+
+              <button type="submit" class="btn btn-green">
+                Save assessment
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete confirmation -->
+    <div
+      class="modal fade"
+      id="deleteModal"
+      tabindex="-1"
+      aria-labelledby="deleteTitle"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0" style="border-radius: 16px">
+          <div class="modal-body text-center p-4">
+            <span
+              class="rounded-circle mb-3"
+              style="
+                display: inline-grid;
+                place-items: center;
+                width: 56px;
+                height: 56px;
+                background: #fde8e4;
+                color: var(--red);
+              "
+            >
+              <i class="bi bi-trash3 fs-4"></i>
+            </span>
+
+            <h2 class="h5 fw-bold mb-2" id="deleteTitle">Delete assessment?</h2>
+
+            <p class="text-muted mb-0">
+              "<span id="deleteAssessmentName"></span>" will be permanently
+              deleted. This cannot be undone.
+            </p>
+          </div>
+
+          <div class="modal-footer border-0 justify-content-center pb-4">
+            <button
+              type="button"
+              class="btn btn-light px-4"
+              id="cancelDeleteBtn"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-danger px-4"
+              id="confirmDeleteBtn"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/assessments.js"></script>
+  </body>
+</html>
