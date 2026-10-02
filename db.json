@@ -1,39 +1,37 @@
 {
-  "resources":[
+  "instructors": [],
+  "courses": [
+    {
+      "id": "COURSE001",
+      "name": "Web Development",
+      "description": "Learn modern web development technologies and build web applications.",
+      "category": "Web Development",
+      "instructorId": "INS001"
+    },
+    {
+      "id": "COURSE002",
+      "name": "JavaScript",
+      "description": "Learn JavaScript programming and modern web development concepts.",
+      "category": "Programming",
+      "instructorId": "INS001"
+    },
+    {
+      "id": "COURSE003",
+      "name": "Databases",
+      "description": "Learn database concepts, SQL, data management, and relational databases.",
+      "category": "Database",
+      "instructorId": "INS001"
+    },
+    {
+      "id": "COURSE004",
+      "name": "UI Design",
+      "description": "Learn user interface design principles and create effective user experiences.",
+      "category": "Design",
+      "instructorId": "INS001"
+    }
   ],
-    "instructors": [],
-    "courses": [
-        {
-            "id": "COURSE001",
-            "name": "Web Development",
-            "description": "Learn modern web development technologies and build web applications.",
-            "category": "Web Development",
-            "instructorId": "INS001"
-        },
-        {
-            "id": "COURSE002",
-            "name": "JavaScript",
-            "description": "Learn JavaScript programming and modern web development concepts.",
-            "category": "Programming",
-            "instructorId": "INS001"
-        },
-        {
-            "id": "COURSE003",
-            "name": "Databases",
-            "description": "Learn database concepts, SQL, data management, and relational databases.",
-            "category": "Database",
-            "instructorId": "INS001"
-        },
-        {
-            "id": "COURSE004",
-            "name": "UI Design",
-            "description": "Learn user interface design principles and create effective user experiences.",
-            "category": "Design",
-            "instructorId": "INS001"
-        }
-    ],
-    "assessments": [],
-    "attendance": [],
+  "assessments": [],
+  "attendance": [],
   "students": [
     {
       "id": "1",
@@ -43,8 +41,14 @@
       "email": "omar.khaled@gmail.com",
       "phone": "0790000001",
       "courses": [
-        { "name": "JavaScript", "grade": 72 },
-        { "name": "Web Development", "grade": 68 }
+        {
+          "name": "JavaScript",
+          "grade": 72
+        },
+        {
+          "name": "Web Development",
+          "grade": 68
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -57,9 +61,18 @@
       "email": "lina.ahmad@gmail.com",
       "phone": "0790000002",
       "courses": [
-        { "name": "Web Development", "grade": 95 },
-        { "name": "JavaScript", "grade": 88 },
-        { "name": "Databases", "grade": 91 }
+        {
+          "name": "Web Development",
+          "grade": 95
+        },
+        {
+          "name": "JavaScript",
+          "grade": 88
+        },
+        {
+          "name": "Databases",
+          "grade": 91
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -72,8 +85,14 @@
       "email": "mohammad.ali@gmail.com",
       "phone": "0790000003",
       "courses": [
-        { "name": "Web Development", "grade": 40 },
-        { "name": "JavaScript", "grade": 32 }
+        {
+          "name": "Web Development",
+          "grade": 40
+        },
+        {
+          "name": "JavaScript",
+          "grade": 32
+        }
       ],
       "status": "archived",
       "isDeleted": false
@@ -86,8 +105,14 @@
       "email": "rana.samir@gmail.com",
       "phone": "0790000004",
       "courses": [
-        { "name": "Databases", "grade": 92 },
-        { "name": "UI Design", "grade": 86 }
+        {
+          "name": "Databases",
+          "grade": 92
+        },
+        {
+          "name": "UI Design",
+          "grade": 86
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -100,7 +125,10 @@
       "email": "ahmad.hassan@gmail.com",
       "phone": "0790000005",
       "courses": [
-        { "name": "JavaScript", "grade": 94 }
+        {
+          "name": "JavaScript",
+          "grade": 94
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -113,8 +141,14 @@
       "email": "nour.samir@gmail.com",
       "phone": "0790000006",
       "courses": [
-        { "name": "UI Design", "grade": 81 },
-        { "name": "Web Development", "grade": 77 }
+        {
+          "name": "UI Design",
+          "grade": 81
+        },
+        {
+          "name": "Web Development",
+          "grade": 77
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -127,10 +161,22 @@
       "email": "sara.khalil@gmail.com",
       "phone": "0790000007",
       "courses": [
-        { "name": "Web Development", "grade": 83 },
-        { "name": "JavaScript", "grade": 79 },
-        { "name": "UI Design", "grade": 85 },
-        { "name": "Databases", "grade": 81 }
+        {
+          "name": "Web Development",
+          "grade": 83
+        },
+        {
+          "name": "JavaScript",
+          "grade": 79
+        },
+        {
+          "name": "UI Design",
+          "grade": 85
+        },
+        {
+          "name": "Databases",
+          "grade": 81
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -143,7 +189,10 @@
       "email": "yousef.nasser@gmail.com",
       "phone": "0790000008",
       "courses": [
-        { "name": "Databases", "grade": 46 }
+        {
+          "name": "Databases",
+          "grade": 46
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -156,8 +205,14 @@
       "email": "maya.saleh@gmail.com",
       "phone": "0790000009",
       "courses": [
-        { "name": "JavaScript", "grade": 65 },
-        { "name": "UI Design", "grade": 62 }
+        {
+          "name": "JavaScript",
+          "grade": 65
+        },
+        {
+          "name": "UI Design",
+          "grade": 62
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -170,7 +225,10 @@
       "email": "khaled.mansour@gmail.com",
       "phone": "0790000010",
       "courses": [
-        { "name": "Web Development", "grade": 89 }
+        {
+          "name": "Web Development",
+          "grade": 89
+        }
       ],
       "status": "active",
       "isDeleted": true
@@ -183,8 +241,14 @@
       "email": "layla.hassan@gmail.com",
       "phone": "0790000011",
       "courses": [
-        { "name": "JavaScript", "grade": 90 },
-        { "name": "Databases", "grade": 93 }
+        {
+          "name": "JavaScript",
+          "grade": 90
+        },
+        {
+          "name": "Databases",
+          "grade": 93
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -197,8 +261,14 @@
       "email": "adam.saleh@gmail.com",
       "phone": "0790000012",
       "courses": [
-        { "name": "UI Design", "grade": 74 },
-        { "name": "Web Development", "grade": 70 }
+        {
+          "name": "UI Design",
+          "grade": 74
+        },
+        {
+          "name": "Web Development",
+          "grade": 70
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -211,7 +281,10 @@
       "email": "hala.ahmad@gmail.com",
       "phone": "0790000013",
       "courses": [
-        { "name": "Web Development", "grade": 58 }
+        {
+          "name": "Web Development",
+          "grade": 58
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -224,9 +297,18 @@
       "email": "zaid.hamdan@gmail.com",
       "phone": "0790000014",
       "courses": [
-        { "name": "Databases", "grade": 76 },
-        { "name": "JavaScript", "grade": 73 },
-        { "name": "Web Development", "grade": 80 }
+        {
+          "name": "Databases",
+          "grade": 76
+        },
+        {
+          "name": "JavaScript",
+          "grade": 73
+        },
+        {
+          "name": "Web Development",
+          "grade": 80
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -239,8 +321,14 @@
       "email": "dana.qasem@gmail.com",
       "phone": "0790000015",
       "courses": [
-        { "name": "UI Design", "grade": 97 },
-        { "name": "Web Development", "grade": 92 }
+        {
+          "name": "UI Design",
+          "grade": 97
+        },
+        {
+          "name": "Web Development",
+          "grade": 92
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -253,8 +341,14 @@
       "email": "sami.odeh@gmail.com",
       "phone": "0790000016",
       "courses": [
-        { "name": "JavaScript", "grade": 55 },
-        { "name": "Databases", "grade": 61 }
+        {
+          "name": "JavaScript",
+          "grade": 55
+        },
+        {
+          "name": "Databases",
+          "grade": 61
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -267,7 +361,10 @@
       "email": "reem.khalil@gmail.com",
       "phone": "0790000017",
       "courses": [
-        { "name": "UI Design", "grade": 84 }
+        {
+          "name": "UI Design",
+          "grade": 84
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -280,8 +377,14 @@
       "email": "tareq.younis@gmail.com",
       "phone": "0790000018",
       "courses": [
-        { "name": "Web Development", "grade": 67 },
-        { "name": "JavaScript", "grade": 71 }
+        {
+          "name": "Web Development",
+          "grade": 67
+        },
+        {
+          "name": "JavaScript",
+          "grade": 71
+        }
       ],
       "status": "archived",
       "isDeleted": false
@@ -294,9 +397,18 @@
       "email": "malak.suleiman@gmail.com",
       "phone": "0790000019",
       "courses": [
-        { "name": "Databases", "grade": 87 },
-        { "name": "UI Design", "grade": 91 },
-        { "name": "JavaScript", "grade": 85 }
+        {
+          "name": "Databases",
+          "grade": 87
+        },
+        {
+          "name": "UI Design",
+          "grade": 91
+        },
+        {
+          "name": "JavaScript",
+          "grade": 85
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -309,7 +421,10 @@
       "email": "faris.nasser@gmail.com",
       "phone": "0790000020",
       "courses": [
-        { "name": "JavaScript", "grade": 49 }
+        {
+          "name": "JavaScript",
+          "grade": 49
+        }
       ],
       "status": "active",
       "isDeleted": true
@@ -322,8 +437,14 @@
       "email": "omar.saleh@gmail.com",
       "phone": "0790000021",
       "courses": [
-        { "name": "Web Development", "grade": 78 },
-        { "name": "Databases", "grade": 82 }
+        {
+          "name": "Web Development",
+          "grade": 78
+        },
+        {
+          "name": "Databases",
+          "grade": 82
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -336,8 +457,14 @@
       "email": "lina.khalil@gmail.com",
       "phone": "0790000022",
       "courses": [
-        { "name": "UI Design", "grade": 88 },
-        { "name": "JavaScript", "grade": 93 }
+        {
+          "name": "UI Design",
+          "grade": 88
+        },
+        {
+          "name": "JavaScript",
+          "grade": 93
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -350,7 +477,10 @@
       "email": "khaled.ahmad@gmail.com",
       "phone": "0790000023",
       "courses": [
-        { "name": "Databases", "grade": 63 }
+        {
+          "name": "Databases",
+          "grade": 63
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -363,10 +493,22 @@
       "email": "maya.ali@gmail.com",
       "phone": "0790000024",
       "courses": [
-        { "name": "Web Development", "grade": 96 },
-        { "name": "JavaScript", "grade": 90 },
-        { "name": "Databases", "grade": 94 },
-        { "name": "UI Design", "grade": 89 }
+        {
+          "name": "Web Development",
+          "grade": 96
+        },
+        {
+          "name": "JavaScript",
+          "grade": 90
+        },
+        {
+          "name": "Databases",
+          "grade": 94
+        },
+        {
+          "name": "UI Design",
+          "grade": 89
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -379,8 +521,14 @@
       "email": "hassan.samir@gmail.com",
       "phone": "0790000025",
       "courses": [
-        { "name": "Web Development", "grade": 35 },
-        { "name": "JavaScript", "grade": 44 }
+        {
+          "name": "Web Development",
+          "grade": 35
+        },
+        {
+          "name": "JavaScript",
+          "grade": 44
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -393,7 +541,10 @@
       "email": "sara.mansour@gmail.com",
       "phone": "0790000026",
       "courses": [
-        { "name": "UI Design", "grade": 79 }
+        {
+          "name": "UI Design",
+          "grade": 79
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -406,9 +557,18 @@
       "email": "yousef.khalil@gmail.com",
       "phone": "0790000027",
       "courses": [
-        { "name": "JavaScript", "grade": 82 },
-        { "name": "Web Development", "grade": 76 },
-        { "name": "UI Design", "grade": 80 }
+        {
+          "name": "JavaScript",
+          "grade": 82
+        },
+        {
+          "name": "Web Development",
+          "grade": 76
+        },
+        {
+          "name": "UI Design",
+          "grade": 80
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -421,8 +581,14 @@
       "email": "nour.ahmad@gmail.com",
       "phone": "0790000028",
       "courses": [
-        { "name": "Databases", "grade": 52 },
-        { "name": "JavaScript", "grade": 57 }
+        {
+          "name": "Databases",
+          "grade": 52
+        },
+        {
+          "name": "JavaScript",
+          "grade": 57
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -435,8 +601,14 @@
       "email": "rami.hassan@gmail.com",
       "phone": "0790000029",
       "courses": [
-        { "name": "Web Development", "grade": 86 },
-        { "name": "Databases", "grade": 84 }
+        {
+          "name": "Web Development",
+          "grade": 86
+        },
+        {
+          "name": "Databases",
+          "grade": 84
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -449,7 +621,10 @@
       "email": "dima.saleh@gmail.com",
       "phone": "0790000030",
       "courses": [
-        { "name": "UI Design", "grade": 91 }
+        {
+          "name": "UI Design",
+          "grade": 91
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -462,8 +637,14 @@
       "email": "kareem.ali@gmail.com",
       "phone": "0790000031",
       "courses": [
-        { "name": "JavaScript", "grade": 69 },
-        { "name": "Web Development", "grade": 64 }
+        {
+          "name": "JavaScript",
+          "grade": 69
+        },
+        {
+          "name": "Web Development",
+          "grade": 64
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -476,8 +657,14 @@
       "email": "hiba.khaled@gmail.com",
       "phone": "0790000032",
       "courses": [
-        { "name": "Databases", "grade": 98 },
-        { "name": "JavaScript", "grade": 96 }
+        {
+          "name": "Databases",
+          "grade": 98
+        },
+        {
+          "name": "JavaScript",
+          "grade": 96
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -490,7 +677,10 @@
       "email": "laith.nasser@gmail.com",
       "phone": "0790000033",
       "courses": [
-        { "name": "Web Development", "grade": 73 }
+        {
+          "name": "Web Development",
+          "grade": 73
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -503,8 +693,14 @@
       "email": "aya.hamdan@gmail.com",
       "phone": "0790000034",
       "courses": [
-        { "name": "UI Design", "grade": 66 },
-        { "name": "Web Development", "grade": 72 }
+        {
+          "name": "UI Design",
+          "grade": 66
+        },
+        {
+          "name": "Web Development",
+          "grade": 72
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -517,7 +713,10 @@
       "email": "samir.odeh@gmail.com",
       "phone": "0790000035",
       "courses": [
-        { "name": "Databases", "grade": 47 }
+        {
+          "name": "Databases",
+          "grade": 47
+        }
       ],
       "status": "archived",
       "isDeleted": false
@@ -530,9 +729,18 @@
       "email": "razan.qasem@gmail.com",
       "phone": "0790000036",
       "courses": [
-        { "name": "JavaScript", "grade": 87 },
-        { "name": "UI Design", "grade": 92 },
-        { "name": "Databases", "grade": 88 }
+        {
+          "name": "JavaScript",
+          "grade": 87
+        },
+        {
+          "name": "UI Design",
+          "grade": 92
+        },
+        {
+          "name": "Databases",
+          "grade": 88
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -545,7 +753,10 @@
       "email": "bilal.younis@gmail.com",
       "phone": "0790000037",
       "courses": [
-        { "name": "JavaScript", "grade": 59 }
+        {
+          "name": "JavaScript",
+          "grade": 59
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -558,8 +769,14 @@
       "email": "mariam.khalil@gmail.com",
       "phone": "0790000038",
       "courses": [
-        { "name": "Web Development", "grade": 75 },
-        { "name": "UI Design", "grade": 81 }
+        {
+          "name": "Web Development",
+          "grade": 75
+        },
+        {
+          "name": "UI Design",
+          "grade": 81
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -572,8 +789,14 @@
       "email": "eyad.saleh@gmail.com",
       "phone": "0790000039",
       "courses": [
-        { "name": "Databases", "grade": 70 },
-        { "name": "JavaScript", "grade": 74 }
+        {
+          "name": "Databases",
+          "grade": 70
+        },
+        {
+          "name": "JavaScript",
+          "grade": 74
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -586,8 +809,14 @@
       "email": "farah.ahmad@gmail.com",
       "phone": "0790000040",
       "courses": [
-        { "name": "UI Design", "grade": 99 },
-        { "name": "Web Development", "grade": 94 }
+        {
+          "name": "UI Design",
+          "grade": 99
+        },
+        {
+          "name": "Web Development",
+          "grade": 94
+        }
       ],
       "status": "active",
       "isDeleted": true
@@ -600,8 +829,14 @@
       "email": "muath.khaled@gmail.com",
       "phone": "0790000041",
       "courses": [
-        { "name": "JavaScript", "grade": 77 },
-        { "name": "Databases", "grade": 79 }
+        {
+          "name": "JavaScript",
+          "grade": 77
+        },
+        {
+          "name": "Databases",
+          "grade": 79
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -614,7 +849,10 @@
       "email": "jana.samir@gmail.com",
       "phone": "0790000042",
       "courses": [
-        { "name": "Web Development", "grade": 85 }
+        {
+          "name": "Web Development",
+          "grade": 85
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -627,8 +865,14 @@
       "email": "majd.hassan@gmail.com",
       "phone": "0790000043",
       "courses": [
-        { "name": "Databases", "grade": 60 },
-        { "name": "UI Design", "grade": 65 }
+        {
+          "name": "Databases",
+          "grade": 60
+        },
+        {
+          "name": "UI Design",
+          "grade": 65
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -641,10 +885,22 @@
       "email": "salma.nasser@gmail.com",
       "phone": "0790000044",
       "courses": [
-        { "name": "JavaScript", "grade": 93 },
-        { "name": "Web Development", "grade": 96 },
-        { "name": "Databases", "grade": 90 },
-        { "name": "UI Design", "grade": 95 }
+        {
+          "name": "JavaScript",
+          "grade": 93
+        },
+        {
+          "name": "Web Development",
+          "grade": 96
+        },
+        {
+          "name": "Databases",
+          "grade": 90
+        },
+        {
+          "name": "UI Design",
+          "grade": 95
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -657,7 +913,10 @@
       "email": "ayman.saleh@gmail.com",
       "phone": "0790000045",
       "courses": [
-        { "name": "Web Development", "grade": 43 }
+        {
+          "name": "Web Development",
+          "grade": 43
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -670,8 +929,14 @@
       "email": "ruba.khalil@gmail.com",
       "phone": "0790000046",
       "courses": [
-        { "name": "UI Design", "grade": 82 },
-        { "name": "JavaScript", "grade": 78 }
+        {
+          "name": "UI Design",
+          "grade": 82
+        },
+        {
+          "name": "JavaScript",
+          "grade": 78
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -684,7 +949,10 @@
       "email": "qais.ali@gmail.com",
       "phone": "0790000047",
       "courses": [
-        { "name": "Databases", "grade": 56 }
+        {
+          "name": "Databases",
+          "grade": 56
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -697,8 +965,14 @@
       "email": "shahd.ahmad@gmail.com",
       "phone": "0790000048",
       "courses": [
-        { "name": "Web Development", "grade": 88 },
-        { "name": "JavaScript", "grade": 91 }
+        {
+          "name": "Web Development",
+          "grade": 88
+        },
+        {
+          "name": "JavaScript",
+          "grade": 91
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -711,8 +985,14 @@
       "email": "amer.hamdan@gmail.com",
       "phone": "0790000049",
       "courses": [
-        { "name": "UI Design", "grade": 68 },
-        { "name": "Databases", "grade": 71 }
+        {
+          "name": "UI Design",
+          "grade": 68
+        },
+        {
+          "name": "Databases",
+          "grade": 71
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -725,8 +1005,14 @@
       "email": "raneem.hassan@gmail.com",
       "phone": "0790000050",
       "courses": [
-        { "name": "JavaScript", "grade": 100 },
-        { "name": "JavaScript", "grade": 50 }
+        {
+          "name": "JavaScript",
+          "grade": 100
+        },
+        {
+          "name": "JavaScript",
+          "grade": 50
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -739,9 +1025,18 @@
       "email": "omar.nasser@gmail.com",
       "phone": "0790000051",
       "courses": [
-        { "name": "Web Development", "grade": 61 },
-        { "name": "Databases", "grade": 67 },
-        { "name": "JavaScript", "grade": 64 }
+        {
+          "name": "Web Development",
+          "grade": 61
+        },
+        {
+          "name": "Databases",
+          "grade": 67
+        },
+        {
+          "name": "JavaScript",
+          "grade": 64
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -754,7 +1049,10 @@
       "email": "lina.saleh@gmail.com",
       "phone": "0790000052",
       "courses": [
-        { "name": "UI Design", "grade": 89 }
+        {
+          "name": "UI Design",
+          "grade": 89
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -767,8 +1065,14 @@
       "email": "mahmoud.ali@gmail.com",
       "phone": "0790000053",
       "courses": [
-        { "name": "JavaScript", "grade": 28 },
-        { "name": "Web Development", "grade": 35 }
+        {
+          "name": "JavaScript",
+          "grade": 28
+        },
+        {
+          "name": "Web Development",
+          "grade": 35
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -781,8 +1085,14 @@
       "email": "dania.khaled@gmail.com",
       "phone": "0790000054",
       "courses": [
-        { "name": "Databases", "grade": 84 },
-        { "name": "UI Design", "grade": 87 }
+        {
+          "name": "Databases",
+          "grade": 84
+        },
+        {
+          "name": "UI Design",
+          "grade": 87
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -795,7 +1105,10 @@
       "email": "yazan.samir@gmail.com",
       "phone": "0790000055",
       "courses": [
-        { "name": "Web Development", "grade": 72 }
+        {
+          "name": "Web Development",
+          "grade": 72
+        }
       ],
       "status": "archived",
       "isDeleted": false
@@ -808,8 +1121,14 @@
       "email": "haneen.ahmad@gmail.com",
       "phone": "0790000056",
       "courses": [
-        { "name": "JavaScript", "grade": 97 },
-        { "name": "Web Development", "grade": 92 }
+        {
+          "name": "JavaScript",
+          "grade": 97
+        },
+        {
+          "name": "Web Development",
+          "grade": 92
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -822,8 +1141,14 @@
       "email": "khalil.odeh@gmail.com",
       "phone": "0790000057",
       "courses": [
-        { "name": "Databases", "grade": 50 },
-        { "name": "UI Design", "grade": 54 }
+        {
+          "name": "Databases",
+          "grade": 50
+        },
+        {
+          "name": "UI Design",
+          "grade": 54
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -836,8 +1161,14 @@
       "email": "mira.saleh@gmail.com",
       "phone": "0790000058",
       "courses": [
-        { "name": "UI Design", "grade": 75 },
-        { "name": "JavaScript", "grade": 83 }
+        {
+          "name": "UI Design",
+          "grade": 75
+        },
+        {
+          "name": "JavaScript",
+          "grade": 83
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -850,8 +1181,14 @@
       "email": "tamer.hassan@gmail.com",
       "phone": "0790000059",
       "courses": [
-        { "name": "Web Development", "grade": 81 },
-        { "name": "Databases", "grade": 77 }
+        {
+          "name": "Web Development",
+          "grade": 81
+        },
+        {
+          "name": "Databases",
+          "grade": 77
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -864,7 +1201,10 @@
       "email": "aya.khalil@gmail.com",
       "phone": "0790000060",
       "courses": [
-        { "name": "JavaScript", "grade": 45 }
+        {
+          "name": "JavaScript",
+          "grade": 45
+        }
       ],
       "status": "active",
       "isDeleted": true
@@ -877,7 +1217,10 @@
       "email": "samer.ahmad@gmail.com",
       "phone": "0790000061",
       "courses": [
-        { "name": "Databases", "grade": 69 }
+        {
+          "name": "Databases",
+          "grade": 69
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -890,9 +1233,18 @@
       "email": "rama.ali@gmail.com",
       "phone": "0790000062",
       "courses": [
-        { "name": "Web Development", "grade": 90 },
-        { "name": "UI Design", "grade": 93 },
-        { "name": "JavaScript", "grade": 88 }
+        {
+          "name": "Web Development",
+          "grade": 90
+        },
+        {
+          "name": "UI Design",
+          "grade": 93
+        },
+        {
+          "name": "JavaScript",
+          "grade": 88
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -905,7 +1257,10 @@
       "email": "nabil.saleh@gmail.com",
       "phone": "0790000063",
       "courses": [
-        { "name": "JavaScript", "grade": 76 }
+        {
+          "name": "JavaScript",
+          "grade": 76
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -918,8 +1273,14 @@
       "email": "joud.hassan@gmail.com",
       "phone": "0790000064",
       "courses": [
-        { "name": "UI Design", "grade": 58 },
-        { "name": "Databases", "grade": 63 }
+        {
+          "name": "UI Design",
+          "grade": 58
+        },
+        {
+          "name": "Databases",
+          "grade": 63
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -932,8 +1293,14 @@
       "email": "fadi.khaled@gmail.com",
       "phone": "0790000065",
       "courses": [
-        { "name": "Web Development", "grade": 87 },
-        { "name": "JavaScript", "grade": 84 }
+        {
+          "name": "Web Development",
+          "grade": 87
+        },
+        {
+          "name": "JavaScript",
+          "grade": 84
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -946,9 +1313,18 @@
       "email": "samar.nasser@gmail.com",
       "phone": "0790000066",
       "courses": [
-        { "name": "Databases", "grade": 73 },
-        { "name": "UI Design", "grade": 78 },
-        { "name": "Web Development", "grade": 75 }
+        {
+          "name": "Databases",
+          "grade": 73
+        },
+        {
+          "name": "UI Design",
+          "grade": 78
+        },
+        {
+          "name": "Web Development",
+          "grade": 75
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -961,7 +1337,10 @@
       "email": "hamza.ahmad@gmail.com",
       "phone": "0790000067",
       "courses": [
-        { "name": "JavaScript", "grade": 38 }
+        {
+          "name": "JavaScript",
+          "grade": 38
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -974,10 +1353,22 @@
       "email": "razan.khalil@gmail.com",
       "phone": "0790000068",
       "courses": [
-        { "name": "Web Development", "grade": 98 },
-        { "name": "JavaScript", "grade": 95 },
-        { "name": "Databases", "grade": 92 },
-        { "name": "UI Design", "grade": 96 }
+        {
+          "name": "Web Development",
+          "grade": 98
+        },
+        {
+          "name": "JavaScript",
+          "grade": 95
+        },
+        {
+          "name": "Databases",
+          "grade": 92
+        },
+        {
+          "name": "UI Design",
+          "grade": 96
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -990,7 +1381,10 @@
       "email": "majd.saleh@gmail.com",
       "phone": "0790000069",
       "courses": [
-        { "name": "UI Design", "grade": 71 }
+        {
+          "name": "UI Design",
+          "grade": 71
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1003,8 +1397,14 @@
       "email": "huda.ali@gmail.com",
       "phone": "0790000070",
       "courses": [
-        { "name": "JavaScript", "grade": 86 },
-        { "name": "Web Development", "grade": 80 }
+        {
+          "name": "JavaScript",
+          "grade": 86
+        },
+        {
+          "name": "Web Development",
+          "grade": 80
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1017,8 +1417,14 @@
       "email": "laith.hassan@gmail.com",
       "phone": "0790000071",
       "courses": [
-        { "name": "Databases", "grade": 62 },
-        { "name": "JavaScript", "grade": 68 }
+        {
+          "name": "Databases",
+          "grade": 62
+        },
+        {
+          "name": "JavaScript",
+          "grade": 68
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1031,7 +1437,10 @@
       "email": "noor.samir@gmail.com",
       "phone": "0790000072",
       "courses": [
-        { "name": "UI Design", "grade": 94 }
+        {
+          "name": "UI Design",
+          "grade": 94
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1044,7 +1453,10 @@
       "email": "yazan.khalil@gmail.com",
       "phone": "0790000073",
       "courses": [
-        { "name": "Web Development", "grade": 53 }
+        {
+          "name": "Web Development",
+          "grade": 53
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1057,8 +1469,14 @@
       "email": "mariam.saleh@gmail.com",
       "phone": "0790000074",
       "courses": [
-        { "name": "Databases", "grade": 79 },
-        { "name": "UI Design", "grade": 84 }
+        {
+          "name": "Databases",
+          "grade": 79
+        },
+        {
+          "name": "UI Design",
+          "grade": 84
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1071,8 +1489,14 @@
       "email": "alaa.nasser@gmail.com",
       "phone": "0790000075",
       "courses": [
-        { "name": "JavaScript", "grade": 91 },
-        { "name": "Web Development", "grade": 89 }
+        {
+          "name": "JavaScript",
+          "grade": 91
+        },
+        {
+          "name": "Web Development",
+          "grade": 89
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1085,7 +1509,10 @@
       "email": "hanin.ahmad@gmail.com",
       "phone": "0790000076",
       "courses": [
-        { "name": "UI Design", "grade": 48 }
+        {
+          "name": "UI Design",
+          "grade": 48
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1098,8 +1525,14 @@
       "email": "sultan.khaled@gmail.com",
       "phone": "0790000077",
       "courses": [
-        { "name": "Databases", "grade": 85 },
-        { "name": "JavaScript", "grade": 88 }
+        {
+          "name": "Databases",
+          "grade": 85
+        },
+        {
+          "name": "JavaScript",
+          "grade": 88
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1112,9 +1545,18 @@
       "email": "rania.hassan@gmail.com",
       "phone": "0790000078",
       "courses": [
-        { "name": "Web Development", "grade": 77 },
-        { "name": "UI Design", "grade": 73 },
-        { "name": "Databases", "grade": 80 }
+        {
+          "name": "Web Development",
+          "grade": 77
+        },
+        {
+          "name": "UI Design",
+          "grade": 73
+        },
+        {
+          "name": "Databases",
+          "grade": 80
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1127,7 +1569,10 @@
       "email": "murad.ali@gmail.com",
       "phone": "0790000079",
       "courses": [
-        { "name": "JavaScript", "grade": 57 }
+        {
+          "name": "JavaScript",
+          "grade": 57
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1140,8 +1585,14 @@
       "email": "aya.saleh@gmail.com",
       "phone": "0790000080",
       "courses": [
-        { "name": "Web Development", "grade": 93 },
-        { "name": "JavaScript", "grade": 89 }
+        {
+          "name": "Web Development",
+          "grade": 93
+        },
+        {
+          "name": "JavaScript",
+          "grade": 89
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1154,8 +1605,14 @@
       "email": "firas.khalil@gmail.com",
       "phone": "0790000081",
       "courses": [
-        { "name": "Databases", "grade": 66 },
-        { "name": "UI Design", "grade": 69 }
+        {
+          "name": "Databases",
+          "grade": 66
+        },
+        {
+          "name": "UI Design",
+          "grade": 69
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1168,8 +1625,14 @@
       "email": "dana.ahmad@gmail.com",
       "phone": "0790000082",
       "courses": [
-        { "name": "JavaScript", "grade": 99 },
-        { "name": "UI Design", "grade": 97 }
+        {
+          "name": "JavaScript",
+          "grade": 99
+        },
+        {
+          "name": "UI Design",
+          "grade": 97
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1182,7 +1645,10 @@
       "email": "tamer.saleh@gmail.com",
       "phone": "0790000083",
       "courses": [
-        { "name": "Web Development", "grade": 74 }
+        {
+          "name": "Web Development",
+          "grade": 74
+        }
       ],
       "status": "archived",
       "isDeleted": false
@@ -1195,9 +1661,18 @@
       "email": "lama.hassan@gmail.com",
       "phone": "0790000084",
       "courses": [
-        { "name": "Databases", "grade": 89 },
-        { "name": "JavaScript", "grade": 84 },
-        { "name": "Web Development", "grade": 91 }
+        {
+          "name": "Databases",
+          "grade": 89
+        },
+        {
+          "name": "JavaScript",
+          "grade": 84
+        },
+        {
+          "name": "Web Development",
+          "grade": 91
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1210,8 +1685,14 @@
       "email": "oday.nasser@gmail.com",
       "phone": "0790000085",
       "courses": [
-        { "name": "UI Design", "grade": 51 },
-        { "name": "JavaScript", "grade": 58 }
+        {
+          "name": "UI Design",
+          "grade": 51
+        },
+        {
+          "name": "JavaScript",
+          "grade": 58
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1224,7 +1705,10 @@
       "email": "maya.khalil@gmail.com",
       "phone": "0790000086",
       "courses": [
-        { "name": "Web Development", "grade": 82 }
+        {
+          "name": "Web Development",
+          "grade": 82
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1237,7 +1721,10 @@
       "email": "nader.ahmad@gmail.com",
       "phone": "0790000087",
       "courses": [
-        { "name": "Databases", "grade": 43 }
+        {
+          "name": "Databases",
+          "grade": 43
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1250,8 +1737,14 @@
       "email": "rima.samir@gmail.com",
       "phone": "0790000088",
       "courses": [
-        { "name": "UI Design", "grade": 76 },
-        { "name": "Web Development", "grade": 79 }
+        {
+          "name": "UI Design",
+          "grade": 76
+        },
+        {
+          "name": "Web Development",
+          "grade": 79
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1264,9 +1757,18 @@
       "email": "ammar.hassan@gmail.com",
       "phone": "0790000089",
       "courses": [
-        { "name": "JavaScript", "grade": 92 },
-        { "name": "Databases", "grade": 87 },
-        { "name": "Web Development", "grade": 90 }
+        {
+          "name": "JavaScript",
+          "grade": 92
+        },
+        {
+          "name": "Databases",
+          "grade": 87
+        },
+        {
+          "name": "Web Development",
+          "grade": 90
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1279,7 +1781,10 @@
       "email": "haya.khaled@gmail.com",
       "phone": "0790000090",
       "courses": [
-        { "name": "UI Design", "grade": 61 }
+        {
+          "name": "UI Design",
+          "grade": 61
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1292,8 +1797,14 @@
       "email": "bassam.ali@gmail.com",
       "phone": "0790000091",
       "courses": [
-        { "name": "Web Development", "grade": 70 },
-        { "name": "JavaScript", "grade": 66 }
+        {
+          "name": "Web Development",
+          "grade": 70
+        },
+        {
+          "name": "JavaScript",
+          "grade": 66
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1306,8 +1817,14 @@
       "email": "saja.saleh@gmail.com",
       "phone": "0790000092",
       "courses": [
-        { "name": "Databases", "grade": 95 },
-        { "name": "UI Design", "grade": 90 }
+        {
+          "name": "Databases",
+          "grade": 95
+        },
+        {
+          "name": "UI Design",
+          "grade": 90
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1320,8 +1837,14 @@
       "email": "rami.khalil@gmail.com",
       "phone": "0790000093",
       "courses": [
-        { "name": "JavaScript", "grade": 83 },
-        { "name": "Web Development", "grade": 86 }
+        {
+          "name": "JavaScript",
+          "grade": 83
+        },
+        {
+          "name": "Web Development",
+          "grade": 86
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1334,8 +1857,14 @@
       "email": "hala.nasser@gmail.com",
       "phone": "0790000094",
       "courses": [
-        { "name": "UI Design", "grade": 57 },
-        { "name": "Databases", "grade": 52 }
+        {
+          "name": "UI Design",
+          "grade": 57
+        },
+        {
+          "name": "Databases",
+          "grade": 52
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1348,10 +1877,22 @@
       "email": "zaid.hassan@gmail.com",
       "phone": "0790000095",
       "courses": [
-        { "name": "Web Development", "grade": 98 },
-        { "name": "JavaScript", "grade": 94 },
-        { "name": "Databases", "grade": 96 },
-        { "name": "UI Design", "grade": 91 }
+        {
+          "name": "Web Development",
+          "grade": 98
+        },
+        {
+          "name": "JavaScript",
+          "grade": 94
+        },
+        {
+          "name": "Databases",
+          "grade": 96
+        },
+        {
+          "name": "UI Design",
+          "grade": 91
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1364,7 +1905,10 @@
       "email": "reem.ahmad@gmail.com",
       "phone": "0790000096",
       "courses": [
-        { "name": "JavaScript", "grade": 71 }
+        {
+          "name": "JavaScript",
+          "grade": 71
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1377,8 +1921,14 @@
       "email": "kareem.saleh@gmail.com",
       "phone": "0790000097",
       "courses": [
-        { "name": "Databases", "grade": 78 },
-        { "name": "UI Design", "grade": 82 }
+        {
+          "name": "Databases",
+          "grade": 78
+        },
+        {
+          "name": "UI Design",
+          "grade": 82
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1391,8 +1941,14 @@
       "email": "dina.khalil@gmail.com",
       "phone": "0790000098",
       "courses": [
-        { "name": "Web Development", "grade": 64 },
-        { "name": "JavaScript", "grade": 69 }
+        {
+          "name": "Web Development",
+          "grade": 64
+        },
+        {
+          "name": "JavaScript",
+          "grade": 69
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1405,8 +1961,14 @@
       "email": "sami.hassan@gmail.com",
       "phone": "0790000099",
       "courses": [
-        { "name": "JavaScript", "grade": 48 },
-        { "name": "Databases", "grade": 41 }
+        {
+          "name": "JavaScript",
+          "grade": 48
+        },
+        {
+          "name": "Databases",
+          "grade": 41
+        }
       ],
       "status": "active",
       "isDeleted": false
@@ -1419,11 +1981,28 @@
       "email": "mariam.ahmad@gmail.com",
       "phone": "0790000100",
       "courses": [
-        { "name": "UI Design", "grade": 88 },
-        { "name": "Web Development", "grade": 92 }
+        {
+          "name": "UI Design",
+          "grade": 88
+        },
+        {
+          "name": "Web Development",
+          "grade": 92
+        }
       ],
       "status": "active",
       "isDeleted": false
+    },
+    {
+      "name": "Motasem Alqam",
+      "studentId": "123456.",
+      "email": "motasemalqam00@gmail.com",
+      "courses": [],
+      "phone": "01275455",
+      "status": "active",
+      "isDeleted": true,
+      "id": "CPKAwMbDdVM"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
