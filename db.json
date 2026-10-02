@@ -41,22 +41,55 @@
       "phone": "0798767252"
     }
   ],
+  
+  "courses": [
+    {
+      "id": "COURSE001",
+      "name": "Web Development",
+      "description": "Learn modern web development technologies and build web applications.",
+      "category": "Web Development",
+      "instructorId": "INS001"
+    },
+    {
+      "id": "COURSE002",
+      "name": "JavaScript",
+      "description": "Learn JavaScript programming and modern web development concepts.",
+      "category": "Programming",
+      "instructorId": "INS001"
+    },
+    {
+      "id": "COURSE003",
+      "name": "Databases",
+      "description": "Learn database concepts, SQL, data management, and relational databases.",
+      "category": "Database",
+      "instructorId": "INS001"
+    },
+    {
+      "id": "COURSE004",
+      "name": "UI Design",
+      "description": "Learn user interface design principles and create effective user experiences.",
+      "category": "Design",
+      "instructorId": "INS001"
+    }
+  ],
+  "assessments": [],
+  "attendance": [],
   "students": [
     {
       "id": "1",
       "instructorId": "1",
       "studentId": "STU001",
       "name": "Omar Khaled",
-      "email": "omar@gmail.com",
+      "email": "omar.khaled@gmail.com",
       "phone": "0790000001",
       "courses": [
         {
           "name": "JavaScript",
-          "grade": 90
+          "grade": 72
         },
         {
           "name": "Web Development",
-          "grade": 85
+          "grade": 68
         }
       ],
       "status": "active",
@@ -67,12 +100,16 @@
       "instructorId": "1",
       "studentId": "STU002",
       "name": "Lina Ahmad",
-      "email": "lina@gmail.com",
+      "email": "lina.ahmad@gmail.com",
       "phone": "0790000002",
       "courses": [
         {
           "name": "JavaScript",
           "grade": 88
+        },
+        {
+          "name": "Databases",
+          "grade": 91
         }
       ],
       "status": "active",
@@ -82,12 +119,32 @@
       "id": "3",
       "instructorId": "2",
       "studentId": "STU003",
-      "name": "Rana Samir",
-      "email": "rana@gmail.com",
+      "name": "Mohammad Ali",
+      "email": "mohammad.ali@gmail.com",
       "phone": "0790000003",
       "courses": [
         {
-          "name": "Database",
+          "name": "Web Development",
+          "grade": 40
+        },
+        {
+          "name": "JavaScript",
+          "grade": 32
+        }
+      ],
+      "status": "archived",
+      "isDeleted": false
+    },
+    {
+      "id": "4",
+      "instructorId": 2,
+      "studentId": "STU004",
+      "name": "Rana Samir",
+      "email": "rana.samir@gmail.com",
+      "phone": "0790000004",
+      "courses": [
+        {
+          "name": "Databases",
           "grade": 92
         }
       ],
@@ -95,14 +152,1890 @@
       "isDeleted": false
     },
     {
-      "name": "nour alsaht",
-      "studentId": "2135607",
-      "email": "nouralsuht@gmail.com",
-      "courses": [],
-      "phone": "07963274913641",
+      "id": "5",
+      "instructorId": 1,
+      "studentId": "STU005",
+      "name": "Ahmad Hassan",
+      "email": "ahmad.hassan@gmail.com",
+      "phone": "0790000005",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 94
+        }
+      ],
       "status": "active",
-      "isDeleted": false,
-      "id": "dDtwJAzlbBU"
+      "isDeleted": false
+    },
+    {
+      "id": "6",
+      "instructorId": 1,
+      "studentId": "STU006",
+      "name": "Nour Samir",
+      "email": "nour.samir@gmail.com",
+      "phone": "0790000006",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 81
+        },
+        {
+          "name": "Web Development",
+          "grade": 77
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "7",
+      "instructorId": 2,
+      "studentId": "STU007",
+      "name": "Sara Khalil",
+      "email": "sara.khalil@gmail.com",
+      "phone": "0790000007",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 83
+        },
+        {
+          "name": "JavaScript",
+          "grade": 79
+        },
+        {
+          "name": "UI Design",
+          "grade": 85
+        },
+        {
+          "name": "Databases",
+          "grade": 81
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "8",
+      "instructorId": 1,
+      "studentId": "STU008",
+      "name": "Yousef Nasser",
+      "email": "yousef.nasser@gmail.com",
+      "phone": "0790000008",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 46
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "9",
+      "instructorId": 1,
+      "studentId": "STU009",
+      "name": "Maya Saleh",
+      "email": "maya.saleh@gmail.com",
+      "phone": "0790000009",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 65
+        },
+        {
+          "name": "UI Design",
+          "grade": 62
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "10",
+      "instructorId": 2,
+      "studentId": "STU010",
+      "name": "Khaled Mansour",
+      "email": "khaled.mansour@gmail.com",
+      "phone": "0790000010",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 89
+        }
+      ],
+      "status": "active",
+      "isDeleted": true
+    },
+    {
+      "id": "11",
+      "instructorId": 1,
+      "studentId": "STU011",
+      "name": "Layla Hassan",
+      "email": "layla.hassan@gmail.com",
+      "phone": "0790000011",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 90
+        },
+        {
+          "name": "Databases",
+          "grade": 93
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "12",
+      "instructorId": 2,
+      "studentId": "STU012",
+      "name": "Adam Saleh",
+      "email": "adam.saleh@gmail.com",
+      "phone": "0790000012",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 74
+        },
+        {
+          "name": "Web Development",
+          "grade": 70
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "13",
+      "instructorId": 1,
+      "studentId": "STU013",
+      "name": "Hala Ahmad",
+      "email": "hala.ahmad@gmail.com",
+      "phone": "0790000013",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 58
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "14",
+      "instructorId": 1,
+      "studentId": "STU014",
+      "name": "Zaid Hamdan",
+      "email": "zaid.hamdan@gmail.com",
+      "phone": "0790000014",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 76
+        },
+        {
+          "name": "JavaScript",
+          "grade": 73
+        },
+        {
+          "name": "Web Development",
+          "grade": 80
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "15",
+      "instructorId": 2,
+      "studentId": "STU015",
+      "name": "Dana Qasem",
+      "email": "dana.qasem@gmail.com",
+      "phone": "0790000015",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 97
+        },
+        {
+          "name": "Web Development",
+          "grade": 92
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "16",
+      "instructorId": 1,
+      "studentId": "STU016",
+      "name": "Sami Odeh",
+      "email": "sami.odeh@gmail.com",
+      "phone": "0790000016",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 55
+        },
+        {
+          "name": "Databases",
+          "grade": 61
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "17",
+      "instructorId": 1,
+      "studentId": "STU017",
+      "name": "Reem Khalil",
+      "email": "reem.khalil@gmail.com",
+      "phone": "0790000017",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 84
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "18",
+      "instructorId": 2,
+      "studentId": "STU018",
+      "name": "Tareq Younis",
+      "email": "tareq.younis@gmail.com",
+      "phone": "0790000018",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 67
+        },
+        {
+          "name": "JavaScript",
+          "grade": 71
+        }
+      ],
+      "status": "archived",
+      "isDeleted": false
+    },
+    {
+      "id": "19",
+      "instructorId": 1,
+      "studentId": "STU019",
+      "name": "Malak Suleiman",
+      "email": "malak.suleiman@gmail.com",
+      "phone": "0790000019",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 87
+        },
+        {
+          "name": "UI Design",
+          "grade": 91
+        },
+        {
+          "name": "JavaScript",
+          "grade": 85
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "20",
+      "instructorId": 2,
+      "studentId": "STU020",
+      "name": "Faris Nasser",
+      "email": "faris.nasser@gmail.com",
+      "phone": "0790000020",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 49
+        }
+      ],
+      "status": "active",
+      "isDeleted": true
+    },
+    {
+      "id": "21",
+      "instructorId": 1,
+      "studentId": "STU021",
+      "name": "Omar Saleh",
+      "email": "omar.saleh@gmail.com",
+      "phone": "0790000021",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 78
+        },
+        {
+          "name": "Databases",
+          "grade": 82
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "22",
+      "instructorId": 2,
+      "studentId": "STU022",
+      "name": "Lina Khalil",
+      "email": "lina.khalil@gmail.com",
+      "phone": "0790000022",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 88
+        },
+        {
+          "name": "JavaScript",
+          "grade": 93
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "23",
+      "instructorId": 1,
+      "studentId": "STU023",
+      "name": "Khaled Ahmad",
+      "email": "khaled.ahmad@gmail.com",
+      "phone": "0790000023",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 63
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "24",
+      "instructorId": 1,
+      "studentId": "STU024",
+      "name": "Maya Ali",
+      "email": "maya.ali@gmail.com",
+      "phone": "0790000024",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 96
+        },
+        {
+          "name": "JavaScript",
+          "grade": 90
+        },
+        {
+          "name": "Databases",
+          "grade": 94
+        },
+        {
+          "name": "UI Design",
+          "grade": 89
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "25",
+      "instructorId": 2,
+      "studentId": "STU025",
+      "name": "Hassan Samir",
+      "email": "hassan.samir@gmail.com",
+      "phone": "0790000025",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 35
+        },
+        {
+          "name": "JavaScript",
+          "grade": 44
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "26",
+      "instructorId": 1,
+      "studentId": "STU026",
+      "name": "Sara Mansour",
+      "email": "sara.mansour@gmail.com",
+      "phone": "0790000026",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 79
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "27",
+      "instructorId": 2,
+      "studentId": "STU027",
+      "name": "Yousef Khalil",
+      "email": "yousef.khalil@gmail.com",
+      "phone": "0790000027",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 82
+        },
+        {
+          "name": "Web Development",
+          "grade": 76
+        },
+        {
+          "name": "UI Design",
+          "grade": 80
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "28",
+      "instructorId": 1,
+      "studentId": "STU028",
+      "name": "Nour Ahmad",
+      "email": "nour.ahmad@gmail.com",
+      "phone": "0790000028",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 52
+        },
+        {
+          "name": "JavaScript",
+          "grade": 57
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "29",
+      "instructorId": 1,
+      "studentId": "STU029",
+      "name": "Rami Hassan",
+      "email": "rami.hassan@gmail.com",
+      "phone": "0790000029",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 86
+        },
+        {
+          "name": "Databases",
+          "grade": 84
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "30",
+      "instructorId": 2,
+      "studentId": "STU030",
+      "name": "Dima Saleh",
+      "email": "dima.saleh@gmail.com",
+      "phone": "0790000030",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 91
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "31",
+      "instructorId": 1,
+      "studentId": "STU031",
+      "name": "Kareem Ali",
+      "email": "kareem.ali@gmail.com",
+      "phone": "0790000031",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 69
+        },
+        {
+          "name": "Web Development",
+          "grade": 64
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "32",
+      "instructorId": 2,
+      "studentId": "STU032",
+      "name": "Hiba Khaled",
+      "email": "hiba.khaled@gmail.com",
+      "phone": "0790000032",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 98
+        },
+        {
+          "name": "JavaScript",
+          "grade": 96
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "33",
+      "instructorId": 1,
+      "studentId": "STU033",
+      "name": "Laith Nasser",
+      "email": "laith.nasser@gmail.com",
+      "phone": "0790000033",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 73
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "34",
+      "instructorId": 2,
+      "studentId": "STU034",
+      "name": "Aya Hamdan",
+      "email": "aya.hamdan@gmail.com",
+      "phone": "0790000034",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 66
+        },
+        {
+          "name": "Web Development",
+          "grade": 72
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "35",
+      "instructorId": 1,
+      "studentId": "STU035",
+      "name": "Samir Odeh",
+      "email": "samir.odeh@gmail.com",
+      "phone": "0790000035",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 47
+        }
+      ],
+      "status": "archived",
+      "isDeleted": false
+    },
+    {
+      "id": "36",
+      "instructorId": 2,
+      "studentId": "STU036",
+      "name": "Razan Qasem",
+      "email": "razan.qasem@gmail.com",
+      "phone": "0790000036",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 87
+        },
+        {
+          "name": "UI Design",
+          "grade": 92
+        },
+        {
+          "name": "Databases",
+          "grade": 88
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "37",
+      "instructorId": 1,
+      "studentId": "STU037",
+      "name": "Bilal Younis",
+      "email": "bilal.younis@gmail.com",
+      "phone": "0790000037",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 59
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "38",
+      "instructorId": 1,
+      "studentId": "STU038",
+      "name": "Mariam Khalil",
+      "email": "mariam.khalil@gmail.com",
+      "phone": "0790000038",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 75
+        },
+        {
+          "name": "UI Design",
+          "grade": 81
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "39",
+      "instructorId": 2,
+      "studentId": "STU039",
+      "name": "Eyad Saleh",
+      "email": "eyad.saleh@gmail.com",
+      "phone": "0790000039",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 70
+        },
+        {
+          "name": "JavaScript",
+          "grade": 74
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "40",
+      "instructorId": 1,
+      "studentId": "STU040",
+      "name": "Farah Ahmad",
+      "email": "farah.ahmad@gmail.com",
+      "phone": "0790000040",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 99
+        },
+        {
+          "name": "Web Development",
+          "grade": 94
+        }
+      ],
+      "status": "active",
+      "isDeleted": true
+    },
+    {
+      "id": "41",
+      "instructorId": 1,
+      "studentId": "STU041",
+      "name": "Muath Khaled",
+      "email": "muath.khaled@gmail.com",
+      "phone": "0790000041",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 77
+        },
+        {
+          "name": "Databases",
+          "grade": 79
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "42",
+      "instructorId": 2,
+      "studentId": "STU042",
+      "name": "Jana Samir",
+      "email": "jana.samir@gmail.com",
+      "phone": "0790000042",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 85
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "43",
+      "instructorId": 1,
+      "studentId": "STU043",
+      "name": "Majd Hassan",
+      "email": "majd.hassan@gmail.com",
+      "phone": "0790000043",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 60
+        },
+        {
+          "name": "UI Design",
+          "grade": 65
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "44",
+      "instructorId": 2,
+      "studentId": "STU044",
+      "name": "Salma Nasser",
+      "email": "salma.nasser@gmail.com",
+      "phone": "0790000044",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 93
+        },
+        {
+          "name": "Web Development",
+          "grade": 96
+        },
+        {
+          "name": "Databases",
+          "grade": 90
+        },
+        {
+          "name": "UI Design",
+          "grade": 95
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "45",
+      "instructorId": 1,
+      "studentId": "STU045",
+      "name": "Ayman Saleh",
+      "email": "ayman.saleh@gmail.com",
+      "phone": "0790000045",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 43
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "46",
+      "instructorId": 1,
+      "studentId": "STU046",
+      "name": "Ruba Khalil",
+      "email": "ruba.khalil@gmail.com",
+      "phone": "0790000046",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 82
+        },
+        {
+          "name": "JavaScript",
+          "grade": 78
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "47",
+      "instructorId": 2,
+      "studentId": "STU047",
+      "name": "Qais Ali",
+      "email": "qais.ali@gmail.com",
+      "phone": "0790000047",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 56
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "48",
+      "instructorId": 1,
+      "studentId": "STU048",
+      "name": "Shahd Ahmad",
+      "email": "shahd.ahmad@gmail.com",
+      "phone": "0790000048",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 88
+        },
+        {
+          "name": "JavaScript",
+          "grade": 91
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "49",
+      "instructorId": 2,
+      "studentId": "STU049",
+      "name": "Amer Hamdan",
+      "email": "amer.hamdan@gmail.com",
+      "phone": "0790000049",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 68
+        },
+        {
+          "name": "Databases",
+          "grade": 71
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "50",
+      "instructorId": 1,
+      "studentId": "STU050",
+      "name": "Raneem Hassan",
+      "email": "raneem.hassan@gmail.com",
+      "phone": "0790000050",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 100
+        },
+        {
+          "name": "JavaScript",
+          "grade": 50
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "51",
+      "instructorId": 1,
+      "studentId": "STU051",
+      "name": "Omar Nasser",
+      "email": "omar.nasser@gmail.com",
+      "phone": "0790000051",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 61
+        },
+        {
+          "name": "Databases",
+          "grade": 67
+        },
+        {
+          "name": "JavaScript",
+          "grade": 64
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "52",
+      "instructorId": 2,
+      "studentId": "STU052",
+      "name": "Lina Saleh",
+      "email": "lina.saleh@gmail.com",
+      "phone": "0790000052",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 89
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "53",
+      "instructorId": 1,
+      "studentId": "STU053",
+      "name": "Mahmoud Ali",
+      "email": "mahmoud.ali@gmail.com",
+      "phone": "0790000053",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 28
+        },
+        {
+          "name": "Web Development",
+          "grade": 35
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "54",
+      "instructorId": 2,
+      "studentId": "STU054",
+      "name": "Dania Khaled",
+      "email": "dania.khaled@gmail.com",
+      "phone": "0790000054",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 84
+        },
+        {
+          "name": "UI Design",
+          "grade": 87
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "55",
+      "instructorId": 1,
+      "studentId": "STU055",
+      "name": "Yazan Samir",
+      "email": "yazan.samir@gmail.com",
+      "phone": "0790000055",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 72
+        }
+      ],
+      "status": "archived",
+      "isDeleted": false
+    },
+    {
+      "id": "56",
+      "instructorId": 2,
+      "studentId": "STU056",
+      "name": "Haneen Ahmad",
+      "email": "haneen.ahmad@gmail.com",
+      "phone": "0790000056",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 97
+        },
+        {
+          "name": "Web Development",
+          "grade": 92
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "57",
+      "instructorId": 1,
+      "studentId": "STU057",
+      "name": "Khalil Odeh",
+      "email": "khalil.odeh@gmail.com",
+      "phone": "0790000057",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 50
+        },
+        {
+          "name": "UI Design",
+          "grade": 54
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "58",
+      "instructorId": 2,
+      "studentId": "STU058",
+      "name": "Mira Saleh",
+      "email": "mira.saleh@gmail.com",
+      "phone": "0790000058",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 75
+        },
+        {
+          "name": "JavaScript",
+          "grade": 83
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "59",
+      "instructorId": 1,
+      "studentId": "STU059",
+      "name": "Tamer Hassan",
+      "email": "tamer.hassan@gmail.com",
+      "phone": "0790000059",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 81
+        },
+        {
+          "name": "Databases",
+          "grade": 77
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "60",
+      "instructorId": 2,
+      "studentId": "STU060",
+      "name": "Aya Khalil",
+      "email": "aya.khalil@gmail.com",
+      "phone": "0790000060",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 45
+        }
+      ],
+      "status": "active",
+      "isDeleted": true
+    },
+    {
+      "id": "61",
+      "instructorId": 1,
+      "studentId": "STU061",
+      "name": "Samer Ahmad",
+      "email": "samer.ahmad@gmail.com",
+      "phone": "0790000061",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 69
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "62",
+      "instructorId": 2,
+      "studentId": "STU062",
+      "name": "Rama Ali",
+      "email": "rama.ali@gmail.com",
+      "phone": "0790000062",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 90
+        },
+        {
+          "name": "UI Design",
+          "grade": 93
+        },
+        {
+          "name": "JavaScript",
+          "grade": 88
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "63",
+      "instructorId": 1,
+      "studentId": "STU063",
+      "name": "Nabil Saleh",
+      "email": "nabil.saleh@gmail.com",
+      "phone": "0790000063",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 76
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "64",
+      "instructorId": 2,
+      "studentId": "STU064",
+      "name": "Joud Hassan",
+      "email": "joud.hassan@gmail.com",
+      "phone": "0790000064",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 58
+        },
+        {
+          "name": "Databases",
+          "grade": 63
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "65",
+      "instructorId": 1,
+      "studentId": "STU065",
+      "name": "Fadi Khaled",
+      "email": "fadi.khaled@gmail.com",
+      "phone": "0790000065",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 87
+        },
+        {
+          "name": "JavaScript",
+          "grade": 84
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "66",
+      "instructorId": 2,
+      "studentId": "STU066",
+      "name": "Samar Nasser",
+      "email": "samar.nasser@gmail.com",
+      "phone": "0790000066",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 73
+        },
+        {
+          "name": "UI Design",
+          "grade": 78
+        },
+        {
+          "name": "Web Development",
+          "grade": 75
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "67",
+      "instructorId": 1,
+      "studentId": "STU067",
+      "name": "Hamza Ahmad",
+      "email": "hamza.ahmad@gmail.com",
+      "phone": "0790000067",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 38
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "68",
+      "instructorId": 2,
+      "studentId": "STU068",
+      "name": "Razan Khalil",
+      "email": "razan.khalil@gmail.com",
+      "phone": "0790000068",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 98
+        },
+        {
+          "name": "JavaScript",
+          "grade": 95
+        },
+        {
+          "name": "Databases",
+          "grade": 92
+        },
+        {
+          "name": "UI Design",
+          "grade": 96
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "69",
+      "instructorId": 1,
+      "studentId": "STU069",
+      "name": "Majd Saleh",
+      "email": "majd.saleh@gmail.com",
+      "phone": "0790000069",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 71
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "70",
+      "instructorId": 2,
+      "studentId": "STU070",
+      "name": "Huda Ali",
+      "email": "huda.ali@gmail.com",
+      "phone": "0790000070",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 86
+        },
+        {
+          "name": "Web Development",
+          "grade": 80
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "71",
+      "instructorId": 1,
+      "studentId": "STU071",
+      "name": "Laith Hassan",
+      "email": "laith.hassan@gmail.com",
+      "phone": "0790000071",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 62
+        },
+        {
+          "name": "JavaScript",
+          "grade": 68
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "72",
+      "instructorId": 2,
+      "studentId": "STU072",
+      "name": "Noor Samir",
+      "email": "noor.samir@gmail.com",
+      "phone": "0790000072",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 94
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "73",
+      "instructorId": 1,
+      "studentId": "STU073",
+      "name": "Yazan Khalil",
+      "email": "yazan.khalil@gmail.com",
+      "phone": "0790000073",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 53
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "74",
+      "instructorId": 2,
+      "studentId": "STU074",
+      "name": "Mariam Saleh",
+      "email": "mariam.saleh@gmail.com",
+      "phone": "0790000074",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 79
+        },
+        {
+          "name": "UI Design",
+          "grade": 84
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "75",
+      "instructorId": 1,
+      "studentId": "STU075",
+      "name": "Alaa Nasser",
+      "email": "alaa.nasser@gmail.com",
+      "phone": "0790000075",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 91
+        },
+        {
+          "name": "Web Development",
+          "grade": 89
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "76",
+      "instructorId": 2,
+      "studentId": "STU076",
+      "name": "Hanin Ahmad",
+      "email": "hanin.ahmad@gmail.com",
+      "phone": "0790000076",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 48
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "77",
+      "instructorId": 1,
+      "studentId": "STU077",
+      "name": "Sultan Khaled",
+      "email": "sultan.khaled@gmail.com",
+      "phone": "0790000077",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 85
+        },
+        {
+          "name": "JavaScript",
+          "grade": 88
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "78",
+      "instructorId": 2,
+      "studentId": "STU078",
+      "name": "Rania Hassan",
+      "email": "rania.hassan@gmail.com",
+      "phone": "0790000078",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 77
+        },
+        {
+          "name": "UI Design",
+          "grade": 73
+        },
+        {
+          "name": "Databases",
+          "grade": 80
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "79",
+      "instructorId": 1,
+      "studentId": "STU079",
+      "name": "Murad Ali",
+      "email": "murad.ali@gmail.com",
+      "phone": "0790000079",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 57
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "80",
+      "instructorId": 2,
+      "studentId": "STU080",
+      "name": "Aya Saleh",
+      "email": "aya.saleh@gmail.com",
+      "phone": "0790000080",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 93
+        },
+        {
+          "name": "JavaScript",
+          "grade": 89
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "81",
+      "instructorId": 1,
+      "studentId": "STU081",
+      "name": "Firas Khalil",
+      "email": "firas.khalil@gmail.com",
+      "phone": "0790000081",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 66
+        },
+        {
+          "name": "UI Design",
+          "grade": 69
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "82",
+      "instructorId": 2,
+      "studentId": "STU082",
+      "name": "Dana Ahmad",
+      "email": "dana.ahmad@gmail.com",
+      "phone": "0790000082",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 99
+        },
+        {
+          "name": "UI Design",
+          "grade": 97
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "83",
+      "instructorId": 1,
+      "studentId": "STU083",
+      "name": "Tamer Saleh",
+      "email": "tamer.saleh@gmail.com",
+      "phone": "0790000083",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 74
+        }
+      ],
+      "status": "archived",
+      "isDeleted": false
+    },
+    {
+      "id": "84",
+      "instructorId": 2,
+      "studentId": "STU084",
+      "name": "Lama Hassan",
+      "email": "lama.hassan@gmail.com",
+      "phone": "0790000084",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 89
+        },
+        {
+          "name": "JavaScript",
+          "grade": 84
+        },
+        {
+          "name": "Web Development",
+          "grade": 91
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "85",
+      "instructorId": 1,
+      "studentId": "STU085",
+      "name": "Oday Nasser",
+      "email": "oday.nasser@gmail.com",
+      "phone": "0790000085",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 51
+        },
+        {
+          "name": "JavaScript",
+          "grade": 58
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "86",
+      "instructorId": 2,
+      "studentId": "STU086",
+      "name": "Maya Khalil",
+      "email": "maya.khalil@gmail.com",
+      "phone": "0790000086",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 82
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "87",
+      "instructorId": 1,
+      "studentId": "STU087",
+      "name": "Nader Ahmad",
+      "email": "nader.ahmad@gmail.com",
+      "phone": "0790000087",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 43
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "88",
+      "instructorId": 2,
+      "studentId": "STU088",
+      "name": "Rima Samir",
+      "email": "rima.samir@gmail.com",
+      "phone": "0790000088",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 76
+        },
+        {
+          "name": "Web Development",
+          "grade": 79
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "89",
+      "instructorId": 1,
+      "studentId": "STU089",
+      "name": "Ammar Hassan",
+      "email": "ammar.hassan@gmail.com",
+      "phone": "0790000089",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 92
+        },
+        {
+          "name": "Databases",
+          "grade": 87
+        },
+        {
+          "name": "Web Development",
+          "grade": 90
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "90",
+      "instructorId": 2,
+      "studentId": "STU090",
+      "name": "Haya Khaled",
+      "email": "haya.khaled@gmail.com",
+      "phone": "0790000090",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 61
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "91",
+      "instructorId": 1,
+      "studentId": "STU091",
+      "name": "Bassam Ali",
+      "email": "bassam.ali@gmail.com",
+      "phone": "0790000091",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 70
+        },
+        {
+          "name": "JavaScript",
+          "grade": 66
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "92",
+      "instructorId": 2,
+      "studentId": "STU092",
+      "name": "Saja Saleh",
+      "email": "saja.saleh@gmail.com",
+      "phone": "0790000092",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 95
+        },
+        {
+          "name": "UI Design",
+          "grade": 90
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "93",
+      "instructorId": 1,
+      "studentId": "STU093",
+      "name": "Rami Khalil",
+      "email": "rami.khalil@gmail.com",
+      "phone": "0790000093",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 83
+        },
+        {
+          "name": "Web Development",
+          "grade": 86
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "94",
+      "instructorId": 2,
+      "studentId": "STU094",
+      "name": "Hala Nasser",
+      "email": "hala.nasser@gmail.com",
+      "phone": "0790000094",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 57
+        },
+        {
+          "name": "Databases",
+          "grade": 52
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "95",
+      "instructorId": 1,
+      "studentId": "STU095",
+      "name": "Zaid Hassan",
+      "email": "zaid.hassan@gmail.com",
+      "phone": "0790000095",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 98
+        },
+        {
+          "name": "JavaScript",
+          "grade": 94
+        },
+        {
+          "name": "Databases",
+          "grade": 96
+        },
+        {
+          "name": "UI Design",
+          "grade": 91
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "96",
+      "instructorId": 2,
+      "studentId": "STU096",
+      "name": "Reem Ahmad",
+      "email": "reem.ahmad@gmail.com",
+      "phone": "0790000096",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 71
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "97",
+      "instructorId": 1,
+      "studentId": "STU097",
+      "name": "Kareem Saleh",
+      "email": "kareem.saleh@gmail.com",
+      "phone": "0790000097",
+      "courses": [
+        {
+          "name": "Databases",
+          "grade": 78
+        },
+        {
+          "name": "UI Design",
+          "grade": 82
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "98",
+      "instructorId": 2,
+      "studentId": "STU098",
+      "name": "Dina Khalil",
+      "email": "dina.khalil@gmail.com",
+      "phone": "0790000098",
+      "courses": [
+        {
+          "name": "Web Development",
+          "grade": 64
+        },
+        {
+          "name": "JavaScript",
+          "grade": 69
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "99",
+      "instructorId": 1,
+      "studentId": "STU099",
+      "name": "Sami Hassan",
+      "email": "sami.hassan@gmail.com",
+      "phone": "0790000099",
+      "courses": [
+        {
+          "name": "JavaScript",
+          "grade": 48
+        },
+        {
+          "name": "Databases",
+          "grade": 41
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "id": "100",
+      "instructorId": 2,
+      "studentId": "STU100",
+      "name": "Mariam Ahmad",
+      "email": "mariam.ahmad@gmail.com",
+      "phone": "0790000100",
+      "courses": [
+        {
+          "name": "UI Design",
+          "grade": 88
+        },
+        {
+          "name": "Web Development",
+          "grade": 92
+        }
+      ],
+      "status": "active",
+      "isDeleted": false
+    },
+    {
+      "name": "Motasem Alqam",
+      "studentId": "123456.",
+      "email": "motasemalqam00@gmail.com",
+      "courses": [],
+      "phone": "01275455",
+      "status": "active",
+      "isDeleted": true,
+      "id": "CPKAwMbDdVM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
