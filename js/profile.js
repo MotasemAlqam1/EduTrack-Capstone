@@ -167,7 +167,7 @@ const newPasswordInput = document.getElementById("newPassword");
 const confirmNewPasswordInput = document.getElementById("confirmNewPassword");
 const passwordError = document.getElementById("passwordError");
 
-changePasswordForm.addEventListener("submit", async function (event) {
+changePasswordForm.addEventListener("", async function (event) {
   event.preventDefault();
 
   passwordError.textContent = "";
