@@ -1,6 +1,7 @@
 {
+  "resources":[
+  ],
     "instructors": [],
-    "students": [],
     "courses": [
         {
             "id": "COURSE001",
@@ -32,7 +33,7 @@
         }
     ],
     "assessments": [],
-    "attendance": []
+    "attendance": [],
   "students": [
     {
       "id": "1",
