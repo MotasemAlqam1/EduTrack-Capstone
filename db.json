@@ -39,9 +39,16 @@
       "password": "1234567",
       "department": "Computer Science",
       "phone": "0798767252"
+    },
+    {
+      "id": "Ux3XhQKWMls",
+      "name": "Asmaa Aljazzar",
+      "email": "aljazzarasmaa3@gmail.com",
+      "password": "12345678",
+      "department": "Development",
+      "phone": "65757657654765"
     }
   ],
-  
   "courses": [
     {
       "id": "COURSE001",
