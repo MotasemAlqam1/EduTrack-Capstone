@@ -1,73 +1,41 @@
-const loginForm =
-  document.getElementById("loginForm");
+const loginForm = document.getElementById("loginForm");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("pw");
+const loginError = document.getElementById("loginError");
 
-const emailInput =
-  document.getElementById("email");
+loginForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
 
-const passwordInput =
-  document.getElementById("pw");
+  loginError.textContent = "";
 
-const loginError =
-  document.getElementById("loginError");
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
 
-
-loginForm.addEventListener(
-  "submit",
-  async function (event) {
-
-    event.preventDefault();
-
-
-    const email =
-      emailInput.value.trim();
-
-    const password =
-      passwordInput.value.trim();
-
-
+  try {
     const response = await fetch(
       `http://localhost:3000/instructors?email=${encodeURIComponent(email)}`
     );
 
+    const instructors = await response.json();
 
-    const instructors =
-      await response.json();
-
-
-    // Email not found
     if (instructors.length === 0) {
-
-      loginError.textContent =
-        "Email not found";
-
+      loginError.textContent = "Email not found";
       return;
     }
 
+    const instructor = instructors[0];
 
-    const instructor =
-      instructors[0];
-
-
-    // Wrong password
     if (instructor.password !== password) {
-
-      loginError.textContent =
-        "Incorrect password";
-
+      loginError.textContent = "Incorrect password";
       return;
     }
 
+    sessionStorage.setItem("currentInstructor", JSON.stringify(instructor));
 
-    // Save logged-in instructor
-    sessionStorage.setItem(
-      "currentInstructor",
-      JSON.stringify(instructor)
-    );
+    window.location.href = "pages/dashboard.html";
 
-
-    // Go to dashboard
-    window.location.href =
-      "pages/dashboard.html";
-
+  } catch (error) {
+    console.error(error);
+    loginError.textContent = "Cannot connect to server";
   }
-);
+});

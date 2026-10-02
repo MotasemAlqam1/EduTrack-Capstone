@@ -73,15 +73,15 @@
           class="brand"
         >
 
-          <span class="brand-mark">
+           <img
+  class="brand-logo theme-logo"
+  src="../images/light mode.png"
+  data-light-src="../images/light mode.png"
+  data-dark-src="../images/dark mode.png"
+  alt="EduTrack"
+/>
 
-            <i
-              class="bi bi-mortarboard-fill"
-            ></i>
-
-          </span>
-
-          EduTrack
+<span>EduTrack</span>
 
         </a>
 
@@ -229,7 +229,9 @@
           />
 
         </form>
-
+<button class="icon-btn" id="themeToggle" type="button" aria-label="Change theme">
+  <i class="bi bi-moon-fill" id="themeIcon"></i>
+</button>
 
         <!-- PROFILE DROPDOWN -->
 
@@ -302,7 +304,10 @@
 
             </a>
 
-
+            <a class="dropdown-item rounded" href="#" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+  <i class="bi bi-lock me-2"></i>
+  Change password
+</a>
             <a
               class="dropdown-item rounded text-danger"
               href="#"
@@ -312,6 +317,8 @@
               <i
                 class="bi bi-box-arrow-right me-2"
               ></i>
+              
+
 
               Log out
 
@@ -735,208 +742,219 @@
 
   </div>
 
+<!-- ================= PROFILE MODAL ================= -->
+
+<div
+  class="modal fade"
+  id="profileModal"
+  tabindex="-1"
+  aria-labelledby="profileTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+
+    <div class="modal-content">
+
+      <form id="profileForm">
+
+        <!-- HEADER -->
+        <div class="modal-header border-0">
+
+          <h2 class="modal-title h5 fw-bold" id="profileTitle">
+            My profile
+          </h2>
+
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+
+        </div>
 
 
-  <!-- ================= PROFILE MODAL ================= -->
+        <!-- BODY -->
+        <div class="modal-body">
 
+          <!-- PROFILE IMAGE -->
+          <div class="d-flex align-items-center gap-3 mb-4">
 
-  <div
-    class="modal fade"
-    id="profileModal"
-    tabindex="-1"
-    aria-labelledby="profileTitle"
-  >
+            <span
+              class="avatar profile-avatar-preview"
+              id="profileAvatar"
+            ></span>
 
+            <div>
 
-    <div
-      class="modal-dialog modal-dialog-centered"
-    >
+              <label
+                for="profileImageInput"
+                class="btn btn-outline-success btn-sm mb-1"
+              >
+                <i class="bi bi-camera me-1"></i>
+                Choose photo
+              </label>
 
+              <input
+                type="file"
+                id="profileImageInput"
+                accept="image/*"
+                class="d-none"
+              />
 
-      <div
-        class="modal-content border-0"
-        style="border-radius: 16px"
-      >
-
-
-        <form id="profileForm">
-
-
-          <div
-            class="modal-header border-0"
-          >
-
-
-            <h2
-              class="modal-title h5 fw-bold"
-              id="profileTitle"
-            >
-
-              My profile
-
-            </h2>
-
-
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-
-
-          </div>
-
-
-
-          <div class="modal-body">
-
-
-            <!-- AVATAR -->
-
-            <div
-              class="d-flex align-items-center gap-3 mb-3"
-            >
-
-
-              <span
-                class="avatar avatar-lg"
-                id="profileAvatar"
-              ></span>
-
-
-            </div>
-
-
-
-            <div class="row g-3">
-
-
-              <!-- NAME -->
-
-              <div class="col-12">
-
-                <label
-                  class="form-label"
-                  for="p-name"
-                >
-                  Full name
-                </label>
-
-                <input
-                  id="p-name"
-                  class="form-control"
-                  required
-                />
-
+              <div class="small text-muted">
+                JPG, PNG or WEBP
               </div>
-
-
-
-              <!-- DEPARTMENT -->
-
-              <div class="col-12">
-
-                <label
-                  class="form-label"
-                  for="p-dept"
-                >
-                  Department / subject
-                </label>
-
-                <input
-                  id="p-dept"
-                  class="form-control"
-                  required
-                />
-
-              </div>
-
-
-
-              <!-- PHONE -->
-
-              <div class="col-12">
-
-                <label
-                  class="form-label"
-                  for="p-phone"
-                >
-                  Phone number
-                </label>
-
-                <input
-                  id="p-phone"
-                  type="tel"
-                  class="form-control"
-                  placeholder="+962 7X XXX XXXX"
-                  required
-                />
-
-              </div>
-
-
-
-              <!-- EMAIL -->
-
-              <div class="col-12">
-
-                <label
-                  class="form-label"
-                  for="p-email"
-                >
-                  Sign-in email
-                </label>
-
-                <input
-                  id="p-email"
-                  type="email"
-                  class="form-control"
-                  readonly
-                />
-
-              </div>
-
 
             </div>
 
           </div>
 
 
+          <div class="row g-3">
 
-          <div
-            class="modal-footer border-0"
-          >
+            <!-- NAME -->
+            <div class="col-12">
+
+              <label class="form-label" for="p-name">
+                Full name
+              </label>
+
+              <input
+                id="p-name"
+                class="form-control"
+                required
+              />
+
+            </div>
 
 
-            <button
-              type="button"
-              class="btn btn-light"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
+            <!-- DEPARTMENT -->
+            <div class="col-12">
+
+              <label class="form-label" for="p-dept">
+                Department / subject
+              </label>
+
+              <input
+                id="p-dept"
+                class="form-control"
+                required
+              />
+
+            </div>
 
 
-            <button
-              type="submit"
-              class="btn btn-green"
-            >
-              Save profile
-            </button>
+            <!-- PHONE -->
+            <div class="col-12">
 
+              <label class="form-label" for="p-phone">
+                Phone number
+              </label>
+
+              <input
+                id="p-phone"
+                type="tel"
+                class="form-control"
+                placeholder="+962 7X XXX XXXX"
+                required
+              />
+
+            </div>
+
+
+            <!-- EMAIL -->
+            <div class="col-12">
+
+              <label class="form-label" for="p-email">
+                Sign-in email
+              </label>
+
+              <input
+                id="p-email"
+                type="email"
+                class="form-control"
+                readonly
+              />
+
+            </div>
 
           </div>
 
+        </div>
 
-        </form>
 
+        <!-- FOOTER -->
+        <div class="modal-footer border-0">
 
-      </div>
+          <button
+            type="button"
+            class="btn btn-light"
+            data-bs-dismiss="modal"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="btn btn-green"
+          >
+            Save profile
+          </button>
+
+        </div>
+
+      </form>
 
     </div>
 
   </div>
+
+</div>
+
+   <!-- CHANGE PASSWORD MODAL -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <form id="changePasswordForm">
+
+        <div class="modal-header border-0">
+          <h2 class="modal-title h5 fw-bold">Change password</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="mb-3">
+            <label class="form-label" for="currentPassword">Current password</label>
+            <input id="currentPassword" type="password" class="form-control" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="newPassword">New password</label>
+            <input id="newPassword" type="password" class="form-control" minlength="6" required />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="confirmNewPassword">Confirm new password</label>
+            <input id="confirmNewPassword" type="password" class="form-control" minlength="6" required />
+          </div>
+
+          <p id="passwordError" class="text-danger mb-0"></p>
+
+        </div>
+
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-green">Change password</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
 
 
 
@@ -946,7 +964,8 @@
 
 
   <script src="../JS/profile.js"></script>
-
+<script src="../JS/profile.js"></script>
+<script src="../JS/theme.js"></script>
 
 </body>
 
