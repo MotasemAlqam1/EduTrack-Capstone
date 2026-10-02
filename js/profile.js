@@ -25,19 +25,14 @@ const profileImageInput = document.getElementById("profileImageInput");
 const imageKey = `profileImage_${instructor.id}`;
 let selectedImage = localStorage.getItem(imageKey) || "";
 
-
 // Get initials
 function getInitials(name) {
   if (!name) return "";
 
   const words = name.trim().split(/\s+/);
 
-  return (
-    words[0][0] +
-    (words[1] ? words[1][0] : "")
-  ).toUpperCase();
+  return (words[0][0] + (words[1] ? words[1][0] : "")).toUpperCase();
 }
-
 
 // Show avatar
 function showAvatar(element, initials) {
@@ -51,7 +46,6 @@ function showAvatar(element, initials) {
     element.textContent = initials;
   }
 }
-
 
 // Show instructor data
 function showData() {
@@ -74,7 +68,6 @@ function showData() {
 }
 
 showData();
-
 
 // Choose image
 profileImageInput.addEventListener("change", function () {
@@ -99,15 +92,11 @@ profileImageInput.addEventListener("change", function () {
   reader.onload = function () {
     selectedImage = reader.result;
 
-    showAvatar(
-      profileAvatar,
-      getInitials(instructor.name)
-    );
+    showAvatar(profileAvatar, getInitials(instructor.name));
   };
 
   reader.readAsDataURL(file);
 });
-
 
 // Update profile
 profileForm.addEventListener("submit", async function (event) {
@@ -116,7 +105,7 @@ profileForm.addEventListener("submit", async function (event) {
   const updatedData = {
     name: nameInput.value.trim(),
     department: departmentInput.value.trim(),
-    phone: phoneInput.value.trim()
+    phone: phoneInput.value.trim(),
   };
 
   try {
@@ -125,10 +114,10 @@ profileForm.addEventListener("submit", async function (event) {
       {
         method: "PATCH",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(updatedData)
-      }
+        body: JSON.stringify(updatedData),
+      },
     );
 
     if (!response.ok) {
@@ -138,25 +127,21 @@ profileForm.addEventListener("submit", async function (event) {
 
     instructor = await response.json();
 
-    sessionStorage.setItem(
-      "currentInstructor",
-      JSON.stringify(instructor)
-    );
+    sessionStorage.setItem("currentInstructor", JSON.stringify(instructor));
 
     if (selectedImage) {
       localStorage.setItem(imageKey, selectedImage);
     }
-
     showData();
 
     alert("Profile updated successfully");
 
+    window.location.href = "dashboard.html";
   } catch (error) {
     console.error("Profile Update Error:", error);
     alert("Failed to update profile");
   }
 });
-
 
 // Logout
 function logout() {
@@ -182,7 +167,6 @@ const newPasswordInput = document.getElementById("newPassword");
 const confirmNewPasswordInput = document.getElementById("confirmNewPassword");
 const passwordError = document.getElementById("passwordError");
 
-
 changePasswordForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
@@ -192,13 +176,11 @@ changePasswordForm.addEventListener("submit", async function (event) {
   const newPassword = newPasswordInput.value.trim();
   const confirmNewPassword = confirmNewPasswordInput.value.trim();
 
-
   // Check current password
   if (currentPassword !== instructor.password) {
     passwordError.textContent = "Current password is incorrect";
     return;
   }
-
 
   // Check new password length
   if (newPassword.length < 6) {
@@ -206,13 +188,11 @@ changePasswordForm.addEventListener("submit", async function (event) {
     return;
   }
 
-
   // Check confirm password
   if (newPassword !== confirmNewPassword) {
     passwordError.textContent = "Passwords do not match";
     return;
   }
-
 
   // Check same password
   if (newPassword === currentPassword) {
@@ -220,53 +200,35 @@ changePasswordForm.addEventListener("submit", async function (event) {
     return;
   }
 
-
   try {
-
     const response = await fetch(
       `http://localhost:3000/instructors/${instructor.id}`,
       {
         method: "PATCH",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          password: newPassword
-        })
-      }
+          password: newPassword,
+        }),
+      },
     );
-
 
     if (!response.ok) {
       throw new Error("Failed to change password");
     }
 
-
     instructor = await response.json();
 
-    sessionStorage.setItem(
-      "currentInstructor",
-      JSON.stringify(instructor)
-    );
+    alert("Password changed successfully. Please login again.");
 
+    sessionStorage.removeItem("currentInstructor");
 
-    changePasswordForm.reset();
-
-
-    const modal = bootstrap.Modal.getInstance(
-      document.getElementById("changePasswordModal")
-    );
-
-    modal.hide();
-
-    alert("Password changed successfully");
-
-
+    window.location.href = "../index.html";
   } catch (error) {
-
     console.error(error);
 
     passwordError.textContent = "Failed to change password";
-
   }
 });
+ 

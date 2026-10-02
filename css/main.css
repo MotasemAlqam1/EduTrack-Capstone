@@ -5,49 +5,197 @@
 @import url("auth.css");
 
 
+/* ================= GLOBAL THEME ================= */
+
+body {
+  background: var(--bg);
+
+  color: var(--ink);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* ================= GLOBAL INPUTS ================= */
+
+.form-control,
+.form-select {
+  background: var(--input-bg);
+
+  color: var(--ink);
+
+  border: 1px solid var(--line);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.form-control:focus,
+.form-select:focus {
+  background: var(--input-bg);
+  color: var(--ink);
+  border-color: var(--g5);
+
+  box-shadow:
+    0 0 0 3px rgba(25, 211, 154, 0.16);
+}
+
+.form-control::placeholder {
+  color: var(--muted);
+}
+
+
+.form-control[readonly],
+.form-control:disabled {
+  background: var(--surface-soft);
+
+  color: var(--muted);
+
+  opacity: 1;
+}
+
+
+/* ================= TEXT ================= */
+
+.text-muted {
+  color: var(--muted) !important;
+}
+
+
+/* ================= LOGO ================= */
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+
+  filter:
+    drop-shadow(0 0 4px rgba(25, 211, 154, 0.60))
+    drop-shadow(0 0 9px rgba(25, 211, 154, 0.30));
+}
+
+
+html[data-theme="dark"] .brand-logo {
+  filter:
+    drop-shadow(0 0 6px rgba(25, 211, 154, 0.90))
+    drop-shadow(0 0 14px rgba(25, 211, 154, 0.55));
+}
+
+
+/* ================= THEME BUTTON ================= */
+
+.theme-btn {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--line);
+
+  border-radius: 50%;
+
+  background: var(--surface);
+
+  color: var(--ink);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.theme-btn:hover {
+  background: var(--g1);
+
+  color: var(--g7);
+
+  border-color: var(--g5);
+}
+
+
+.theme-btn i {
+  font-size: 16px;
+}
+
+
 /* ================= PROFILE MODAL ================= */
 
 #profileModal .modal-dialog {
   max-width: 520px;
 }
 
+
 #profileModal .modal-content {
-  border: 0;
-  border-radius: 20px;
   overflow: hidden;
+
+  border: 1px solid var(--line);
+
+  border-radius: 20px;
 }
+
 
 #profileModal form {
   width: 100%;
 }
 
+
 #profileModal .modal-header {
   padding: 24px 24px 16px;
 }
+
 
 #profileModal .modal-body {
   padding: 16px 24px 20px;
 }
 
+
 #profileModal .modal-footer {
   position: static !important;
+
   width: 100%;
+
   margin: 0;
+
   padding: 0 24px 24px;
+
   border-top: 0;
 
   display: flex;
+
   justify-content: flex-end;
   align-items: center;
+
   gap: 12px;
 
-  background: #fff;
+  background: var(--surface);
 }
+
 
 #profileModal .modal-footer .btn {
   width: auto;
+
   min-width: 110px;
+
   height: 48px;
+
   margin: 0;
 }
 
@@ -57,120 +205,373 @@
 .profile-avatar-preview {
   width: 90px;
   height: 90px;
+
   min-width: 90px;
+
   border-radius: 50%;
+
   font-size: 1.5rem;
+
   cursor: default;
 }
+
 
 #topAvatar,
 #dropdownAvatar,
 #profileAvatar {
   overflow: hidden;
+
   background-repeat: no-repeat;
+
   background-position: center;
+
   background-size: cover;
 }
 
-/* ================= THEME ================= */
 
-body {
-  background: var(--bg);
-  color: var(--ink);
-  transition: background 0.3s, color 0.3s;
-}
+/* ================= ALL MODALS ================= */
 
-.auth-form {
-  position: relative;
+.modal-content {
   background: var(--surface);
+
   color: var(--ink);
-  transition: background 0.3s, color 0.3s;
+
+  border: 1px solid var(--line);
 }
 
-.auth-form .inner {
-  color: var(--ink);
-}
 
-.form-control {
+.modal-header,
+.modal-body,
+.modal-footer {
   background: var(--surface);
+
   color: var(--ink);
-  border-color: var(--line);
 }
 
-.form-control:focus {
-  background: var(--surface);
+
+.modal-title,
+.modal .form-label {
   color: var(--ink);
+}
+
+
+/* ================= MODAL INPUT ================= */
+
+.modal .form-control {
+  background: var(--input-bg);
+
+  color: var(--ink);
+
+  border: 1px solid var(--line);
+}
+
+
+.modal .form-control:focus {
+  background: var(--surface);
+
+  color: var(--ink);
+
   border-color: var(--g5);
+
+  box-shadow:
+    0 0 0 3px rgba(25, 211, 154, 0.15);
 }
 
-.form-control::placeholder {
+
+.modal .form-control::placeholder {
   color: var(--muted);
 }
 
-.text-muted {
-  color: var(--muted) !important;
+
+/* ================= MODAL CLOSE ================= */
+
+html[data-theme="dark"] .modal .btn-close {
+  filter: invert(1) grayscale(100%) brightness(180%);
 }
 
 
-/* SMALL LOGO */
+/* ================= CANCEL BUTTON ================= */
 
-.brand-logo {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
+.modal .btn-light {
+  background: var(--surface-soft);
+
+  color: var(--ink);
+
+  border: 1px solid var(--line);
+}
+
+
+.modal .btn-light:hover {
+  background: var(--g1);
+
+  color: var(--ink);
+
+  border-color: var(--g5);
+}
+
+
+/* ================= OUTLINE SUCCESS ================= */
+
+.btn-outline-success {
+  color: var(--g7);
+
+  border-color: var(--g5);
+}
+
+
+.btn-outline-success:hover {
+  background: var(--g5);
+
+  color: #04271d;
+
+  border-color: var(--g5);
+}
+
+
+html[data-theme="dark"] .btn-outline-success {
+  color: var(--g5);
+}
+
+
+/* ================= DROPDOWN ================= */
+
+.dropdown-menu {
+  background: var(--surface);
+
+  color: var(--ink);
+
+  border: 1px solid var(--line) !important;
+
+  box-shadow:
+    0 14px 36px var(--shadow);
+}
+
+
+.dropdown-item {
+  color: var(--ink);
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background: var(--surface-soft);
+
+  color: var(--g5);
+}
+
+
+.dropdown-divider,
+.dropdown-menu hr {
+  border-color: var(--line);
+}
+
+
+/* ================= PASSWORD FIELD ================= */
+
+.password-field {
+  position: relative;
+
+  width: 100%;
+}
+
+
+.password-field .form-control {
+  width: 100%;
+
+  padding-right: 48px;
+}
+
+
+/* ================= PASSWORD EYE ================= */
+
+.toggle-password {
+  position: absolute;
+
+  right: 15px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 5;
+
+  display: grid;
+
+  place-items: center;
+
+  width: 24px;
+  height: 24px;
+
+  padding: 0;
+
+  border: 0;
+
+  outline: 0;
+
+  background: transparent;
+
+  color: var(--muted);
+
+  cursor: pointer;
+
+  box-shadow: none;
+}
+
+
+.toggle-password i {
+  font-size: 17px;
+
+  line-height: 1;
+}
+
+
+.toggle-password:hover {
+  color: var(--g5);
+}
+
+
+.toggle-password:focus,
+.toggle-password:active,
+.toggle-password:focus-visible {
+  border: 0;
+
+  outline: 0;
+
+  background: transparent;
+
+  color: var(--g5);
+
+  box-shadow: none;
+}
+
+
+/* ================= DARK MODE HELPERS ================= */
+
+html[data-theme="dark"] .form-control,
+html[data-theme="dark"] .form-select {
+  background: var(--input-bg);
+
+  color: var(--ink);
+
+  border-color: var(--line);
+}
+
+
+html[data-theme="dark"] .form-control:focus,
+html[data-theme="dark"] .form-select:focus {
+  background: var(--surface);
+
+  border-color: var(--g5);
+}
+ /* ================= AUTH INPUT STATES ================= */
+
+/* Normal */
+.auth-form .form-control {
+  background: var(--input-bg);
+  color: var(--ink);
+  border: 1px solid var(--line);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* Hover */
+.auth-form .form-control:hover {
+  border-color: var(--g5) !important;
+}
+
+
+/* Focus */
+.auth-form .form-control:focus {
+  background: var(--input-bg) !important;
+
+  color: var(--ink) !important;
+
+  border-color: var(--g5) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(25, 211, 154, 0.25),
+    0 0 10px rgba(25, 211, 154, 0.18) !important;
+}
+
+
+/* Chrome autofill */
+.auth-form .form-control:-webkit-autofill {
+  -webkit-text-fill-color: var(--ink) !important;
+
+  -webkit-box-shadow:
+    0 0 0 1000px var(--input-bg) inset !important;
+
+  border: 1px solid var(--line) !important;
+
+  caret-color: var(--ink);
+}
+
+
+/* Autofill + Hover */
+.auth-form .form-control:-webkit-autofill:hover {
+  border-color: var(--g5) !important;
+}
+
+
+/* Autofill + Focus */
+.auth-form .form-control:-webkit-autofill:focus {
+  border-color: var(--g5) !important;
+
+  -webkit-box-shadow:
+    0 0 0 1000px var(--input-bg) inset,
+    0 0 0 3px rgba(25, 211, 154, 0.25) !important;
+}
+/* ================= STUDENTS DARK MODE ================= */
+
+/* Table background */
+html[data-theme="dark"] .students-list,
+html[data-theme="dark"] .students-table {
+  background: var(--surface);
+}
+
+
+/* Table rows */
+html[data-theme="dark"] .students-table tbody tr {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+
+/* Small separation between rows */
+html[data-theme="dark"] .students-table tbody tr:hover {
+  background: var(--surface-soft);
+}
+
+
+/* Table header */
+html[data-theme="dark"] .students-table thead th {
+  background: var(--surface-soft);
+  color: var(--muted);
+}
+
+
+/* Course badges */
+html[data-theme="dark"] .course-badge {
+  background: var(--g1);
+  color: var(--g5);
+
+  border: 1px solid var(--line);
+
   border-radius: 8px;
 }
 
 
-/* THEME BUTTON */
+/* Course badge hover */
+html[data-theme="dark"] .course-badge:hover {
+  border-color: var(--g5);
 
-.theme-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-
-  width: 36px;
-  height: 36px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid var(--line);
-  border-radius: 50%;
-
-  background: var(--surface);
-  color: var(--ink);
-
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.theme-btn:hover {
-  background: var(--g1);
-}
-
-.theme-btn i {
-  font-size: 16px;
-}
-
-
-/* DARK LOGIN */
-
-html[data-theme="dark"] .auth-form {
-  background: var(--bg);
-}
-
-html[data-theme="dark"] .form-control {
-  background: var(--surface);
-  color: var(--ink);
-  border-color: var(--line);
-}
-
-
-/* DARK LOGO GLOW */
-
-html[data-theme="dark"] .brand-logo {
-  filter:
-    drop-shadow(0 0 5px rgba(18, 201, 140, 0.7))
-    drop-shadow(0 0 10px rgba(18, 201, 140, 0.4));
+  box-shadow:
+    0 0 8px rgba(25, 211, 154, 0.15);
 }

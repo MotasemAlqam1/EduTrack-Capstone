@@ -1,157 +1,283 @@
-.student-modal {
-  --sm-primary: #16a34a;
-  --sm-primary-dark: #15803d;
-  --sm-primary-rgb: 22, 163, 74;
-  --sm-primary-soft: #d3ecdc;
-  --sm-field-bg: #eef7f1;
-  --sm-field-border: #dcebe1;
-  --sm-label: #6b7280;
-  --sm-placeholder: #9ca3af;
-  --sm-title: #111827;
+/* ================= STUDENT MODAL ================= */
 
-  border: 0;
+.student-modal {
+  --sm-primary: var(--g5);
+  --sm-primary-dark: var(--g7);
+
+  --sm-primary-rgb: 25, 211, 154;
+
+  --sm-primary-soft: var(--g1);
+
+  --sm-field-bg: var(--input-bg);
+  --sm-field-border: var(--line);
+
+  --sm-label: var(--muted);
+  --sm-placeholder: var(--muted);
+
+  --sm-title: var(--ink);
+
+  background: var(--surface);
+
+  color: var(--ink);
+
+  border: 1px solid var(--line);
+
   border-radius: 24px;
+
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(17, 24, 39, .25);
+
+  box-shadow:
+    0 24px 60px var(--shadow);
 }
+
+
+/* ================= HEADER ================= */
 
 .student-modal .modal-header {
   padding: 28px 28px 22px;
-  border-bottom: 1px solid #e5e7eb;
+
+  border-bottom: 1px solid var(--line);
 }
 
+
 .student-modal .modal-title {
-  font-family: "DM Serif Display", "Playfair Display", Georgia, serif;
-  font-size: 2rem;
-  font-weight: 700;
   color: var(--sm-title);
-  letter-spacing: -.01em;
+
+  font-family:
+    "Outfit",
+    system-ui,
+    sans-serif;
+
+  font-size: 1.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: -0.01em;
 }
+
+
+/* ================= BODY ================= */
 
 .student-modal .modal-body {
   padding: 28px;
+
+  background: var(--surface);
+
+  color: var(--ink);
 }
+
+
+/* ================= FOOTER ================= */
 
 .student-modal .modal-footer {
-  border-top: 0;
   padding: 8px 28px 28px;
+
   gap: 16px;
+
   flex-wrap: nowrap;
+
+  border-top: 0;
+
+  background: var(--surface);
 }
 
-/* Labels */
+
+/* ================= LABELS ================= */
+
 .student-modal .form-label {
-  font-size: .95rem;
-  font-weight: 500;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+
   color: var(--sm-label);
-  margin-bottom: .6rem;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.03em;
+
+  text-transform: uppercase;
 }
+
 
 .student-modal .label-optional {
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: .85rem;
+  margin-left: 0.5rem;
+
   color: var(--sm-placeholder);
-  margin-left: .5rem;
+
+  font-size: 0.85rem;
+
+  letter-spacing: 0;
+
+  text-transform: none;
 }
 
-/* Inputs */
+
+/* ================= INPUTS ================= */
+
 .student-modal .form-control {
   height: 60px;
+
   padding: 0 1.25rem;
-  font-size: 1.1rem;
-  color: var(--sm-title);
-  background-color: var(--sm-field-bg);
+
   border: 1px solid var(--sm-field-border);
+
   border-radius: 14px;
-  transition: border-color .15s, box-shadow .15s, background-color .15s;
+
+  background: var(--sm-field-bg);
+
+  color: var(--sm-title);
+
+  font-size: 1rem;
+
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s,
+    background-color 0.15s;
 }
+
 
 .student-modal .form-control::placeholder {
   color: var(--sm-placeholder);
 }
 
+
 .student-modal .form-control:focus {
-  background-color: #fff;
+  background: var(--surface);
+
+  color: var(--ink);
+
   border-color: var(--sm-primary);
-  box-shadow: 0 0 0 4px rgba(var(--sm-primary-rgb), .15);
+
+  box-shadow:
+    0 0 0 4px rgba(var(--sm-primary-rgb), 0.15);
+
   outline: 0;
 }
 
-/* Status toggle */
+
+/* ================= STATUS ================= */
+
 .status-toggle {
   display: flex;
+
   height: 60px;
-  background: var(--sm-field-bg);
+
   border: 1px solid var(--sm-field-border);
+
   border-radius: 14px;
+
+  background: var(--sm-field-bg);
+
   overflow: hidden;
 }
 
+
 .status-option {
   flex: 1;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
+
   margin: 0;
-  font-size: 1.1rem;
-  color: #4b5563;
+
+  color: var(--ink);
+
+  font-size: 1rem;
+
   cursor: pointer;
+
   user-select: none;
-  transition: background-color .15s, color .15s;
+
+  transition:
+    background-color 0.15s,
+    color 0.15s;
 }
+
 
 .status-toggle .btn-check:checked + .status-option {
   background: var(--sm-primary-soft);
+
   color: var(--sm-primary);
-  font-weight: 500;
+
+  font-weight: 600;
 }
+
 
 .status-toggle .btn-check:focus-visible + .status-option {
   outline: 2px solid var(--sm-primary);
+
   outline-offset: -2px;
 }
 
-/* Buttons */
+
+/* ================= BUTTONS ================= */
+
 .student-modal .btn-cancel,
 .student-modal .btn-add {
   flex: 1;
+
   height: 60px;
+
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 600;
+
   border-radius: 14px;
+
+  font-size: 1rem;
+
+  font-weight: 600;
 }
+
 
 .student-modal .btn-cancel {
-  background: #fff;
-  color: #374151;
-  border: 1px solid #e5e7eb;
+  background: var(--surface-soft);
+
+  color: var(--ink);
+
+  border: 1px solid var(--line);
 }
 
+
 .student-modal .btn-cancel:hover {
-  background: #f9fafb;
+  background: var(--g1);
+
+  color: var(--ink);
 }
+
 
 .student-modal .btn-add {
   background: var(--sm-primary);
-  color: #fff;
+
+  color: #04271d;
+
   border: 1px solid var(--sm-primary);
 }
 
+
 .student-modal .btn-add:hover {
   background: var(--sm-primary-dark);
+
+  color: #ffffff;
+
   border-color: var(--sm-primary-dark);
 }
 
-/* Scrollbar */
+
+/* ================= SCROLLBAR ================= */
+
 .student-modal .modal-body::-webkit-scrollbar {
   width: 8px;
 }
 
+
+.student-modal .modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
 .student-modal .modal-body::-webkit-scrollbar-thumb {
-  background: #8b8b8b;
+  background: var(--line);
+
   border-radius: 8px;
 }

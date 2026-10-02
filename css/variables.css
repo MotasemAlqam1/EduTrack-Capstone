@@ -1,40 +1,64 @@
 :root {
-  --g9: #05352a;
-  --g7: #0a4a3a;
-  --g5: #0f9d6b;
-  --g1: #e7f6ef;
+  /* ================= BRAND ================= */
 
-  --blue: #2ea6de;
-  --amber: #f0a81c;
-  --red: #ea5a45;
+  --g9: #063b30;
+  --g7: #0a6b52;
 
-  --bg: #f4f6f5;
+  /* Neon green */
+  --g5: #19d39a;
+  --g1: #dff9f0;
+
+  --blue: #4bb7e8;
+  --amber: #f2b74b;
+  --red: #ef6a5b;
+
+
+  /* ================= LIGHT MODE ================= */
+
+  --bg: #f4f8f6;
+
   --surface: #ffffff;
-  --surface-soft: #f8faf9;
+  --surface-soft: #f0f7f4;
 
-  --ink: #0d1f19;
-  --muted: #7a8b84;
-  --line: #e2e9e6;
+  --ink: #12231d;
+  --muted: #6f817a;
+
+  --line: #d7e4df;
+
+  --input-bg: #f3f8f6;
+
+  --sidebar-text: #c5ddd4;
+
+  --shadow: rgba(10, 50, 40, 0.10);
 }
 
 
-/* DARK MODE */
+/* ================= DARK MODE ================= */
 
 html[data-theme="dark"] {
-  --g9: #021b16;
-  --g7: #063b30;
-  --g5: #12c98c;
-  --g1: #123c31;
+  --g9: #031d18;
+  --g7: #087459;
 
-  --blue: #38bdf8;
-  --amber: #f5b942;
-  --red: #ff7663;
+  --g5: #19d39a;
+  --g1: #12372f;
+
+  --blue: #4bb7e8;
+  --amber: #f2b74b;
+  --red: #ff7d6c;
 
   --bg: #061713;
-  --surface: #0b231d;
-  --surface-soft: #102d25;
 
-  --ink: #f3faf7;
-  --muted: #9fb7ae;
-  --line: #21443a;
+  --surface: #0b2a22;
+  --surface-soft: #102f27;
+
+  --ink: #f4fbf8;
+  --muted: #a8bbb4;
+
+  --line: #21483d;
+
+  --input-bg: #102f27;
+
+  --sidebar-text: #b8d3ca;
+
+  --shadow: rgba(0, 0, 0, 0.28);
 }
