@@ -34,10 +34,13 @@ const renderDashboard = (students) => {
   const needAttention = stdWithGrade
     .filter((s) => s.grade < ATTENTION_GRADE);
 
+  // average
+  const avg = Math.round(average(stdWithGrade.map((s) => s.grade)))
+
   // Top stats
   document.getElementById("state-active").textContent = stdWithGrade.length;
   document.getElementById("state-avg-grade").textContent =
-    `${Math.round(average(stdWithGrade.map((s) => s.grade)))}%`;
+    `${avg}%`;
   document.getElementById("state-attention").textContent = needAttention.length;
 
   // Grade distribution 
@@ -62,6 +65,7 @@ const renderDashboard = (students) => {
   // Bar heights are relative to the biggest group (1 avoids dividing by 0)
   const maxCount = Math.max(...Object.values(distribution), 1);
 
+  // Entries return an array of key value.
   Object.entries(distribution).forEach(([range, count]) => {
     document.getElementById(`grade-${range}`).textContent = count;
     document.getElementById(`bar-${range}`).style.height =
@@ -91,8 +95,7 @@ const renderDashboard = (students) => {
       </div>`;
   }).join("");
 
-  // Students needing attention (3 lowest grades)
-
+  //? Students needing attention (3 lowest grades)
   // First character form both first and last name
   const getInitials = (name) => {
     const parts = name.trim().split (/\s+/);
@@ -116,12 +119,34 @@ const renderDashboard = (students) => {
       <div class="q">
         <span class="av">${getInitials(s.name)}</span>
         <div class="t">
-          ${s.name}<small> grade ${s.grade}%</small>
+          ${s.name}<small> Grade ${s.grade}%</small>
         </div>
       </div>`
         )
         .join("")
     : `<p class="text-muted mb-0">No students need attention 🎉</p>`;
+
+    //? Top Performs
+    const aboveAvg = stdWithGrade
+    .filter ((s) => s.grade > avg && s.grade > 60);
+
+    const topStudents = [...aboveAvg]
+    .sort ((a, b) => b.grade - a.grade)
+    .slice (0, 3);
+
+    document.getElementById("performers-list").innerHTML = topStudents.length
+    ? topStudents
+        .map(
+          (s) => `
+      <div class="q">
+        <span class="av">${getInitials(s.name)}</span>
+        <div class="t">
+          ${s.name}<small> Grade ${s.grade}%</small>
+        </div>
+      </div>`
+        )
+        .join("")
+    : `<p class="text-muted mb-0">No students to display</p>`;
 
 }
 
