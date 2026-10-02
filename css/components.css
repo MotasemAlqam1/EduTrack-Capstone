@@ -7,17 +7,21 @@
 }
 .strip {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr; /* phones: stacked */
   gap: 1rem;
   padding: 1.1rem 1.25rem;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .strip {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 0;
+  }
+  .strip .it {
+    justify-content: center; /* center each stat in its column */
+    padding: 0 1.25rem;
   }
   .strip .it + .it {
     border-left: 1px solid var(--line);
-    padding-left: 1.25rem;
   }
 }
 .it {

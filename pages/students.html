@@ -5,375 +5,507 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EduTrack – Students</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Main CSS -->
   <link href="../css/main.css" rel="stylesheet" />
+  <!-- Student Modal CSS -->
+  <link href="../css/modal.css" rel="stylesheet" />
+
+  <style>
+    /* Students Table*/
+
+    .students-list {
+      width: 100%;
+      margin-top: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      box-shadow: 0 4px 16px rgba(17, 24, 39, 0.05);
+    }
+
+    .students-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 850px;
+    }
+
+    /* Table Header */
+
+    .students-table thead {
+      background: #f8f9fc;
+    }
+
+    .students-table th {
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Table Body */
+
+    .students-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+      vertical-align: middle;
+    }
+
+    /* Remove border from last row */
+
+    .students-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Hover */
+
+    .students-table tbody tr {
+      transition: background 0.2s ease;
+    }
+
+    .students-table tbody tr:hover {
+      background: #f8f9ff;
+    }
+
+    /* Student Name */
+
+    .students-table td:first-child {
+      min-width: 180px;
+    }
+
+    .students-table td:first-child strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .students-table td:first-child small {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Email */
+
+    .students-table td:nth-child(2) {
+      color: var(--muted);
+    }
+
+    /* Courses */
+
+    .course {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 2px 4px 2px 0;
+      background: #eef0ff;
+      color: var(--primary);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    /* Status */
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .status.active {
+      background: #e8f7ee;
+      color: #218739;
+    }
+
+    .status.archived {
+      background: #f1f2f4;
+      color: #6b7280;
+    }
+
+    /* Actions */
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .action-btn {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .action-btn i {
+      font-size: 14px;
+    }
+
+    /* Update */
+
+    .update-btn {
+      color: var(--primary);
+    }
+
+    .update-btn:hover {
+      background: #eef0ff;
+      border-color: var(--primary-soft);
+    }
+
+    /* Delete */
+
+    .delete-btn {
+      color: #dc3545;
+    }
+
+    .delete-btn:hover {
+      background: #fff0f0;
+      border-color: #f5b5b5;
+    }
+
+    /* Responsive*/
+
+    @media (max-width: 900px) {
+
+      .students-list {
+        overflow-x: auto;
+      }
+
+      .students-table {
+        min-width: 800px;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .students-table th,
+      .students-table td {
+        padding: 14px 12px;
+      }
+
+      .students-table th {
+        font-size: 12px;
+      }
+
+      .students-table td {
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- CSS-only toggle for the desktop burger (no JavaScript) -->
   <input type="checkbox" id="navToggle" class="d-none" aria-hidden="true" />
 
   <div class="layout">
+
     <!-- Sidebar -->
     <aside class="sidebar offcanvas-lg offcanvas-start" id="sidebar" tabindex="-1">
       <div class="d-flex justify-content-between align-items-start">
-        <a href="dashboard.html" class="brand"><span class="brand-mark"><i
-              class="bi bi-mortarboard-fill"></i></span>EduTrack</a>
+        <a href="dashboard.html" class="brand">
+          <span class="brand-mark"><i class="bi bi-mortarboard-fill"></i></span>
+          EduTrack
+        </a>
         <button class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
+
       <nav class="nav flex-column gap-1">
-        <a class="nav-link" href="dashboard.html"><i class="bi bi-grid-1x2-fill"></i>Dashboard</a>
-        <a class="nav-link active" href="students.html"><i class="bi bi-people"></i>Students</a>
+        <a class="nav-link" href="dashboard.html">
+          <i class="bi bi-grid-1x2-fill"></i> Dashboard
+        </a>
+        <a class="nav-link active" href="students.html">
+          <i class="bi bi-people"></i> Students
+        </a>
         <a class="nav-link active" href="courses.html">
-
           <i class="bi bi-book"></i>
-
           Courses
-
         </a>
       </nav>
+
       <nav class="nav flex-column bottom">
-        <a class="nav-link" href="../index.html"><i class="bi bi-box-arrow-left"></i>Log out</a>
+        <a class="nav-link" href="../index.html">
+          <i class="bi bi-box-arrow-left"></i> Log out
+        </a>
       </nav>
     </aside>
 
+    <!-- Main Content -->
     <div class="content">
-      <!-- Top navbar -->
+
+      <!-- Top Navbar -->
       <header class="topbar">
         <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
           aria-label="Open menu">
           <i class="bi bi-list fs-5"></i>
         </button>
-        <label for="navToggle" class="icon-btn d-none d-lg-grid" style="place-items: center; cursor: pointer"
-          aria-label="Toggle menu"><i class="bi bi-list fs-5"></i></label>
+
+        <label for="navToggle" class="icon-btn d-none d-lg-grid" style="place-items:center;cursor:pointer"
+          aria-label="Toggle menu">
+          <i class="bi bi-list fs-5"></i>
+        </label>
+
         <h1 class="me-auto">Students</h1>
+
+        <!-- Search -->
         <form class="search" role="search" action="students.html">
-          <i class="bi bi-search"></i><input class="form-control" type="search" name="q" placeholder="Search students"
+          <i class="bi bi-search"></i>
+          <input class="form-control" type="search" name="q" placeholder="Search students"
             aria-label="Search students" />
         </form>
+
+        <!-- Profile -->
         <div class="dropdown">
-          <button class="avatar" data-bs-toggle="dropdown" aria-label="Profile menu">
-            AM
-          </button>
+          <button class="avatar" data-bs-toggle="dropdown" aria-label="Profile menu">AM</button>
+
           <div class="dropdown-menu dropdown-menu-end p-3 shadow border-0 dd">
             <div class="d-flex gap-3 align-items-center mb-2">
               <span class="avatar avatar-lg">AM</span>
               <div>
                 <b>Dr. Ahmad Mohammad</b>
-                <div class="small text-muted">
-                  Instructor · Computer Science
-                </div>
+                <div class="small text-muted">Instructor · Computer Science</div>
                 <div class="small text-muted">demo@edutrack.com</div>
               </div>
             </div>
+
             <hr class="my-2" />
-            <a class="dropdown-item rounded" href="#" data-bs-toggle="modal" data-bs-target="#profileModal"><i
-                class="bi bi-person me-2"></i>My profile</a>
-            <a class="dropdown-item rounded text-danger" href="../index.html"><i
-                class="bi bi-box-arrow-right me-2"></i>Log out</a>
+
+            <a class="dropdown-item rounded" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
+              <i class="bi bi-person me-2"></i> My profile
+            </a>
+
+            <a class="dropdown-item rounded text-danger" href="../index.html">
+              <i class="bi bi-box-arrow-right me-2"></i> Log out
+            </a>
           </div>
         </div>
       </header>
 
+      <!-- Students Content -->
       <main class="p-3 p-lg-4">
+
+        <!-- Header -->
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-          <p class="text-muted mb-0">
-            Manage your students and track their progress.
-          </p>
+          <p class="text-muted mb-0">Manage your students and track their progress.</p>
+
           <button class="btn btn-green px-3" data-bs-toggle="modal" data-bs-target="#studentModal">
-            <i class="bi bi-plus-lg me-1"></i>Add student
+            <i class="bi bi-plus-lg me-1"></i> Add student
           </button>
         </div>
+
+        <!-- Filters -->
         <div class="nav-tabs-x mb-3">
           <div class="nav-tabs-x">
-            <button class="btn active">All (6)</button><button class="btn">Active (2)</button><button class="btn">At
-              risk (3)</button><button class="btn">Archived (1)</button>
+            <button class="btn active">All (6)</button>
+            <button class="btn">Active (2)</button>
+            <button class="btn">At risk (3)</button>
+            <button class="btn">Archived (1)</button>
           </div>
+
           <select class="form-select form-select-sm w-auto ms-auto" aria-label="Filter by course">
             <option>All courses</option>
             <option>Web Development</option>
             <option>JavaScript</option>
             <option>Databases</option>
           </select>
+
           <button class="btn">
-            <i class="bi bi-download me-1"></i>Export CSV
+            <i class="bi bi-download me-1"></i> Export CSV
           </button>
         </div>
-        <div class="box">
-          <div class="table-responsive">
-            <table class="table mb-0">
-              <thead>
-                <tr>
-                  <th>Student</th>
-                  <th>ID</th>
-                  <th>Courses</th>
-                  <th>Total grade</th>
-                  <th>Attendance</th>
-                  <th>Status</th>
-                  <th class="text-end">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>Lina Hamdan</b></td>
-                  <td>ST-1021</td>
-                  <td>Web Development</td>
-                  <td style="min-width: 120px">
-                    <div class="small mb-1">92%</div>
-                    <div class="prog"><span style="width: 92%"></span></div>
-                  </td>
-                  <td>97%</td>
-                  <td><span class="badge-soft b-ok">Active</span></td>
-                  <td class="text-end text-nowrap">
-                    <button class="btn-ico" data-bs-toggle="modal" data-bs-target="#studentModal"
-                      aria-label="Edit Lina Hamdan">
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button class="btn-ico" aria-label="Archive Lina Hamdan">
-                      <i class="bi bi-archive"></i>
-                    </button>
-                    <button class="btn-ico text-danger" aria-label="Delete Lina Hamdan">
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>Omar Khaled</b></td>
-                  <td>ST-1034</td>
-                  <td>Databases</td>
-                  <td style="min-width: 120px">
-                    <div class="small mb-1">61%</div>
-                    <div class="prog"><span style="width: 61%"></span></div>
-                  </td>
-                  <td>78%</td>
-                  <td><span class="badge-soft b-warn">At risk</span></td>
-                  <td class="text-end text-nowrap">
-                    <button class="btn-ico" data-bs-toggle="modal" data-bs-target="#studentModal"
-                      aria-label="Edit Omar Khaled">
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button class="btn-ico" aria-label="Archive Omar Khaled">
-                      <i class="bi bi-archive"></i>
-                    </button>
-                    <button class="btn-ico text-danger" aria-label="Delete Omar Khaled">
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>Sara Nasser</b></td>
-                  <td>ST-0987</td>
-                  <td>JavaScript</td>
-                  <td style="min-width: 120px">
-                    <div class="small mb-1">84%</div>
-                    <div class="prog"><span style="width: 84%"></span></div>
-                  </td>
-                  <td>90%</td>
-                  <td><span class="badge-soft b-arch">Archived</span></td>
-                  <td class="text-end text-nowrap">
-                    <button class="btn-ico" data-bs-toggle="modal" data-bs-target="#studentModal"
-                      aria-label="Edit Sara Nasser">
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button class="btn-ico" aria-label="Archive Sara Nasser">
-                      <i class="bi bi-archive"></i>
-                    </button>
-                    <button class="btn-ico text-danger" aria-label="Delete Sara Nasser">
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>Yazan Saleh</b></td>
-                  <td>ST-1040</td>
-                  <td>JavaScript, UI Design</td>
-                  <td style="min-width: 120px">
-                    <div class="small mb-1">73%</div>
-                    <div class="prog"><span style="width: 73%"></span></div>
-                  </td>
-                  <td>85%</td>
-                  <td><span class="badge-soft b-ok">Active</span></td>
-                  <td class="text-end text-nowrap">
-                    <button class="btn-ico" data-bs-toggle="modal" data-bs-target="#studentModal"
-                      aria-label="Edit Yazan Saleh">
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button class="btn-ico" aria-label="Archive Yazan Saleh">
-                      <i class="bi bi-archive"></i>
-                    </button>
-                    <button class="btn-ico text-danger" aria-label="Delete Yazan Saleh">
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>Rana Haddad</b></td>
-                  <td>ST-1012</td>
-                  <td>Web Development</td>
-                  <td style="min-width: 120px">
-                    <div class="small mb-1">64%</div>
-                    <div class="prog"><span style="width: 64%"></span></div>
-                  </td>
-                  <td>68%</td>
-                  <td><span class="badge-soft b-warn">At risk</span></td>
-                  <td class="text-end text-nowrap">
-                    <button class="btn-ico" data-bs-toggle="modal" data-bs-target="#studentModal"
-                      aria-label="Edit Rana Haddad">
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button class="btn-ico" aria-label="Archive Rana Haddad">
-                      <i class="bi bi-archive"></i>
-                    </button>
-                    <button class="btn-ico text-danger" aria-label="Delete Rana Haddad">
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td><b>Dana Ali</b></td>
-                  <td>ST-1055</td>
-                  <td>Databases</td>
-                  <td style="min-width: 120px">
-                    <div class="small mb-1">56%</div>
-                    <div class="prog"><span style="width: 56%"></span></div>
-                  </td>
-                  <td>82%</td>
-                  <td><span class="badge-soft b-warn">At risk</span></td>
-                  <td class="text-end text-nowrap">
-                    <button class="btn-ico" data-bs-toggle="modal" data-bs-target="#studentModal"
-                      aria-label="Edit Dana Ali">
-                      <i class="bi bi-pencil"></i>
-                    </button>
-                    <button class="btn-ico" aria-label="Archive Dana Ali">
-                      <i class="bi bi-archive"></i>
-                    </button>
-                    <button class="btn-ico text-danger" aria-label="Delete Dana Ali">
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
+        <!-- Students Table -->
+        <div class="students-list">
+          <table class="students-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Courses</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <!-- Data will come from API -->
+            <tbody id="students-list"></tbody>
+          </table>
         </div>
-      </main>
     </div>
   </div>
 
+    </main>
+  </div>
+  </div>
+
+  <!-- Profile Modal -->
   <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileTitle">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0" style="border-radius: 16px">
-        <form action="#">
+      <div class="modal-content border-0" style="border-radius:16px">
+        <form action="#" id="add-student-form">
+
           <div class="modal-header border-0">
-            <h2 class="modal-title h5 fw-bold" id="profileTitle">
-              My profile
-            </h2>
+            <h2 class="modal-title h5 fw-bold" id="profileTitle">My profile</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+
           <div class="modal-body">
             <div class="d-flex align-items-center gap-3 mb-3">
               <span class="avatar avatar-lg">AM</span>
               <div>
-                <label class="btn btn-light btn-sm mb-1" for="pPhoto">Upload photo</label><input id="pPhoto" type="file"
-                  accept="image/*" class="d-none" />
+                <label class="btn btn-light btn-sm mb-1" for="pPhoto">Upload photo</label>
+                <input id="pPhoto" type="file" accept="image/*" class="d-none" />
                 <div class="small text-muted">JPG or PNG, up to 5 MB</div>
               </div>
             </div>
+
             <div class="row g-3">
               <div class="col-12">
-                <label class="form-label" for="p-name">Full name</label><input id="p-name" class="form-control"
-                  value="Dr. Ahmad Mohammad" />
+                <label class="form-label" for="p-name">Full name</label>
+                <input id="p-name" class="form-control" value="Dr. Ahmad Mohammad" />
               </div>
+
               <div class="col-6">
-                <label class="form-label" for="p-role">Role</label><select id="p-role" class="form-select">
+                <label class="form-label" for="p-role">Role</label>
+                <select id="p-role" class="form-select">
                   <option selected>Instructor</option>
                   <option>University lecturer</option>
                   <option>Trainer</option>
                 </select>
               </div>
+
               <div class="col-6">
-                <label class="form-label" for="p-dept">Department / subject</label><input id="p-dept"
-                  class="form-control" value="Computer Science" />
+                <label class="form-label" for="p-dept">Department / subject</label>
+                <input id="p-dept" class="form-control" value="Computer Science" />
               </div>
+
               <div class="col-6">
-                <label class="form-label" for="p-phone">Phone number</label><input id="p-phone" type="tel"
-                  class="form-control" placeholder="+962 7X XXX XXXX" />
+                <label class="form-label" for="p-phone">Phone number</label>
+                <input id="p-phone" type="tel" class="form-control" placeholder="+962 7X XXX XXXX" />
               </div>
+
               <div class="col-6">
-                <label class="form-label" for="p-pemail">Personal email</label><input id="p-pemail" type="email"
-                  class="form-control" placeholder="you@gmail.com" />
+                <label class="form-label" for="p-pemail">Personal email</label>
+                <input id="p-pemail" type="email" class="form-control" placeholder="you@gmail.com" />
               </div>
+
               <div class="col-12">
-                <label class="form-label">Sign-in email</label><input class="form-control" value="demo@edutrack.com"
-                  disabled />
+                <label class="form-label">Sign-in email</label>
+                <input class="form-control" value="demo@edutrack.com" disabled />
               </div>
             </div>
           </div>
+
           <div class="modal-footer border-0">
-            <button type="button" class="btn btn-light" data-bs-dismiss="modal">
-              Cancel</button><button type="submit" class="btn btn-green">Save profile</button>
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-green">Save profile</button>
           </div>
+
         </form>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentTitle">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0" style="border-radius: 16px">
-        <form action="#">
-          <div class="modal-header border-0">
-            <h2 class="modal-title h5 fw-bold" id="studentTitle">
-              Add / edit student
-            </h2>
+
+  <!-- Add / Edit Student Modal -->
+  <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content student-modal">
+
+        <form id="studentForm" class="d-flex flex-column overflow-hidden">
+
+          <div class="modal-header">
+            <h2 class="modal-title" id="studentTitle">Add New Student</h2>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+
           <div class="modal-body">
-            <div class="row g-3">
-              <div class="col-7">
-                <label class="form-label" for="f-name">Full name</label><input id="f-name" type="text"
-                  class="form-control" placeholder="Lina Hamdan" required />
-              </div>
-              <div class="col-5">
-                <label class="form-label" for="f-code">Student ID</label><input id="f-code" type="text"
-                  class="form-control" placeholder="ST-1021" required />
-              </div>
+            <div class="row g-4">
+
               <div class="col-12">
-                <label class="form-label" for="f-courses">Enrolled courses (comma separated)</label><input
-                  id="f-courses" type="text" class="form-control" placeholder="Web Development, Databases" />
+                <label class="form-label" for="f-name">Name</label>
+                <input id="f-name" name="name" type="text" class="form-control" placeholder="e.g. Ahmad Khaled"
+                  required />
               </div>
-              <div class="col-6">
-                <label class="form-label" for="f-a">Assignments (30%)</label><input id="f-a" type="number"
-                  class="form-control" placeholder="" min="0" max="100" />
+
+              <div class="col-md-6">
+                <label class="form-label" for="f-code">Student ID</label>
+                <input id="f-code" name="studentId" type="text" class="form-control" placeholder="e.g. 31947"
+                  required />
               </div>
-              <div class="col-6">
-                <label class="form-label" for="f-q">Quizzes (20%)</label><input id="f-q" type="number"
-                  class="form-control" placeholder="" min="0" max="100" />
+
+              <div class="col-md-6">
+                <label class="form-label" for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" class="form-control" placeholder="name@example.com" />
               </div>
-              <div class="col-6">
-                <label class="form-label" for="f-e">Exam (50%)</label><input id="f-e" type="number" class="form-control"
-                  placeholder="" min="0" max="100" />
-              </div>
-              <div class="col-6">
-                <label class="form-label" for="f-att">Attendance (%)</label><input id="f-att" type="number"
-                  class="form-control" placeholder="" min="0" max="100" />
-              </div>
+
               <div class="col-12">
-                <label class="form-label" for="f-fb">Feedback</label><textarea id="f-fb" class="form-control" rows="2"
-                  placeholder="Short note for this student"></textarea>
+                <label class="form-label" for="f-courses">Enrolled courses (comma-separated)</label>
+                <input id="f-courses" name="courses" type="text" class="form-control"
+                  placeholder="e.g. JavaScript:90, React:85" required />
               </div>
+
+              <div class="col-md-6">
+                <label class="form-label" for="f-phone">
+                  Phone <span class="label-optional">optional</span>
+                </label>
+                <input id="f-phone" name="phone" type="tel" class="form-control" placeholder="e.g. 07 9000 0000" />
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label" id="status-label">Status</label>
+                <div class="status-toggle" role="radiogroup" aria-labelledby="status-label">
+                  <input type="radio" class="btn-check" name="status" id="status-active" value="active" checked />
+                  <label class="status-option" for="status-active">Active</label>
+
+                  <input type="radio" class="btn-check" name="status" id="status-archived" value="archived" />
+                  <label class="status-option" for="status-archived">Archived</label>
+                </div>
+              </div>
+
             </div>
           </div>
-          <div class="modal-footer border-0">
-            <button type="button" class="btn btn-light" data-bs-dismiss="modal">
-              Cancel</button><button type="submit" class="btn btn-green">Save student</button>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-add" id="submitStudentBtn">Add Student</button>
           </div>
+
         </form>
       </div>
     </div>
   </div>
+
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/student.js"></script>
 </body>
 
 </html>
