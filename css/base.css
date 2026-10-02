@@ -1,19 +1,48 @@
 body {
   font-family: "Outfit", system-ui, sans-serif;
+
   background: var(--bg);
   color: var(--ink);
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
+
+
+/* ================= GREEN BUTTON ================= */
+
 .btn-green {
   background: var(--g5);
-  color: #fff;
+  color: #043426;
+
+  border: 1px solid var(--g5);
+
   border-radius: 12px;
-  font-weight: 500;
+
+  font-weight: 600;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
+
 .btn-green:hover {
   background: var(--g7);
-  color: #fff;
+  border-color: var(--g7);
+  color: #ffffff;
 }
+
+.btn-green:active {
+  transform: scale(0.98);
+}
+
+
+/* ================= ACCESSIBILITY ================= */
+
 :focus-visible {
-  outline: 3px solid var(--blue);
+  outline: 3px solid rgba(25, 211, 154, 0.35);
   outline-offset: 2px;
 }
