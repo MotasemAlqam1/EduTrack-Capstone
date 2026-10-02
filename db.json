@@ -690,7 +690,8 @@
       "email": "raneem.hassan@gmail.com",
       "phone": "0790000050",
       "courses": [
-        { "name": "JavaScript", "grade": 100 }
+        { "name": "JavaScript", "grade": 100 },
+        { "name": "JavaScript", "grade": 50 }
       ],
       "status": "active",
       "isDeleted": false

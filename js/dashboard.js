@@ -24,7 +24,6 @@ const getStudents = async (instructorId) => {
 
 // -------- [ RENDER ] --------
 const renderDashboard = (students) => {
-
   // Each student's grade = average of their course grades (must run before the stats)
   const stdWithGrade = students.map((s) => ({
     ...s,
@@ -32,7 +31,7 @@ const renderDashboard = (students) => {
   }));
 
   const needAttention = stdWithGrade
-    .filter((s) => s.grade < ATTENTION_GRADE);
+    .filter((s) =>s.grade > 1 &&  s.grade < ATTENTION_GRADE);
 
   // average
   const avg = Math.round(average(stdWithGrade.map((s) => s.grade)))
