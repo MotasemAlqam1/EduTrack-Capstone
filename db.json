@@ -1,8 +1,50 @@
 {
+  "instructors": [
+    {
+      "id": "1",
+      "name": "Nour jamal alsuht",
+      "email": "nour@gmail.com",
+      "password": "752003",
+      "department": "Computer Science",
+      "phone": "0797651441"
+    },
+    {
+      "id": "2",
+      "name": "Ahmad Ali",
+      "email": "ahmad@gmail.com",
+      "password": "123456",
+      "department": "Software Engineering",
+      "phone": "0791111111"
+    },
+    {
+      "id": "RZor5ZxwOPQ",
+      "name": "khoulod",
+      "email": "kholud@gmail.com",
+      "password": "1234567",
+      "department": "Cyper Security",
+      "phone": "0798767252"
+    },
+    {
+      "id": "1rtYHPmHqiU",
+      "name": "asmaa",
+      "email": "asmaa@gmail.com",
+      "password": "123456",
+      "department": "Computer Science",
+      "phone": "0798767252"
+    },
+    {
+      "id": "MiYQLvqpFg4",
+      "name": "tala mhmd",
+      "email": "tala@gmail.com",
+      "password": "1234567",
+      "department": "Computer Science",
+      "phone": "0798767252"
+    }
+  ],
   "students": [
     {
       "id": "1",
-      "instructorId": 1,
+      "instructorId": "1",
       "studentId": "STU001",
       "name": "Omar Khaled",
       "email": "omar@gmail.com",
@@ -18,20 +60,16 @@
         }
       ],
       "status": "active",
-      "isDeleted": true
+      "isDeleted": false
     },
     {
       "id": "2",
-      "instructorId": 1,
+      "instructorId": "1",
       "studentId": "STU002",
       "name": "Lina Ahmad",
       "email": "lina@gmail.com",
       "phone": "0790000002",
       "courses": [
-        {
-          "name": "Web Development",
-          "grade": 95
-        },
         {
           "name": "JavaScript",
           "grade": 88
@@ -42,144 +80,29 @@
     },
     {
       "id": "3",
-      "instructorId": 1,
+      "instructorId": "2",
       "studentId": "STU003",
-      "name": "Mohammad Ali",
-      "email": "mohammad@gmail.com",
-      "phone": "0790000003",
-      "courses": [
-        {
-          "name": "Web Development",
-          "grade": 78
-        }
-      ],
-      "status": "archived",
-      "isDeleted": false
-    },
-    {
-      "id": "4",
-      "instructorId": 2,
-      "studentId": "STU004",
       "name": "Rana Samir",
       "email": "rana@gmail.com",
-      "phone": "0790000004",
+      "phone": "0790000003",
       "courses": [
         {
           "name": "Database",
           "grade": 92
-        },
-        {
-          "name": "UI Design",
-          "grade": 86
         }
       ],
       "status": "active",
       "isDeleted": false
     },
     {
-      "name": "ahmadkayyali",
-      "studentId": "123",
-      "email": "ahmedkayyali2002@gmail.com",
-      "courses": [
-        {
-          "name": "JavaScript",
-          "grade": 94
-        }
-      ],
-      "phone": "0777874159",
-      "status": "active",
-      "id": "2wdzUtKYSIk",
-      "isDeleted": false
-    },
-    {
-      "name": "Nour ",
-      "studentId": "123",
-      "email": "Nour@gmail.com",
-      "courses": [
-        {
-          "name": "UI Design",
-          "grade": 81
-        }
-      ],
-      "phone": "0783634422",
-      "status": "active",
-      "id": "oVt-nyXpo9g",
-      "isDeleted": true
-    },
-    {
-      "name": "sdasdsa",
-      "studentId": "12323",
-      "email": "ahmad@asdasd",
-      "courses": [
-        {
-          "name": "Web Development",
-          "grade": 89
-        }
-      ],
-      "phone": "0777864159",
-      "status": "active",
-      "id": "OeQK49cXuls",
-      "isDeleted": false
-    },
-    {
-      "name": "asdsa",
-      "studentId": "1233",
-      "email": "aaaaaaa@aaaaaaa",
-      "courses": [
-        {
-          "name": "Database",
-          "grade": 76
-        }
-      ],
-      "phone": "0777777773",
+      "name": "nour alsaht",
+      "studentId": "2135607",
+      "email": "nouralsuht@gmail.com",
+      "courses": [],
+      "phone": "07963274913641",
       "status": "active",
       "isDeleted": false,
-      "id": "Df8edfMG69E"
-    },
-    {
-      "name": "muatsm ",
-      "studentId": "3423",
-      "email": "muatsm@sads",
-      "courses": [
-        {
-          "name": "JavaScript",
-          "grade": 84
-        }
-      ],
-      "phone": "05324324234",
-      "status": "active",
-      "id": "sdUnvFxgeCc",
-      "isDeleted": true
-    },
-    {
-      "name": "kayyali",
-      "studentId": "321123",
-      "email": "kayyaliahmed33@gmail.com",
-      "courses": [
-        {
-          "name": "UI Design",
-          "grade": 91
-        }
-      ],
-      "phone": "0777874159",
-      "status": "active",
-      "isDeleted": true,
-      "id": "DohXVayS3Ug"
-    },
-    {
-      "name": "kayyaliahmad",
-      "studentId": "weq",
-      "email": "kayyaliahmad2002@gmail.com",
-      "courses": [
-        {
-          "name": "react",
-          "grade": 90
-        }
-      ],
-      "phone": "0777874159",
-      "status": "active",
-      "isDeleted": false,
-      "id": "4RzGpBBoiLQ"
+      "id": "dDtwJAzlbBU"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
