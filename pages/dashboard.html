@@ -85,11 +85,6 @@
             <span class="ico" style="background: #e3f3fb; color: var(--blue)"><i class="bi bi-journal-check"></i></span>
             <div><b id="state-avg-grade">0%</b><small>Average grade</small></div>
           </div>
-          <!-- <div class="it">
-            <span class="ico" style="background: #e3f3fb; color: var(--blue)"><i
-                class="bi bi-calendar2-check"></i></span>
-            <div><b id="state-attendance">0%</b><small>Attendance</small></div>
-          </div> -->
           <div class="it">
             <span class="ico" style="background: #fdf1d6; color: var(--amber)"><i
                 class="bi bi-exclamation-lg"></i></span>
@@ -144,29 +139,11 @@
           <div class="box">
             <div class="d-flex justify-content-between">
               <h2>Students needing attention</h2>
-              <a href="students.html" class="small text-decoration-none">View all</a>
+              <!-- Todo: Must navigate into students in risk filter -->
+              <!-- <a href="students.html" class="small text-decoration-none">View all</a> -->
             </div>
-            <div class="q">
-              <span class="av">OK</span>
-              <div class="t">
-                Omar Khaled<small>Databases · grade 61% · attendance 78%</small>
-              </div>
-              <a class="btn-line text-decoration-none" href="students.html">View</a>
-            </div>
-            <div class="q">
-              <span class="av">RH</span>
-              <div class="t">
-                Rana Haddad<small>Web Development · grade 64% · attendance 68%</small>
-              </div>
-              <a class="btn-line text-decoration-none" href="students.html">View</a>
-            </div>
-            <div class="q">
-              <span class="av">DA</span>
-              <div class="t">
-                Dana Ali<small>Databases · grade 56% · attendance 82%</small>
-              </div>
-              <a class="btn-line text-decoration-none" href="students.html">View</a>
-            </div>
+           
+              <div id="attention-list"></div>
           </div>
         </div>
         <div class="col-lg-6">
