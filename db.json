@@ -1,0 +1,36 @@
+{
+    "instructors": [],
+    "students": [],
+    "courses": [
+        {
+            "id": "COURSE001",
+            "name": "Web Development",
+            "description": "Learn modern web development technologies and build web applications.",
+            "category": "Web Development",
+            "instructorId": "INS001"
+        },
+        {
+            "id": "COURSE002",
+            "name": "JavaScript",
+            "description": "Learn JavaScript programming and modern web development concepts.",
+            "category": "Programming",
+            "instructorId": "INS001"
+        },
+        {
+            "id": "COURSE003",
+            "name": "Databases",
+            "description": "Learn database concepts, SQL, data management, and relational databases.",
+            "category": "Database",
+            "instructorId": "INS001"
+        },
+        {
+            "id": "COURSE004",
+            "name": "UI Design",
+            "description": "Learn user interface design principles and create effective user experiences.",
+            "category": "Design",
+            "instructorId": "INS001"
+        }
+    ],
+    "assessments": [],
+    "attendance": []
+}
