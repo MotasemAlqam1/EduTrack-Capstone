@@ -1,527 +1,571 @@
 /* ================= BOX ================= */
-
+ 
 .box {
   height: 100%;
-
+ 
   padding: 1.25rem;
-
+ 
   background: var(--surface);
-
+ 
   color: var(--ink);
-
+ 
   border: 1px solid var(--line);
-
+ 
   border-radius: 18px;
-
+ 
   box-shadow: 0 8px 24px var(--shadow);
 }
-
-
+ 
+ 
 /* ================= STATS STRIP ================= */
-
+ 
 .strip {
   display: grid;
-
+ 
   grid-template-columns: repeat(2, 1fr);
-
+ 
   gap: 1rem;
-
+ 
   padding: 1.1rem 1.25rem;
 }
-
-
+ 
+ 
 @media (min-width: 992px) {
-
+ 
   .strip {
     grid-template-columns: repeat(3, 1fr);
   }
-
-
+ 
+ 
   .strip .it + .it {
     border-left: 1px solid var(--line);
-
+ 
     padding-left: 1.25rem;
   }
-
+ 
 }
-
-
+ 
+ 
+.strip .it {
+  justify-content: center;
+}
+ 
+ 
 /* ================= STAT ITEM ================= */
-
+ 
 .it {
   display: flex;
-
+ 
   gap: 0.8rem;
-
+ 
   align-items: center;
 }
-
-
+ 
+ 
 .it .ico {
   width: 48px;
   height: 48px;
-
+ 
   border-radius: 50%;
-
+ 
   display: grid;
   place-items: center;
-
+ 
   font-size: 1.25rem;
-
+ 
   flex: none;
 }
-
-
+ 
+ 
 .it b {
   display: block;
-
+ 
   color: var(--ink);
-
+ 
   font-size: 1.6rem;
-
+ 
   line-height: 1.1;
 }
-
-
+ 
+ 
 .it small {
   color: var(--muted);
 }
-
-
+ 
+ 
 /* ================= BOX TITLE ================= */
-
+ 
 .box h2 {
   color: var(--ink);
-
+ 
   font-size: 1.05rem;
-
+ 
   font-weight: 600;
 }
-
-
+ 
+ 
 /* ================= GRADE PILLS ================= */
-
+ 
 .pills {
   display: flex;
-
+ 
   justify-content: space-between;
-
+ 
   align-items: flex-end;
-
+ 
   height: 190px;
-
+ 
   padding: 0 0.5rem;
 }
-
-
+ 
+ 
 .pills > div {
   width: 40px;
-
+ 
   text-align: center;
-
+ 
   color: var(--muted);
-
+ 
   font-size: 0.8rem;
 }
-
-
+ 
+ 
 .pills .col {
   display: flex;
-
+ 
   flex-direction: column;
-
+ 
   justify-content: flex-end;
-
+ 
   gap: 5px;
-
+ 
   height: 140px;
 }
-
-
+ 
+ 
 .pills .col i {
   display: block;
-
+ 
   border-radius: 999px;
 }
-
-
+ 
+ 
 .pills .a {
   background: var(--blue);
 }
-
-
+ 
+ 
 .pills .b {
   background: var(--g5);
 }
-
-
+ 
+ 
 .pills .cnt {
   display: block;
-
+ 
   height: 20px;
-
+ 
   color: var(--ink);
-
+ 
   font-size: 0.75rem;
-
+ 
   font-weight: 600;
 }
-
-
+ 
+ 
 /* ================= LEGEND ================= */
-
+ 
 .legend {
   color: var(--muted);
-
+ 
   font-size: 0.75rem;
 }
-
-
+ 
+ 
 .legend i {
   display: inline-block;
-
+ 
   width: 8px;
   height: 8px;
-
+ 
   margin: 0 4px 0 10px;
-
+ 
   border-radius: 50%;
 }
-
-
+ 
+ 
 /* ================= PERSON ROW ================= */
-
+ 
 .q {
   display: flex;
-
+ 
   gap: 0.8rem;
-
+ 
   align-items: center;
-
+ 
   padding: 0.65rem 0;
 }
-
-
+ 
+ 
 .q .av {
   width: 42px;
   height: 42px;
-
+ 
   border-radius: 12px;
-
+ 
   background: var(--g1);
-
+ 
   color: var(--g5);
-
+ 
   display: grid;
   place-items: center;
-
+ 
   font-weight: 600;
-
+ 
   flex: none;
 }
-
-
+ 
+ 
 .q .t {
   flex: 1;
-
+ 
   min-width: 0;
-
+ 
   color: var(--ink);
-
+ 
   font-weight: 500;
-
+ 
   font-size: 0.92rem;
 }
-
-
+ 
+ 
 .q .t small {
   display: block;
-
+ 
   color: var(--g5);
 }
-
-
+ 
+ 
 .q .arch {
   border: 0;
-
+ 
   background: transparent;
-
+ 
   color: var(--red);
-
+ 
   font-size: 0.8rem;
 }
-
-
+ 
+ 
 /* ================= OUTLINE BUTTON ================= */
-
+ 
 .btn-line {
   padding: 0.3rem 0.7rem;
-
+ 
   border: 1px solid var(--g5);
-
+ 
   border-radius: 10px;
-
+ 
   background: var(--surface);
-
+ 
   color: var(--g5);
-
+ 
   font-size: 0.82rem;
 }
-
-
+ 
+ 
 .btn-line:hover {
   background: var(--g1);
-
+ 
   color: var(--g7);
 }
-
-
+ 
+ 
 /* ================= PROGRESS ================= */
-
+ 
 .prog {
   height: 8px;
-
+ 
   border-radius: 99px;
-
+ 
   background: var(--line);
-
+ 
   overflow: hidden;
 }
-
-
+ 
+ 
 .prog span {
   display: block;
-
+ 
   height: 100%;
-
+ 
   background: var(--g5);
 }
-
-
+ 
+ 
 /* ================= FILTER TABS ================= */
-
+ 
 .nav-tabs-x {
   display: flex;
-
+ 
   gap: 0.5rem;
-
+ 
   flex-wrap: wrap;
 }
-
-
+ 
+ 
 .nav-tabs-x .btn {
   border: 1px solid var(--line);
-
+ 
   background: var(--surface);
-
+ 
   color: var(--ink);
-
+ 
   border-radius: 10px;
-
+ 
   font-size: 0.9rem;
 }
-
-
+ 
+ 
 .nav-tabs-x .btn:hover {
   background: var(--surface-soft);
-
+ 
   border-color: var(--g5);
 }
-
-
+ 
+ 
 .nav-tabs-x .btn.active {
   background: var(--g5);
-
+ 
   color: #04271d;
-
+ 
   border-color: var(--g5);
 }
-
-
+ 
+ 
 /* ================= TABLE ================= */
-
+ 
 .table {
   color: var(--ink);
 }
-
-
+ 
+ 
 .table thead th {
   color: var(--muted);
-
+ 
   font-weight: 500;
-
+ 
   font-size: 0.82rem;
-
+ 
   border-bottom: 1px solid var(--line);
 }
-
-
+ 
+ 
 .table > :not(caption) > * > * {
   padding: 0.85rem 0.6rem;
-
+ 
   vertical-align: middle;
-
+ 
   background: transparent;
-
+ 
   color: var(--ink);
-
+ 
   border-color: var(--line);
 }
-
-
+ 
+ 
 /* ================= BADGES ================= */
-
+ 
 .badge-soft {
   border-radius: 999px;
-
+ 
   padding: 0.3em 0.75em;
-
+ 
   font-weight: 500;
-
+ 
   font-size: 0.78rem;
 }
-
-
+ 
+ 
 .b-ok {
   background: var(--g1);
-
+ 
   color: var(--g7);
 }
-
-
+ 
+ 
 .b-warn {
   background: rgba(242, 183, 75, 0.17);
-
+ 
   color: var(--amber);
 }
-
-
+ 
+ 
 .b-arch {
   background: var(--surface-soft);
-
+ 
   color: var(--muted);
 }
-
-
+ 
+ 
 /* ================= ICON BUTTON ================= */
-
+ 
 .btn-ico {
   width: 32px;
   height: 32px;
-
+ 
   border: 1px solid var(--line);
-
+ 
   border-radius: 9px;
-
+ 
   background: var(--surface);
-
+ 
   color: var(--ink);
 }
-
-
+ 
+ 
 /* ================= COURSE BARS ================= */
-
+ 
 .hbar {
   display: flex;
-
+ 
   align-items: center;
-
+ 
   gap: 0.75rem;
-
+ 
   margin-bottom: 0.9rem;
-
+ 
   color: var(--ink);
-
+ 
   font-size: 0.9rem;
 }
-
-
+ 
+ 
 .hbar .n {
   width: 130px;
-
+ 
   color: var(--ink);
 }
-
-
+ 
+ 
 .hbar .prog {
   flex: 1;
 }
-
-
+ 
+ 
 .hbar .v {
   width: 42px;
-
+ 
   color: var(--ink);
-
+ 
   text-align: right;
-
+ 
   font-weight: 500;
 }
-
-
+ 
+ 
 /* ================= EMPTY STATE ================= */
-
+ 
 .empty {
   padding: 2.5rem 1rem;
-
+ 
   text-align: center;
-
+ 
   color: var(--muted);
 }
-
-
+ 
+ 
 .empty .ico {
   width: 64px;
   height: 64px;
-
+ 
   margin: 0 auto 1rem;
-
+ 
   border-radius: 18px;
-
+ 
   background: var(--g1);
-
+ 
   color: var(--g5);
-
+ 
   display: grid;
   place-items: center;
-
+ 
   font-size: 1.8rem;
 }
-
-
+ 
+ 
 .empty h3 {
   color: var(--ink);
-
+ 
   font-size: 1.1rem;
 }
-
-
+ 
+ 
 /* ================= TOAST ================= */
-
+ 
 .toast-x {
   position: fixed;
-
+ 
   right: 1.25rem;
   bottom: 1.25rem;
-
+ 
   z-index: 2000;
-
+ 
   padding: 0.75rem 1.1rem;
-
+ 
   border-radius: 12px;
-
+ 
   background: var(--g9);
-
+ 
   color: #ffffff;
-
+ 
   box-shadow: 0 8px 24px var(--shadow);
+}
+ 
+ 
+/* ================= FORM ERROR ================= */
+ 
+.form-error {
+  color: var(--red);
+ 
+  font-size: 0.88rem;
+}
+ 
+/* ================= TABLE ACTION BUTTONS ================= */
+ 
+.table .btn-light {
+  background: var(--surface-soft);
+ 
+  color: var(--ink);
+ 
+  border: 1px solid var(--line);
+}
+ 
+ 
+.table .btn-light:hover {
+  background: var(--g1);
+ 
+  border-color: var(--g5);
 }
 
 
-/* ================= FORM ERROR ================= */
+/* ================= SIDEBAR SHORTCUTS ================= */
 
-.form-error {
-  color: var(--red);
+.shortcuts-toggle .chev {
+  margin-left: auto;
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
 
-  font-size: 0.88rem;
+.shortcuts-toggle[aria-expanded="true"] .chev {
+  transform: rotate(180deg);
+}
+
+#shortcutsMenu .nav {
+  padding-top: 0.25rem;
+}
+
+#shortcutsMenu .nav-link {
+  padding-left: 2rem;
+  font-size: 0.92rem;
 }
