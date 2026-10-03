@@ -2,22 +2,6 @@
   "resources": [],
   "instructors": [
     {
-      "id": "1",
-      "name": "Nour jamal alsuhtt",
-      "email": "nour@gmail.com",
-      "password": "752003",
-      "department": "Computer Science",
-      "phone": "0797651441"
-    },
-    {
-      "id": "2",
-      "name": "Ahmad Ali",
-      "email": "ahmad@gmail.com",
-      "password": "123456",
-      "department": "Software Engineering",
-      "phone": "0791111111"
-    },
-    {
       "id": "RZor5ZxwOPQ",
       "name": "khoulod",
       "email": "kholud@gmail.com",
@@ -48,6 +32,14 @@
       "password": "12345678",
       "department": "Development",
       "phone": "65757657654765"
+    },
+    {
+      "id": "2nDVTOMPqIA",
+      "name": "‬ahmad kayyali",
+      "email": "ahmedkayyali2002@gmail.com",
+      "password": "ahmad12345",
+      "department": "sdasdasdas",
+      "phone": "0777874159"
     },
     {
       "id": "bbJ2fnfIDoc",
@@ -2127,12 +2119,9 @@
       "isDeleted": false
     },
     {
-      "id": "99",
-      "instructorId": 1,
-      "studentId": "STU099",
       "name": "Sami Hassan",
+      "studentId": "STU099",
       "email": "sami.hassan@gmail.com",
-      "phone": "0790000099",
       "courses": [
         {
           "name": "JavaScript",
@@ -2143,16 +2132,15 @@
           "grade": 41
         }
       ],
-      "status": "active",
-      "isDeleted": false
+      "phone": "0790000099",
+      "status": "archived",
+      "isDeleted": false,
+      "id": "99"
     },
     {
-      "id": "100",
-      "instructorId": 2,
-      "studentId": "STU100",
       "name": "Mariam Ahmad",
+      "studentId": "STU100",
       "email": "mariam.ahmad@gmail.com",
-      "phone": "0790000100",
       "courses": [
         {
           "name": "UI Design",
@@ -2163,8 +2151,10 @@
           "grade": 92
         }
       ],
-      "status": "active",
-      "isDeleted": false
+      "phone": "0790000100",
+      "status": "archived",
+      "isDeleted": false,
+      "id": "100"
     },
     {
       "name": "Motasem Alqam",
@@ -2175,6 +2165,22 @@
       "status": "active",
       "isDeleted": true,
       "id": "CPKAwMbDdVM"
+    },
+    {
+      "name": "studentone",
+      "studentId": "1234",
+      "email": "studentone@gmail.com",
+      "courses": [
+        {
+          "name": "react",
+          "grade": 90
+        }
+      ],
+      "phone": "12312413432",
+      "status": "archived",
+      "instructorId": "2nDVTOMPqIA",
+      "isDeleted": false,
+      "id": "09Nl3h6Omsc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
