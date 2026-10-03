@@ -110,105 +110,221 @@
 
             </form>
           </div>
+ <!-- REGISTER -->
+<div id="registerSection" class="d-none">
 
-          <!-- REGISTER -->
-          <div id="registerSection" class="d-none">
+  <h1 class="h3 fw-bold">Create account</h1>
+  <p class="text-muted">Register as an instructor.</p>
 
-            <h1 class="h3 fw-bold">Create account</h1>
-            <p class="text-muted">Register as an instructor.</p>
+  <form id="registerForm">
 
-            <form id="registerForm">
+    <!-- FULL NAME -->
+    <div class="mb-3">
+      <label
+        class="form-label"
+        for="registerName"
+      >
+        Full name
+      </label>
 
-              <div class="mb-3">
-                <label class="form-label" for="registerName">Full name</label>
-                <input id="registerName" type="text" class="form-control"
-                  required />
-              </div>
-              <div class="mb-3">
-                <label class="form-label" for="registerPhone">Phone
-                  number</label>
-                <input id="registerPhone" type="tel" class="form-control"
-                  placeholder="+962 7X XXX XXXX" required />
-              </div>
+      <input
+        id="registerName"
+        type="text"
+        class="form-control"
+        required
+      />
+    </div>
 
-              <div class="mb-3">
-                <label class="form-label" for="registerEmail">Email</label>
-                <input id="registerEmail" type="email" class="form-control"
-                  required />
-              </div>
 
-              <div class="mb-3">
-                <label class="form-label" for="registerDepartment">Department /
-                  subject</label>
-                <input id="registerDepartment" type="text" class="form-control"
-                  required />
-              </div>
+    <!-- PHONE -->
+    <div class="mb-3">
 
-              <div class="mb-3">
+      <label
+        class="form-label"
+        for="registerPhone"
+      >
+        Phone number
+      </label>
 
-                <label class="form-label" for="registerPassword">
-                  Password
-                </label>
+      <input
+        id="registerPhone"
+        type="tel"
+        class="form-control"
+        placeholder="07********"
+        required
+      />
 
-                <div class="password-field">
+      <small id="phoneRegisterError"></small>
 
-                  <input
-                    id="registerPassword"
-                    type="password"
-                    class="form-control"
-                    minlength="6"
-                    required />
+    </div>
 
-                  <button
-                    type="button"
-                    class="toggle-password"
-                    data-target="registerPassword">
-                    <i class="bi bi-eye"></i>
-                  </button>
 
-                </div>
+    <!-- EMAIL -->
+    <div class="mb-3">
 
-              </div>
+      <label
+        class="form-label"
+        for="registerEmail"
+      >
+        Email
+      </label>
 
-              <div class="mb-3">
+      <input
+        id="registerEmail"
+        type="email"
+        class="form-control"
+        placeholder="name@example.com"
+        required
+      />
 
-                <label class="form-label" for="confirmPassword">
-                  Confirm password
-                </label>
+      <small id="emailRegisterError"></small>
 
-                <div class="password-field">
+    </div>
 
-                  <input
-                    id="confirmPassword"
-                    type="password"
-                    class="form-control"
-                    minlength="6"
-                    required />
 
-                  <button
-                    type="button"
-                    class="toggle-password"
-                    data-target="confirmPassword">
-                    <i class="bi bi-eye"></i>
-                  </button>
+    <!-- DEPARTMENT -->
+    <div class="mb-3">
 
-                </div>
+      <label
+        class="form-label"
+        for="registerDepartment"
+      >
+        Department / subject
+      </label>
 
-              </div>
+      <input
+        id="registerDepartment"
+        type="text"
+        class="form-control"
+        required
+      />
 
-              <p id="registerError" class="text-danger"></p>
+    </div>
 
-              <button class="btn btn-green" type="submit">Register</button>
 
-              <p class="text-center mt-3">
-                Already have an account?
-                <button type="button" class="btn btn-link p-0"
-                  id="showLogin">Sign in</button>
-              </p>
+    <!-- PASSWORD -->
+    <div class="mb-3">
 
-            </form>
-          </div>
+      <label
+        class="form-label"
+        for="registerPassword"
+      >
+        Password
+      </label>
 
+      <div class="password-field">
+
+        <input
+          id="registerPassword"
+          type="password"
+          class="form-control"
+          required
+        />
+
+        <button
+          type="button"
+          class="toggle-password"
+          data-target="registerPassword"
+        >
+          <i class="bi bi-eye"></i>
+        </button>
+
+      </div>
+ <div id="passwordRules" class="password-rules">
+
+  <div id="ruleLower">
+    <i class="bi bi-x-circle-fill"></i>
+    <span>At least one lowercase letter</span>
+  </div>
+
+  <div id="ruleUpper">
+    <i class="bi bi-x-circle-fill"></i>
+    <span>At least one uppercase letter</span>
+  </div>
+
+  <div id="ruleNumber">
+    <i class="bi bi-x-circle-fill"></i>
+    <span>At least one number</span>
+  </div>
+
+  <div id="ruleSpecial">
+    <i class="bi bi-x-circle-fill"></i>
+    <span>At least one special character</span>
+  </div>
+
+  <div id="ruleLength">
+    <i class="bi bi-x-circle-fill"></i>
+    <span>At least 6 characters</span>
+  </div>
+
+</div>
+
+
+    <!-- CONFIRM PASSWORD -->
+    <div class="mb-3">
+
+      <label
+        class="form-label"
+        for="confirmPassword"
+      >
+        Confirm password
+      </label>
+
+      <div class="password-field">
+
+        <input
+          id="confirmPassword"
+          type="password"
+          class="form-control"
+          required
+        />
+
+        <button
+          type="button"
+          class="toggle-password"
+          data-target="confirmPassword"
+        >
+          <i class="bi bi-eye"></i>
+        </button>
+
+      </div>
+
+      <small id="confirmRegisterError"></small>
+
+    </div>
+
+
+    <p
+      id="registerError"
+      class="text-danger"
+    ></p>
+
+
+    <button
+      class="btn btn-green"
+      type="submit"
+    >
+      Register
+    </button>
+
+
+    <p class="text-center mt-3">
+
+      Already have an account?
+
+      <button
+        type="button"
+        class="btn btn-link p-0"
+        id="showLogin"
+      >
+        Sign in
+      </button>
+
+    </p>
+
+  </form>
+
+</div>
         </div>
       </section>
 

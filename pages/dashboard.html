@@ -442,20 +442,38 @@
                 </button>
               </div>
             </div>
-
             <div class="mb-3">
-              <label class="form-label" for="confirmNewPassword">
-                Confirm new password
-              </label>
+  <label class="form-label" for="confirmNewPassword">
+    Confirm new password
+  </label>
 
-              <div class="password-field">
-                <input id="confirmNewPassword" type="password" class="form-control" minlength="6" required />
+  <div class="password-field">
 
-                <button type="button" class="toggle-password" data-target="confirmNewPassword">
-                  <i class="bi bi-eye"></i>
-                </button>
-              </div>
-            </div>
+    <input
+      id="confirmNewPassword"
+      type="password"
+      class="form-control"
+      minlength="6"
+      required
+    />
+
+    <button
+      type="button"
+      class="toggle-password"
+      data-target="confirmNewPassword"
+    >
+      <i class="bi bi-eye"></i>
+    </button>
+
+  </div>
+
+  <small
+    id="passwordError"
+    class="text-danger d-block mt-1"
+  ></small>
+
+</div>
+             
 
             <div class="modal-footer border-0">
               <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>

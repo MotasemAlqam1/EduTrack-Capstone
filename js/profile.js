@@ -1,234 +1,725 @@
-let instructor = JSON.parse(sessionStorage.getItem("currentInstructor"));
+let instructor = JSON.parse(
+  sessionStorage.getItem("currentInstructor")
+);
 
-// Protect page
+// ================================
+// Protect Page
+// ================================
+
 if (!instructor) {
   window.location.href = "../index.html";
 }
 
-const instructorName = document.getElementById("instructorName");
-const topAvatar = document.getElementById("topAvatar");
-const dropdownAvatar = document.getElementById("dropdownAvatar");
-const profileAvatar = document.getElementById("profileAvatar");
 
-const dropdownName = document.getElementById("dropdownName");
-const dropdownDepartment = document.getElementById("dropdownDepartment");
-const dropdownEmail = document.getElementById("dropdownEmail");
+// ================================
+// Get Elements
+// ================================
 
-const profileForm = document.getElementById("profileForm");
-const nameInput = document.getElementById("p-name");
-const departmentInput = document.getElementById("p-dept");
-const phoneInput = document.getElementById("p-phone");
-const emailInput = document.getElementById("p-email");
+const instructorName =
+  document.getElementById("instructorName");
 
-const profileImageInput = document.getElementById("profileImageInput");
+const topAvatar =
+  document.getElementById("topAvatar");
 
-const imageKey = `profileImage_${instructor.id}`;
-let selectedImage = localStorage.getItem(imageKey) || "";
+const dropdownAvatar =
+  document.getElementById("dropdownAvatar");
 
-// Get initials
+const profileAvatar =
+  document.getElementById("profileAvatar");
+
+
+const dropdownName =
+  document.getElementById("dropdownName");
+
+const dropdownDepartment =
+  document.getElementById("dropdownDepartment");
+
+const dropdownEmail =
+  document.getElementById("dropdownEmail");
+
+
+const profileForm =
+  document.getElementById("profileForm");
+
+const nameInput =
+  document.getElementById("p-name");
+
+const departmentInput =
+  document.getElementById("p-dept");
+
+const phoneInput =
+  document.getElementById("p-phone");
+
+const emailInput =
+  document.getElementById("p-email");
+
+const phoneError =
+  document.getElementById("phoneError");
+
+
+const profileImageInput =
+  document.getElementById("profileImageInput");
+
+
+// ================================
+// Profile Image
+// ================================
+
+const imageKey =
+  `profileImage_${instructor.id}`;
+
+let selectedImage =
+  localStorage.getItem(imageKey) || "";
+
+
+// ================================
+// Get Initials
+// ================================
+
 function getInitials(name) {
-  if (!name) return "";
 
-  const words = name.trim().split(/\s+/);
+  if (!name) {
+    return "";
+  }
 
-  return (words[0][0] + (words[1] ? words[1][0] : "")).toUpperCase();
+  const words =
+    name.trim().split(/\s+/);
+
+  return (
+    words[0][0] +
+    (words[1] ? words[1][0] : "")
+  ).toUpperCase();
 }
 
-// Show avatar
+
+// ================================
+// Show Avatar
+// ================================
+
 function showAvatar(element, initials) {
+
+  if (!element) {
+    return;
+  }
+
   if (selectedImage) {
-    element.style.backgroundImage = `url("${selectedImage}")`;
-    element.style.backgroundSize = "cover";
-    element.style.backgroundPosition = "center";
+
+    element.style.backgroundImage =
+      `url("${selectedImage}")`;
+
+    element.style.backgroundSize =
+      "cover";
+
+    element.style.backgroundPosition =
+      "center";
+
     element.textContent = "";
+
   } else {
-    element.style.backgroundImage = "none";
-    element.textContent = initials;
+
+    element.style.backgroundImage =
+      "none";
+
+    element.textContent =
+      initials;
   }
 }
 
-// Show instructor data
+
+// ================================
+// Show Instructor Data
+// ================================
+
 function showData() {
-  const initials = getInitials(instructor.name);
 
-  instructorName.textContent = instructor.name;
+  const initials =
+    getInitials(instructor.name);
 
-  showAvatar(topAvatar, initials);
-  showAvatar(dropdownAvatar, initials);
-  showAvatar(profileAvatar, initials);
 
-  dropdownName.textContent = instructor.name;
-  dropdownDepartment.textContent = instructor.department || "";
-  dropdownEmail.textContent = instructor.email;
+  if (instructorName) {
+    instructorName.textContent =
+      instructor.name;
+  }
 
-  nameInput.value = instructor.name || "";
-  departmentInput.value = instructor.department || "";
-  phoneInput.value = instructor.phone || "";
-  emailInput.value = instructor.email || "";
+
+  showAvatar(
+    topAvatar,
+    initials
+  );
+
+  showAvatar(
+    dropdownAvatar,
+    initials
+  );
+
+  showAvatar(
+    profileAvatar,
+    initials
+  );
+
+
+  if (dropdownName) {
+
+    dropdownName.textContent =
+      instructor.name || "";
+  }
+
+
+  if (dropdownDepartment) {
+
+    dropdownDepartment.textContent =
+      instructor.department || "";
+  }
+
+
+  if (dropdownEmail) {
+
+    dropdownEmail.textContent =
+      instructor.email || "";
+  }
+
+
+  if (nameInput) {
+
+    nameInput.value =
+      instructor.name || "";
+  }
+
+
+  if (departmentInput) {
+
+    departmentInput.value =
+      instructor.department || "";
+  }
+
+
+  if (phoneInput) {
+
+    phoneInput.value =
+      instructor.phone || "";
+  }
+
+
+  if (emailInput) {
+
+    emailInput.value =
+      instructor.email || "";
+  }
 }
+
 
 showData();
 
-// Choose image
-profileImageInput.addEventListener("change", function () {
-  const file = profileImageInput.files[0];
 
-  if (!file) return;
+// ================================
+// Choose Profile Image
+// ================================
 
-  if (!file.type.startsWith("image/")) {
-    alert("Please choose an image");
-    profileImageInput.value = "";
-    return;
-  }
+if (profileImageInput) {
 
-  if (file.size > 1024 * 1024) {
-    alert("Image must be less than 1MB");
-    profileImageInput.value = "";
-    return;
-  }
+  profileImageInput.addEventListener(
+    "change",
+    function () {
 
-  const reader = new FileReader();
+      const file =
+        profileImageInput.files[0];
 
-  reader.onload = function () {
-    selectedImage = reader.result;
 
-    showAvatar(profileAvatar, getInitials(instructor.name));
-  };
+      if (!file) {
+        return;
+      }
 
-  reader.readAsDataURL(file);
-});
 
-// Update profile
-profileForm.addEventListener("submit", async function (event) {
-  event.preventDefault();
+      // Must be image
+      if (!file.type.startsWith("image/")) {
 
-  const updatedData = {
-    name: nameInput.value.trim(),
-    department: departmentInput.value.trim(),
-    phone: phoneInput.value.trim(),
-  };
+        alert("Please choose an image");
 
-  try {
-    const response = await fetch(
-      `http://localhost:3000/instructors/${instructor.id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedData),
-      },
-    );
+        profileImageInput.value = "";
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(errorText || "Failed to update profile");
+        return;
+      }
+
+
+      // Maximum 1MB
+      if (file.size > 1024 * 1024) {
+
+        alert(
+          "Image must be less than 1MB"
+        );
+
+        profileImageInput.value = "";
+
+        return;
+      }
+
+
+      const reader =
+        new FileReader();
+
+
+      reader.onload =
+        function () {
+
+          selectedImage =
+            reader.result;
+
+          showAvatar(
+            profileAvatar,
+            getInitials(instructor.name)
+          );
+        };
+
+
+      reader.readAsDataURL(file);
+
     }
-
-    instructor = await response.json();
-
-    sessionStorage.setItem("currentInstructor", JSON.stringify(instructor));
-
-    if (selectedImage) {
-      localStorage.setItem(imageKey, selectedImage);
-    }
-    showData();
-
-    alert("Profile updated successfully");
-
-    window.location.href = "dashboard.html";
-  } catch (error) {
-    console.error("Profile Update Error:", error);
-    alert("Failed to update profile");
-  }
-});
-
-// Logout
-function logout() {
-  sessionStorage.removeItem("currentInstructor");
-  window.location.href = "../index.html";
+  );
 }
 
-const logoutBtn = document.getElementById("logoutBtn");
-const sidebarLogout = document.getElementById("sidebarLogout");
+
+// ================================
+// Jordan Phone Validation
+// ================================
+
+function isValidJordanPhone(phone) {
+
+  // Remove spaces and -
+  phone =
+    phone.replace(/[\s-]/g, "");
+
+
+  // Local:
+  // 0791234567
+  // 0781234567
+  // 0771234567
+
+  const localPhonePattern =
+    /^07[789]\d{7}$/;
+
+
+  // International:
+  // +962791234567
+  // +962781234567
+  // +962771234567
+
+  const internationalPhonePattern =
+    /^\+9627[789]\d{7}$/;
+
+
+  return (
+    localPhonePattern.test(phone) ||
+    internationalPhonePattern.test(phone)
+  );
+}
+
+
+// ================================
+// Update Profile
+// ================================
+
+if (profileForm) {
+
+  profileForm.addEventListener(
+    "submit",
+    async function (event) {
+
+      event.preventDefault();
+
+
+      // Clear phone error
+      if (phoneError) {
+
+        phoneError.textContent = "";
+      }
+
+
+      const phone =
+        phoneInput.value
+          .trim()
+          .replace(/[\s-]/g, "");
+
+
+      // ==========================
+      // Check Phone
+      // ==========================
+
+      if (!isValidJordanPhone(phone)) {
+
+        if (phoneError) {
+
+          phoneError.textContent =
+            "Please enter a valid Jordanian phone number: 077, 078, 079 or +962.";
+        } else {
+
+          alert(
+            "Please enter a valid Jordanian phone number: 077, 078, 079 or +962."
+          );
+        }
+
+        return;
+      }
+
+
+      const updatedData = {
+
+        name:
+          nameInput.value.trim(),
+
+        department:
+          departmentInput.value.trim(),
+
+        phone:
+          phone
+      };
+
+
+      try {
+
+        const response =
+          await fetch(
+            `http://localhost:3000/instructors/${instructor.id}`,
+            {
+
+              method: "PATCH",
+
+              headers: {
+
+                "Content-Type":
+                  "application/json"
+              },
+
+              body:
+                JSON.stringify(updatedData)
+
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Failed to update profile"
+          );
+        }
+
+
+        instructor =
+          await response.json();
+
+
+        sessionStorage.setItem(
+          "currentInstructor",
+          JSON.stringify(instructor)
+        );
+
+
+        // Save profile image
+        if (selectedImage) {
+
+          localStorage.setItem(
+            imageKey,
+            selectedImage
+          );
+        }
+
+alert(
+  "Profile updated successfully"
+);
+
+window.location.href =
+  "dashboard.html";
+
+
+      } catch (error) {
+
+        console.error(
+          "Profile Update Error:",
+          error
+        );
+
+
+        alert(
+          "Failed to update profile"
+        );
+      }
+
+    }
+  );
+}
+
+
+// ================================
+// Logout
+// ================================
+
+function logout() {
+
+  sessionStorage.removeItem(
+    "currentInstructor"
+  );
+
+
+  window.location.href =
+    "../index.html";
+}
+
+
+const logoutBtn =
+  document.getElementById("logoutBtn");
+
+const sidebarLogout =
+  document.getElementById("sidebarLogout");
+
 
 if (logoutBtn) {
-  logoutBtn.addEventListener("click", logout);
+
+  logoutBtn.addEventListener(
+    "click",
+    logout
+  );
 }
+
 
 if (sidebarLogout) {
-  sidebarLogout.addEventListener("click", logout);
+
+  sidebarLogout.addEventListener(
+    "click",
+    logout
+  );
 }
 
+
+
+  // ================================
 // Change Password
-const changePasswordForm = document.getElementById("changePasswordForm");
-const currentPasswordInput = document.getElementById("currentPassword");
-const newPasswordInput = document.getElementById("newPassword");
-const confirmNewPasswordInput = document.getElementById("confirmNewPassword");
-const passwordError = document.getElementById("passwordError");
+// ================================
 
-changePasswordForm.addEventListener("", async function (event) {
-  event.preventDefault();
+const changePasswordForm =
+  document.getElementById("changePasswordForm");
 
-  passwordError.textContent = "";
+const currentPasswordInput =
+  document.getElementById("currentPassword");
 
-  const currentPassword = currentPasswordInput.value.trim();
-  const newPassword = newPasswordInput.value.trim();
-  const confirmNewPassword = confirmNewPasswordInput.value.trim();
+const newPasswordInput =
+  document.getElementById("newPassword");
 
-  // Check current password
-  if (currentPassword !== instructor.password) {
-    passwordError.textContent = "Current password is incorrect";
-    return;
-  }
+const confirmNewPasswordInput =
+  document.getElementById("confirmNewPassword");
 
-  // Check new password length
-  if (newPassword.length < 6) {
-    passwordError.textContent = "Password must be at least 6 characters";
-    return;
-  }
+const passwordError =
+  document.getElementById("passwordError");
 
-  // Check confirm password
-  if (newPassword !== confirmNewPassword) {
-    passwordError.textContent = "Passwords do not match";
-    return;
-  }
 
-  // Check same password
-  if (newPassword === currentPassword) {
-    passwordError.textContent = "New password must be different";
-    return;
-  }
+// ================================
+// Password Validation
+// ================================
 
-  try {
-    const response = await fetch(
-      `http://localhost:3000/instructors/${instructor.id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          password: newPassword,
-        }),
-      },
-    );
+function isValidPassword(password) {
+  return (
+    password.length >= 6 &&
+    /[A-Z]/.test(password) &&
+    /[a-z]/.test(password) &&
+    /[0-9]/.test(password) &&
+    /[!@#$%^&*(),.?":{}|<>]/.test(password)
+  );
+}
 
-    if (!response.ok) {
-      throw new Error("Failed to change password");
+
+// ================================
+// Live Confirm Password
+// ================================
+
+confirmNewPasswordInput.addEventListener(
+  "input",
+  function () {
+
+    const newPassword =
+      newPasswordInput.value;
+
+    const confirmPassword =
+      confirmNewPasswordInput.value;
+
+
+    if (confirmPassword === "") {
+      passwordError.textContent = "";
+      return;
     }
 
-    instructor = await response.json();
 
-    alert("Password changed successfully. Please login again.");
+    if (newPassword === confirmPassword) {
 
-    sessionStorage.removeItem("currentInstructor");
+      passwordError.textContent =
+        "Passwords match";
 
-    window.location.href = "../index.html";
-  } catch (error) {
-    console.error(error);
+      passwordError.style.color =
+        "green";
 
-    passwordError.textContent = "Failed to change password";
+    } else {
+
+      passwordError.textContent =
+        "Passwords do not match";
+
+      passwordError.style.color =
+        "red";
+    }
   }
-});
- 
+);
+
+
+// ================================
+// Submit Change Password
+// ================================
+
+changePasswordForm.addEventListener(
+  "submit",
+  async function (event) {
+
+    event.preventDefault();
+
+    passwordError.textContent = "";
+
+
+    const currentPassword =
+      currentPasswordInput.value.trim();
+
+    const newPassword =
+      newPasswordInput.value.trim();
+
+    const confirmPassword =
+      confirmNewPasswordInput.value.trim();
+
+
+    // Current password
+    if (
+      currentPassword !==
+      instructor.password
+    ) {
+
+      passwordError.textContent =
+        "Current password is incorrect";
+
+      passwordError.style.color =
+        "red";
+
+      return;
+    }
+
+
+    // Password pattern
+    if (!isValidPassword(newPassword)) {
+
+      passwordError.textContent =
+        "Password must contain at least 6 characters, uppercase, lowercase, number and special character";
+
+      passwordError.style.color =
+        "red";
+
+      return;
+    }
+
+
+    // Confirm password
+    if (
+      newPassword !==
+      confirmPassword
+    ) {
+
+      passwordError.textContent =
+        "Passwords do not match";
+
+      passwordError.style.color =
+        "red";
+
+      return;
+    }
+
+
+    // Same old password
+    if (
+      newPassword ===
+      currentPassword
+    ) {
+
+      passwordError.textContent =
+        "New password must be different from current password";
+
+      passwordError.style.color =
+        "red";
+
+      return;
+    }
+
+
+    try {
+
+      const response =
+        await fetch(
+          `http://localhost:3000/instructors/${instructor.id}`,
+          {
+            method: "PATCH",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body: JSON.stringify({
+              password: newPassword
+            })
+          }
+        );
+
+
+      if (!response.ok) {
+
+        const errorText =
+          await response.text();
+
+        console.log(
+          "Status:",
+          response.status
+        );
+
+        console.log(
+          "Server response:",
+          errorText
+        );
+
+        throw new Error(
+          "Failed to change password"
+        );
+      }
+
+
+      // Save updated instructor
+      instructor =
+        await response.json();
+
+
+      // Remove login session
+      sessionStorage.removeItem(
+        "currentInstructor"
+      );
+
+
+      // Go directly to login
+      window.location.href =
+        "../index.html";
+
+
+    } catch (error) {
+
+      console.error(
+        "Change Password Error:",
+        error
+      );
+
+      passwordError.textContent =
+        "Failed to change password";
+
+      passwordError.style.color =
+        "red";
+    }
+  }
+);
