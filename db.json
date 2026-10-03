@@ -1,5 +1,71 @@
 {
-  "instructors": [],
+  "resources": [],
+  "instructors": [
+    {
+      "id": "RZor5ZxwOPQ",
+      "name": "khoulod",
+      "email": "kholud@gmail.com",
+      "password": "1234567",
+      "department": "Cyper Security",
+      "phone": "0798767252"
+    },
+    {
+      "id": "1rtYHPmHqiU",
+      "name": "asmaa",
+      "email": "asmaa@gmail.com",
+      "password": "123456",
+      "department": "Computer Science",
+      "phone": "0798767252"
+    },
+    {
+      "id": "MiYQLvqpFg4",
+      "name": "tala mhmd",
+      "email": "tala@gmail.com",
+      "password": "1234567",
+      "department": "Computer Science",
+      "phone": "0798767252"
+    },
+    {
+      "id": "Ux3XhQKWMls",
+      "name": "Asmaa Aljazzar",
+      "email": "aljazzarasmaa3@gmail.com",
+      "password": "12345678",
+      "department": "Development",
+      "phone": "65757657654765"
+    },
+    {
+      "id": "2nDVTOMPqIA",
+      "name": "‬ahmad kayyali",
+      "email": "ahmedkayyali2002@gmail.com",
+      "password": "ahmad12345",
+      "department": "sdasdasdas",
+      "phone": "0777874159"
+    },
+    {
+      "id": "bbJ2fnfIDoc",
+      "name": "ahmad ahmad",
+      "email": "ahmad145@gmail.com",
+      "password": "123456",
+      "department": "it",
+      "phone": "0780000000"
+    },
+    {
+      "id": "Odp7fhy2m0s",
+      "name": "ahmad hh",
+      "email": "ahmadalhwari0@gmail.com",
+      "password": "123456",
+      "department": "it",
+      "phone": "0780435688"
+    },
+    {
+      "id": "1ly20BMzWBU",
+      "name": "Motasem Alqam",
+      "email": "motasemalqam00@gmail.com",
+      "password": "123456",
+      "department": "frontedn",
+      "phone": "0799200109"
+    }
+  ],
   "courses": [
     {
       "id": "COURSE001",
@@ -27,15 +93,130 @@
       "name": "UI Design",
       "description": "Learn user interface design principles and create effective user experiences.",
       "category": "Design",
-      "instructorId": "INS001"
+      "instructorId": "Ux3XhQKWMls"
     }
   ],
-  "assessments": [],
+  "assessments": [
+    {
+      "id": "1",
+      "title": "HTML Basics Quiz",
+      "type": "Quiz",
+      "course": "Web Development",
+      "dueDate": "2026-09-12",
+      "isDeleted": true
+    },
+    {
+      "id": "2",
+      "title": "Portfolio Page",
+      "type": "Assignment",
+      "course": "Web Development",
+      "dueDate": "2026-09-20",
+      "isDeleted": false
+    },
+    {
+      "id": "3",
+      "title": "JavaScript Fundamentals Quiz",
+      "type": "Quiz",
+      "course": "JavaScript",
+      "dueDate": "2026-09-25",
+      "isDeleted": false
+    },
+    {
+      "id": "4",
+      "title": "DOM Mini Project",
+      "type": "Assignment",
+      "course": "JavaScript",
+      "dueDate": "2026-10-05",
+      "isDeleted": false
+    },
+    {
+      "id": "5",
+      "title": "SQL Queries Quiz",
+      "type": "Quiz",
+      "course": "Databases",
+      "dueDate": "2026-09-28",
+      "isDeleted": false
+    },
+    {
+      "id": "6",
+      "title": "Database Design Project",
+      "type": "Assignment",
+      "course": "Databases",
+      "dueDate": "2026-10-12",
+      "isDeleted": false
+    },
+    {
+      "id": "7",
+      "title": "UI/UX Principles Quiz",
+      "type": "Quiz",
+      "course": "UI Design",
+      "dueDate": "2026-10-08",
+      "isDeleted": false
+    },
+    {
+      "id": "8",
+      "title": "Figma Dashboard Design",
+      "type": "Assignment",
+      "course": "UI Design",
+      "dueDate": "2026-10-18",
+      "isDeleted": false
+    },
+    {
+      "id": "lQ1Wzb-AL_o",
+      "title": "Midterm JavaScript",
+      "type": "Exam",
+      "course": "JavaScript",
+      "dueDate": "2026-12-15",
+      "isDeleted": true
+    },
+    {
+      "id": "yk8Q5BTXT_c",
+      "title": "Final JavaScript",
+      "type": "Exam",
+      "course": "JavaScript",
+      "dueDate": "2026-10-31",
+      "isDeleted": true
+    },
+    {
+      "title": "Final javascript",
+      "type": "Exam",
+      "course": "JavaScript",
+      "dueDate": "2026-12-31",
+      "isDeleted": false,
+      "id": "xQXIbUNRCnY"
+    },
+    {
+      "title": "mid java script",
+      "type": "Exam",
+      "course": "JavaScript",
+      "dueDate": "2026-10-03",
+      "isDeleted": false,
+      "id": "rKSG0yZt1ys"
+    },
+    {
+      "title": "javascript",
+      "type": "Quiz",
+      "course": "JavaScript",
+      "dueDate": "2026-12-13",
+      "isDeleted": false,
+      "instructorId": "1",
+      "id": "rXOTW3U4QGE"
+    },
+    {
+      "title": "first",
+      "type": "Quiz",
+      "course": "JavaScript",
+      "dueDate": "2026-10-06",
+      "isDeleted": false,
+      "instructorId": "Odp7fhy2m0s",
+      "id": "cCnYHN6niLg"
+    }
+  ],
   "attendance": [],
   "students": [
     {
       "id": "1",
-      "instructorId": 1,
+      "instructorId": "1",
       "studentId": "STU001",
       "name": "Omar Khaled",
       "email": "omar.khaled@gmail.com",
@@ -55,16 +236,12 @@
     },
     {
       "id": "2",
-      "instructorId": 1,
+      "instructorId": "1",
       "studentId": "STU002",
       "name": "Lina Ahmad",
       "email": "lina.ahmad@gmail.com",
       "phone": "0790000002",
       "courses": [
-        {
-          "name": "Web Development",
-          "grade": 95
-        },
         {
           "name": "JavaScript",
           "grade": 88
@@ -79,7 +256,7 @@
     },
     {
       "id": "3",
-      "instructorId": 1,
+      "instructorId": "2",
       "studentId": "STU003",
       "name": "Mohammad Ali",
       "email": "mohammad.ali@gmail.com",
@@ -95,7 +272,7 @@
         }
       ],
       "status": "archived",
-      "isDeleted": false
+      "isDeleted": true
     },
     {
       "id": "4",
@@ -108,10 +285,6 @@
         {
           "name": "Databases",
           "grade": 92
-        },
-        {
-          "name": "UI Design",
-          "grade": 86
         }
       ],
       "status": "active",
@@ -1954,12 +2127,9 @@
       "isDeleted": false
     },
     {
-      "id": "99",
-      "instructorId": 1,
-      "studentId": "STU099",
       "name": "Sami Hassan",
+      "studentId": "STU099",
       "email": "sami.hassan@gmail.com",
-      "phone": "0790000099",
       "courses": [
         {
           "name": "JavaScript",
@@ -1970,16 +2140,15 @@
           "grade": 41
         }
       ],
-      "status": "active",
-      "isDeleted": false
+      "phone": "0790000099",
+      "status": "archived",
+      "isDeleted": false,
+      "id": "99"
     },
     {
-      "id": "100",
-      "instructorId": 2,
-      "studentId": "STU100",
       "name": "Mariam Ahmad",
+      "studentId": "STU100",
       "email": "mariam.ahmad@gmail.com",
-      "phone": "0790000100",
       "courses": [
         {
           "name": "UI Design",
@@ -1990,8 +2159,10 @@
           "grade": 92
         }
       ],
-      "status": "active",
-      "isDeleted": false
+      "phone": "0790000100",
+      "status": "archived",
+      "isDeleted": false,
+      "id": "100"
     },
     {
       "name": "Motasem Alqam",
@@ -2002,6 +2173,22 @@
       "status": "active",
       "isDeleted": true,
       "id": "CPKAwMbDdVM"
+    },
+    {
+      "name": "studentone",
+      "studentId": "1234",
+      "email": "studentone@gmail.com",
+      "courses": [
+        {
+          "name": "react",
+          "grade": 90
+        }
+      ],
+      "phone": "12312413432",
+      "status": "archived",
+      "instructorId": "2nDVTOMPqIA",
+      "isDeleted": false,
+      "id": "09Nl3h6Omsc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
