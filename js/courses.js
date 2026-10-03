@@ -14,6 +14,9 @@ const noCoursesMessage =
 const courseFormContainer =
     document.getElementById("courseFormContainer");
 
+const courseModal =
+    new bootstrap.Modal(courseFormContainer);
+
 const courseForm =
     document.getElementById("courseForm");
 
@@ -73,8 +76,7 @@ addCourseBtn.addEventListener("click", function () {
     submitCourseBtn.textContent =
         "Add Course";
 
-    courseFormContainer.style.display =
-        "block";
+    courseModal.show();
 
     courseName.focus();
 
@@ -85,22 +87,22 @@ addCourseBtn.addEventListener("click", function () {
 // CANCEL
 // ==================================================
 
-cancelCourseBtn.addEventListener(
-    "click",
+courseFormContainer.addEventListener(
+    "hidden.bs.modal",
     function () {
 
         editingCourseId = null;
 
         courseForm.reset();
 
-        courseFormContainer.style.display =
-            "none";
-
         courseFormTitle.textContent =
             "Add Course";
 
         submitCourseBtn.textContent =
             "Add Course";
+
+        document.getElementById("newCourseLink").classList.remove("active");
+        document.getElementById("coursesLink").classList.add("active");
 
     }
 );
@@ -324,8 +326,7 @@ function renderCourses(courses) {
                     "Update Course";
 
 
-                courseFormContainer.style.display =
-                    "block";
+                courseModal.show();
 
 
                 courseName.focus();
@@ -586,8 +587,7 @@ courseForm.addEventListener(
                 courseForm.reset();
 
 
-                courseFormContainer.style.display =
-                    "none";
+                courseModal.hide();
 
 
                 courseFormTitle.textContent =
@@ -658,8 +658,7 @@ courseForm.addEventListener(
             courseForm.reset();
 
 
-            courseFormContainer.style.display =
-                "none";
+            courseModal.hide();
 
 
             courseFormTitle.textContent =
@@ -691,3 +690,33 @@ courseForm.addEventListener(
 // ==================================================
 
 getCourses();
+
+
+// ==================================================
+// SHORTCUT: ADD COURSE
+// ==================================================
+
+// Light up "Add course" while the modal is open for a new course
+courseFormContainer.addEventListener("show.bs.modal", function () {
+    if (editingCourseId === null) {
+        document.getElementById("coursesLink").classList.remove("active");
+        document.getElementById("newCourseLink").classList.add("active");
+        bootstrap.Collapse.getOrCreateInstance(document.getElementById("shortcutsMenu"), { toggle: false }).show();
+    }
+});
+
+
+// Shortcut on this page: open the modal without reloading
+document
+    .getElementById("newCourseLink")
+    .addEventListener("click", function (event) {
+        event.preventDefault();
+        addCourseBtn.click();
+    });
+
+
+// Open the modal when coming from another page (courses.html?new=true)
+if (new URLSearchParams(window.location.search).has("new")) {
+    addCourseBtn.click();
+    history.replaceState(null, "", "courses.html");
+}

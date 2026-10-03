@@ -47,6 +47,22 @@
       "password": "12345678",
       "department": "Development",
       "phone": "65757657654765"
+    },
+    {
+      "id": "bbJ2fnfIDoc",
+      "name": "ahmad ahmad",
+      "email": "ahmad145@gmail.com",
+      "password": "123456",
+      "department": "it",
+      "phone": "0780000000"
+    },
+    {
+      "id": "Odp7fhy2m0s",
+      "name": "ahmad hh",
+      "email": "ahmadalhwari0@gmail.com",
+      "password": "123456",
+      "department": "it",
+      "phone": "0780435688"
     }
   ],
   "courses": [
@@ -79,7 +95,122 @@
       "instructorId": "INS001"
     }
   ],
-  "assessments": [],
+  "assessments": [
+    {
+      "id": "1",
+      "title": "HTML Basics Quiz",
+      "type": "Quiz",
+      "course": "Web Development",
+      "dueDate": "2026-09-12",
+      "isDeleted": true
+    },
+    {
+      "id": "2",
+      "title": "Portfolio Page",
+      "type": "Assignment",
+      "course": "Web Development",
+      "dueDate": "2026-09-20",
+      "isDeleted": false
+    },
+    {
+      "id": "3",
+      "title": "JavaScript Fundamentals Quiz",
+      "type": "Quiz",
+      "course": "JavaScript",
+      "dueDate": "2026-09-25",
+      "isDeleted": false
+    },
+    {
+      "id": "4",
+      "title": "DOM Mini Project",
+      "type": "Assignment",
+      "course": "JavaScript",
+      "dueDate": "2026-10-05",
+      "isDeleted": false
+    },
+    {
+      "id": "5",
+      "title": "SQL Queries Quiz",
+      "type": "Quiz",
+      "course": "Databases",
+      "dueDate": "2026-09-28",
+      "isDeleted": false
+    },
+    {
+      "id": "6",
+      "title": "Database Design Project",
+      "type": "Assignment",
+      "course": "Databases",
+      "dueDate": "2026-10-12",
+      "isDeleted": false
+    },
+    {
+      "id": "7",
+      "title": "UI/UX Principles Quiz",
+      "type": "Quiz",
+      "course": "UI Design",
+      "dueDate": "2026-10-08",
+      "isDeleted": false
+    },
+    {
+      "id": "8",
+      "title": "Figma Dashboard Design",
+      "type": "Assignment",
+      "course": "UI Design",
+      "dueDate": "2026-10-18",
+      "isDeleted": false
+    },
+    {
+      "id": "lQ1Wzb-AL_o",
+      "title": "Midterm JavaScript",
+      "type": "Exam",
+      "course": "JavaScript",
+      "dueDate": "2026-12-15",
+      "isDeleted": true
+    },
+    {
+      "id": "yk8Q5BTXT_c",
+      "title": "Final JavaScript",
+      "type": "Exam",
+      "course": "JavaScript",
+      "dueDate": "2026-10-31",
+      "isDeleted": true
+    },
+    {
+      "title": "Final javascript",
+      "type": "Exam",
+      "course": "JavaScript",
+      "dueDate": "2026-12-31",
+      "isDeleted": false,
+      "id": "xQXIbUNRCnY"
+    },
+    {
+      "title": "mid java script",
+      "type": "Exam",
+      "course": "JavaScript",
+      "dueDate": "2026-10-03",
+      "isDeleted": false,
+      "id": "rKSG0yZt1ys"
+    },
+    {
+      "title": "javascript",
+      "type": "Quiz",
+      "course": "JavaScript",
+      "dueDate": "2026-12-13",
+      "isDeleted": false,
+      "instructorId": "1",
+      "id": "rXOTW3U4QGE"
+    },
+    {
+      "title": "first",
+      "type": "Quiz",
+      "course": "JavaScript",
+      "dueDate": "2026-10-06",
+      "isDeleted": false,
+      "instructorId": "Odp7fhy2m0s",
+      "id": "cCnYHN6niLg"
+    }
+  ],
   "attendance": [],
   "students": [
     {
@@ -140,7 +271,7 @@
         }
       ],
       "status": "archived",
-      "isDeleted": false
+      "isDeleted": true
     },
     {
       "id": "4",
