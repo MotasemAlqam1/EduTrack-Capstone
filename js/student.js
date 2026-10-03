@@ -64,31 +64,52 @@ const INSTRUCTORID = instructor.id;
 
 // Render Student
 function RenderStudent(student) {
+
     studentContainer.insertAdjacentHTML("afterbegin", `
         <tr>
             <td>
                 <strong>${student.name}</strong>
                
             </td>
+
             <td>${student.email}</td>
+
             <td>${student.phone || "N/A"}</td>
+
             <td>
                 ${student.courses
-                    .map(course => `<span class="badge rounded-pill course-pill">${course.name}</span>`)
-                    .join("")}
+            .map(course => `
+                        <span class="course">
+                            ${course.name}
+                        </span>
+                    `)
+            .join("")}
             </td>
+
             <td>
-                <span class="badge ${student.status === "active" ? "bg-success" : "bg-secondary"}">
-                    ${student.status === "active" ? "Active" : "Archived"}
+                <span class="status ${student.status}">
+                    ${student.status}
                 </span>
             </td>
-            <td class="text-end">
-                <button class="btn btn-sm btn-light" title="Edit" onclick="updatestudent('${student.id}')">
-                    <i class="bi bi-pencil-square"></i>
-                </button>
-                <button class="btn btn-sm btn-light text-danger" title="Delete" onclick="openDeleteModal('${student.id}')">
-                    <i class="bi bi-trash3"></i>
-                </button>
+
+            <td>
+                <div class="actions">
+
+                    <button
+                        class="action-btn update-btn"
+                        title="Update"
+                        onclick="updatestudent('${student.id}')">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+
+                    <button
+                        class="action-btn delete-btn"
+                        title="Delete"
+                        onclick="deletestudent('${student.id}')">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                </div>
             </td>
         </tr>
     `);
@@ -289,7 +310,7 @@ async function addstudent(event) {
         editingStudentId = null;
 
         // Reset button
-        submitStudentBtn.textContent = "Save student";
+        submitStudentBtn.textContent = "Add Student";
 
         // Refresh table
         studentContainer.innerHTML = "";
