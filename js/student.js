@@ -3,35 +3,39 @@ let studentContainer = document.getElementById("students-list");
 let form = document.getElementById("studentForm");
 let editingStudentId = null;
 let submitStudentBtn = document.getElementById("submitStudentBtn");
-let archivedInput = document.getElementById("status-archived");
-let archivedLabel = document.querySelector('label[for="status-archived"]');
-let addStudentBtn = document.getElementById("addStudentBtn");
 let filterButtons = document.querySelectorAll("[data-filter]");
 let currentFilter = "all";
 let students = [];
 let courseFilter = document.getElementById("courseFilter");
 let exportBtn = document.getElementById("exportBtn");
+let addStudentBtn = document.getElementById("addStudentBtn");
+
+// let archivedInput = document.getElementById("status-archived");
+// let archivedLabel = document.querySelector('label[for="status-archived"]');
 
 // Hide Archived option 
-function hideArchived() {
-    archivedInput.hidden = true;
-    archivedLabel.hidden = true;
-    document.getElementById("status-active").checked = true;
+// function hideArchived() {
+//     archivedInput.hidden = true;
+//     archivedLabel.hidden = true;
+//     document.getElementById("status-active").checked = true;
 
-}
-// Show Archived option 
-function showArchived() {
-    archivedInput.hidden = false;
-    archivedLabel.hidden = false;
-}
+// }
+// // Show Archived option 
+// function showArchived() {
+//     archivedInput.hidden = false;
+//     archivedLabel.hidden = false;
+// }
 
 // Add Student button
 addStudentBtn.addEventListener("click", () => {
     editingStudentId = null;
+
     submitStudentBtn.textContent = "Add Student";
-    hideArchived();
+    document.getElementById("studentTitle").textContent = "Add New Student";
+
     form.reset();
-    document.getElementById("status-active").checked = true;
+
+    document.getElementById("statusField").style.display = "none";
 });
 
 // Get logged-in instructor
@@ -65,7 +69,7 @@ function RenderStudent(student) {
         <tr>
             <td>
                 <strong>${student.name}</strong>
-                <small>${student.studentId}</small>
+               
             </td>
 
             <td>${student.email}</td>
@@ -372,40 +376,29 @@ async function deletestudent(id) {
 
 // PUT - Update
 async function updatestudent(id) {
-
     try {
-
         let response = await fetch(`${Endpoint}/${id}`);
-
 
         if (!response.ok) {
             throw new Error("Failed to fetch student");
         }
 
-
         let student = await response.json();
-
 
         // Save ID
         editingStudentId = id;
 
-        // Change button text
-        submitStudentBtn.textContent = "Update Student";
+        // Change title and button text
+        document.getElementById("studentTitle").textContent = "Edit student";
+        submitStudentBtn.textContent = "Update student";
 
+         document.getElementById("statusField").style.display = "block";
 
         // Put student data inside form
-        document.getElementById("f-name").value =
-            student.name;
-
-        document.getElementById("f-code").value =
-            student.studentId;
-
-        document.getElementById("f-email").value =
-            student.email;
-
-        document.getElementById("f-phone").value =
-            student.phone || "";
-
+        document.getElementById("f-name").value = student.name;
+        // document.getElementById("f-code").value = student.studentId;
+        document.getElementById("f-email").value = student.email;
+        document.getElementById("f-phone").value = student.phone || "";
 
         // Convert courses objects back to text
         document.getElementById("f-courses").value =
@@ -413,25 +406,22 @@ async function updatestudent(id) {
                 .map(course => `${course.name}:${course.grade}`)
                 .join(", ");
 
-
         // Select status
-        document.querySelector(
-            `input[name="status"][value="${student.status}"]`
-        ).checked = true;
-
+        if (student.status === "archived") {
+            document.getElementById("status-archived").checked = true;
+        } else {
+            document.getElementById("status-active").checked = true;
+        }
 
         // Open modal
-        let modal = new bootstrap.Modal(
+        let modal = bootstrap.Modal.getOrCreateInstance(
             document.getElementById("studentModal")
         );
 
         modal.show();
 
     } catch (error) {
-
         console.log("Error:", error);
-
     }
 }
-
 getstudent();

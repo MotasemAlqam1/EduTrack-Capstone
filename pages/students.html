@@ -486,13 +486,13 @@
                   required />
               </div>
 
-              <div class="col-md-6">
+              <!-- <div class="col-md-6">
                 <label class="form-label" for="f-code">Student ID</label>
                 <input id="f-code" name="studentId" type="text" class="form-control" placeholder="e.g. 31947"
                   required />
-              </div>
+              </div> -->
 
-              <div class="col-md-6">
+              <div class="col-12">
                 <label class="form-label" for="f-email">Email</label>
                 <input id="f-email" name="email" type="email" class="form-control" placeholder="name@example.com" />
               </div>
@@ -503,21 +503,30 @@
                   placeholder="e.g. JavaScript:90, React:85" required />
               </div>
 
-              <div class="col-md-6">
+              <div class="col-12">
                 <label class="form-label" for="f-phone">
                   Phone <span class="label-optional">optional</span>
                 </label>
                 <input id="f-phone" name="phone" type="tel" class="form-control" placeholder="e.g. 07 9000 0000" />
               </div>
 
-              <div class="col-md-6">
+              <div class="col-12" id="statusField">
                 <label class="form-label" id="status-label">Status</label>
+
                 <div class="status-toggle" role="radiogroup" aria-labelledby="status-label">
-                  <input type="radio" class="btn-check" name="status" id="status-active" value="active" checked />
-                  <label class="status-option" for="status-active">Active</label>
+
+                  <input type="radio" class="btn-check" name="status" id="status-active" value="active" />
+
+                  <label class="status-option" for="status-active">
+                    Active
+                  </label>
 
                   <input type="radio" class="btn-check" name="status" id="status-archived" value="archived" />
-                  <label class="status-option" for="status-archived">Archived</label>
+
+                  <label class="status-option" for="status-archived">
+                    Archived
+                  </label>
+
                 </div>
               </div>
 

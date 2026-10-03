@@ -2036,7 +2036,6 @@
     },
     {
       "name": "studentone",
-      "studentId": "1234",
       "email": "studentone@gmail.com",
       "courses": [
         {
@@ -2045,10 +2044,20 @@
         }
       ],
       "phone": "12312413432",
-      "status": "archived",
+      "status": "active",
       "instructorId": "2nDVTOMPqIA",
       "isDeleted": false,
       "id": "09Nl3h6Omsc"
+    },
+    {
+      "name": "sudenttwo",
+      "email": "studenttwo@asdas",
+      "courses": [],
+      "phone": "03243432324",
+      "status": "active",
+      "instructorId": "2nDVTOMPqIA",
+      "isDeleted": true,
+      "id": "2EM6Z3unEkQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
