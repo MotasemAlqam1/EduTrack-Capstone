@@ -183,6 +183,23 @@
       "dueDate": "2026-12-31",
       "isDeleted": false,
       "id": "xQXIbUNRCnY"
+    },
+    {
+      "title": "mid java script",
+      "type": "Exam",
+      "course": "JavaScript",
+      "dueDate": "2026-10-03",
+      "isDeleted": false,
+      "id": "rKSG0yZt1ys"
+    },
+    {
+      "title": "javascript",
+      "type": "Quiz",
+      "course": "JavaScript",
+      "dueDate": "2026-12-13",
+      "isDeleted": false,
+      "instructorId": "1",
+      "id": "rXOTW3U4QGE"
     }
   ],
   "attendance": [],

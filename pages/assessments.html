@@ -64,36 +64,38 @@
           <a class="nav-link" href="dashboard.html">
             <i class="bi bi-grid-1x2-fill"></i>Dashboard
           </a>
-
-          <a class="nav-link" href="students.html">
+          <a class="nav-link" id="studentsLink" href="students.html">
             <i class="bi bi-people"></i>Students
           </a>
-
-          <a
-            class="nav-link active"
-            id="assessmentsLink"
-            href="assessments.html"
-          >
+          <a class="nav-link active" id="assessmentsLink" href="assessments.html">
             <i class="bi bi-clipboard-check"></i>Assessments
           </a>
-
-          <a
-            class="nav-link"
-            id="newAssessmentLink"
-            href="#"
-            data-bs-toggle="modal"
-            data-bs-target="#assessmentModal"
-          >
-            <i class="bi bi-plus-lg"></i>New assessment
-          </a>
-
-          <a class="nav-link" href="courses.html">
+          <a class="nav-link" id="coursesLink" href="courses.html">
             <i class="bi bi-book"></i>Courses
           </a>
-
           <a class="nav-link" href="resources.html">
             <i class="bi bi-book"></i>Resources
           </a>
+
+          <a class="nav-link shortcuts-toggle" data-bs-toggle="collapse" href="#shortcutsMenu"
+            role="button" aria-expanded="false" aria-controls="shortcutsMenu">
+            <i class="bi bi-lightning-charge"></i>Shortcuts
+            <i class="bi bi-chevron-down chev"></i>
+          </a>
+
+          <div class="collapse" id="shortcutsMenu">
+            <div class="nav flex-column gap-1">
+              <a class="nav-link" id="newStudentLink" href="students.html?new=true">
+                <i class="bi bi-plus-lg"></i>Add student
+              </a>
+              <a class="nav-link" id="newAssessmentLink" href="assessments.html?new=true">
+                <i class="bi bi-plus-lg"></i>New assessment
+              </a>
+              <a class="nav-link" id="newCourseLink" href="courses.html?new=true">
+                <i class="bi bi-plus-lg"></i>Add course
+              </a>
+            </div>
+          </div>
         </nav>
 
         <nav class="nav flex-column bottom">

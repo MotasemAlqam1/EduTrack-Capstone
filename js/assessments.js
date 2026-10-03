@@ -6,21 +6,21 @@ let editingId = null;
 let currentType = "All";
 let currentCourse = "All courses";
 let visibleAssessments = [];
-
+ 
 let typeClasses = {
   Assignment: "t-assign",
   Quiz: "t-quiz",
   Exam: "t-exam",
 };
-
+ 
 let statusClasses = {
   Active: "bg-success",
   Ended: "bg-secondary",
 };
-
+ 
 let assessmentsLink = document.getElementById("assessmentsLink");
 let newAssessmentLink = document.getElementById("newAssessmentLink");
-
+ 
 async function getAssessments() {
   try {
     let response = await fetch(Endpoint);
@@ -28,7 +28,14 @@ async function getAssessments() {
       throw new Error("Failed to fetch Assessments");
     }
     let data = await response.json();
-    let assessments = data.filter((assessment) => !assessment.isDeleted);
+        let currentInstructor = JSON.parse(
+      sessionStorage.getItem("currentInstructor"),
+    );
+    let assessments = data.filter(
+      (assessment) =>
+        !assessment.isDeleted &&
+        assessment.instructorId === currentInstructor.id,
+    );
     visibleAssessments = assessments.filter(
       (a) =>
         (currentType === "All" || a.type === currentType) &&
@@ -41,7 +48,7 @@ async function getAssessments() {
     console.log("Error:", error);
   }
 }
-
+ 
 function RenderAssessment(assessment) {
   let status = getStatus(assessment);
   tableBody.insertAdjacentHTML(
@@ -65,12 +72,12 @@ function RenderAssessment(assessment) {
     `,
   );
 }
-
+ 
 function getStatus(assessment) {
   let today = new Date().toLocaleDateString("en-CA");
   return assessment.dueDate >= today ? "Active" : "Ended";
 }
-
+ 
 function renderStats(assessments) {
   let graded = assessments.filter((a) => getStatus(a) === "Ended").length;
   let open = assessments.filter((a) => getStatus(a) === "Active").length;
@@ -78,7 +85,7 @@ function renderStats(assessments) {
   document.getElementById("gradedAssessments").textContent = graded;
   document.getElementById("openAssessments").textContent = open;
 }
-
+ 
 function renderTabs(assessments) {
   let assignments = assessments.filter((a) => a.type === "Assignment").length;
   let quizzes = assessments.filter((a) => a.type === "Quiz").length;
@@ -93,23 +100,23 @@ function renderTabs(assessments) {
   setActiveTab("quizzesTab", "Quiz");
   setActiveTab("examsTab", "Exam");
 }
-
+ 
 function setActiveTab(id, type) {
   document.getElementById(id).classList.toggle("active", currentType === type);
 }
-
+ 
 function filterByType(type) {
   currentType = type;
   tableBody.innerHTML = "";
   getAssessments();
 }
-
+ 
 function filterByCourse(course) {
   currentCourse = course;
   tableBody.innerHTML = "";
   getAssessments();
 }
-
+ 
 async function addAssessment(event) {
   event.preventDefault();
   try {
@@ -118,11 +125,15 @@ async function addAssessment(event) {
     let response;
     if (editingId) {
       response = await fetch(`${Endpoint}/${editingId}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(assessment),
       });
     } else {
+      let currentInstructor = JSON.parse(
+        sessionStorage.getItem("currentInstructor"),
+      );
+      assessment.instructorId = currentInstructor.id;
       response = await fetch(Endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -140,23 +151,24 @@ async function addAssessment(event) {
     console.log("Error:", error);
   }
 }
-
+ 
 form.addEventListener("submit", addAssessment);
-
+ 
 document
   .getElementById("assessmentModal")
   .addEventListener("show.bs.modal", function () {
     let dueInput = document.getElementById("a-due");
-
+ 
     if (editingId === null) {
       assessmentsLink.classList.remove("active");
       newAssessmentLink.classList.add("active");
+      bootstrap.Collapse.getOrCreateInstance(document.getElementById("shortcutsMenu"), { toggle: false }).show();
       dueInput.min = new Date().toLocaleDateString("en-CA");
     } else {
       dueInput.removeAttribute("min");
     }
   });
-
+ 
 document
   .getElementById("assessmentModal")
   .addEventListener("hidden.bs.modal", function () {
@@ -166,7 +178,7 @@ document
     newAssessmentLink.classList.remove("active");
     assessmentsLink.classList.add("active");
   });
-
+ 
 async function updateAssessment(id) {
   try {
     let response = await fetch(`${Endpoint}/${id}`);
@@ -187,7 +199,7 @@ async function updateAssessment(id) {
     console.log("Error:", error);
   }
 }
-
+ 
 async function deleteAssessment(id) {
   try {
     let response = await fetch(`${Endpoint}/${id}`, {
@@ -204,7 +216,7 @@ async function deleteAssessment(id) {
     console.log("Error:", error);
   }
 }
-
+ 
 async function openDeleteModal(id) {
   deletingId = id;
   try {
@@ -222,14 +234,14 @@ async function openDeleteModal(id) {
     console.log("Error:", error);
   }
 }
-
+ 
 document
   .getElementById("confirmDeleteBtn")
   .addEventListener("click", function () {
     deleteAssessment(deletingId);
     document.getElementById("cancelDeleteBtn").click();
   });
-
+ 
 function exportCsv() {
   let rows = [["Assessment", "Course", "Type", "Due", "Status"]];
   visibleAssessments.forEach((a) => {
@@ -246,12 +258,20 @@ function exportCsv() {
   link.download = "assessments.csv";
   link.click();
 }
-
+ 
+// Shortcut on this page: open the modal without reloading
+newAssessmentLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  bootstrap.Modal.getOrCreateInstance(
+    document.getElementById("assessmentModal"),
+  ).show();
+});
+ 
 if (new URLSearchParams(window.location.search).has("new")) {
   bootstrap.Modal.getOrCreateInstance(
     document.getElementById("assessmentModal"),
   ).show();
   history.replaceState(null, "", "assessments.html");
 }
-
+ 
 getAssessments();

@@ -279,6 +279,8 @@ document
         editingStudentId = null;
         document.getElementById("studentTitle").textContent = "New student";
         submitStudentBtn.textContent = "Save student";
+        document.getElementById("newStudentLink").classList.remove("active");
+        document.getElementById("studentsLink").classList.add("active");
     });
 
 
@@ -308,3 +310,35 @@ document
         deletestudent(deletingId);
         document.getElementById("cancelDeleteBtn").click();
     });
+
+
+// Light up "Add student" while the modal is open for a new student
+document
+    .getElementById("studentModal")
+    .addEventListener("show.bs.modal", function () {
+        if (editingStudentId === null) {
+            document.getElementById("studentsLink").classList.remove("active");
+            document.getElementById("newStudentLink").classList.add("active");
+            bootstrap.Collapse.getOrCreateInstance(document.getElementById("shortcutsMenu"), { toggle: false }).show();
+        }
+    });
+
+
+// Shortcut on this page: open the modal without reloading
+document
+    .getElementById("newStudentLink")
+    .addEventListener("click", function (event) {
+        event.preventDefault();
+        bootstrap.Modal.getOrCreateInstance(
+            document.getElementById("studentModal")
+        ).show();
+    });
+
+
+// Open the modal when coming from another page (students.html?new=true)
+if (new URLSearchParams(window.location.search).has("new")) {
+    bootstrap.Modal.getOrCreateInstance(
+        document.getElementById("studentModal")
+    ).show();
+    history.replaceState(null, "", "students.html");
+}
