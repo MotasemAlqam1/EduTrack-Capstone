@@ -15,7 +15,7 @@ const readSession = (key) => {
 
 const instructor = readSession("currentInstructor");
 if (!instructor || !instructor.id) {
-    location.href = "../index.html"; // Not logged in
+    location.href = "index.html"; // Not logged in -> login page (pages/index.html)
     throw new Error("No logged-in instructor");
 }
 
@@ -175,28 +175,23 @@ document.getElementById("searchBtn").addEventListener("click", async () => {
     }
 });
 
-// POST & PATCH
+// Create & Update
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
     // collects the values from the form automatically
     const data = Object.fromEntries(new FormData(form));
     data.instructorId = INSTRUCTORID;
-    // find selected courses
     const course = courses.find((c) => c.name === data.course);
     if (!course) return toast("Choose one of your courses");
-    data.courseId = course.id; // set the course id like what in db.json
-    // Send date to json server
-    // Post new one 
-    // Edit exist one.
+    data.courseId = course.id;
     try {
-        // RES_URL alone if post
         const res = await fetch(editingId ? `${RES_URL}/${editingId}` : RES_URL, {
-            method: editingId ? "PATCH" : "POST", // if no editing id then we want to post
+            method: editingId ? "PATCH" : "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
         });
         if (!res.ok) throw new Error("Failed to save resource");
-        modal.hide(); // hide the form
+        modal.hide();
         toast(editingId ? "Resource updated" : "Resource added");
         loadResources();
     } catch (err) {
@@ -225,13 +220,12 @@ const openModal = (resource = null) => {
 document.getElementById("addBtn").addEventListener("click", () => openModal());
 
 // This file is loaded as a module, so inline onclick="" handlers can only see window.*
-// because of type="module" editResource will not be visible to HTML so we use window
 window.editResource = async (id) => {
-    const res = await fetch(`${RES_URL}/${id}`); // fetch that resource
-    if (res.ok) openModal(await res.json()); // open the same module
+    const res = await fetch(`${RES_URL}/${id}`);
+    if (res.ok) openModal(await res.json());
 };
 
-// DELETE
+// -------- [ DELETE ] --------
 window.deleteResource = async (id) => {
     if (!confirm("Delete this resource?")) return;
     const res = await fetch(`${RES_URL}/${id}`, { method: "DELETE" });
@@ -240,14 +234,13 @@ window.deleteResource = async (id) => {
     loadResources();
 };
 
-// FILTERS & INIT 
+// -------- [ FILTERS + INIT ] --------
 // Only the logged-in instructor's courses: GET /courses?instructorId=<id>
 const loadCourses = async () => {
     const res = await fetch(`${COURSES_URL}?instructorId=${encodeURIComponent(INSTRUCTORID)}`);
     if (!res.ok) throw new Error(`Failed to load courses (${res.status})`);
     courses = (await res.json()).filter((c) => !c.isDeleted);
 
-    // courses drop-down menu
     const options = courses.map((c) => `<option value="${esc(c.name)}">${esc(c.name)}</option>`).join("");
     form.course.innerHTML = options;
     document.getElementById("filterCourse").innerHTML = `<option value="">All courses</option>${options}`;
@@ -258,23 +251,20 @@ const loadCourses = async () => {
     addBtn.title = courses.length === 0 ? "Create a course first" : "";
 };
 
-// Change the value when user change the course
 document.getElementById("filterCourse").addEventListener("change", (e) => {
     filters.course = e.target.value;
     loadResources();
 });
 
-// active current btn
 document.querySelectorAll(".nav-tabs-x [data-type]").forEach((btn) =>
     btn.addEventListener("click", () => {
         document.querySelectorAll(".nav-tabs-x [data-type]").forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
-        filters.type = btn.dataset.type; // data-type attribute like -> video
+        filters.type = btn.dataset.type;
         loadResources();
     })
 );
 
-// Entry point
 const init = async () => {
     try {
         await loadCourses();

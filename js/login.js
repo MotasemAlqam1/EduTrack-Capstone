@@ -32,7 +32,7 @@ loginForm.addEventListener("submit", async function (event) {
 
     sessionStorage.setItem("currentInstructor", JSON.stringify(instructor));
 
-    window.location.href = "pages/dashboard.html";
+    window.location.href = "dashboard.html";
 
   } catch (error) {
     console.error(error);
