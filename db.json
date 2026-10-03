@@ -56,6 +56,30 @@
       "password": "123456",
       "department": "it",
       "phone": "0780435688"
+    },
+    {
+      "id": "hRizkG1InOI",
+      "name": "Please",
+      "email": "please@gmail.com",
+      "password": "12345678",
+      "department": "cs",
+      "phone": "779382973"
+    },
+    {
+      "id": "bigQKDhikQI",
+      "name": "Asmaa Aljazzar",
+      "email": "notplease@gmail.com",
+      "password": "Asmaa123456.",
+      "department": "Development",
+      "phone": "+962791454555"
+    },
+    {
+      "id": "68fJ348cDJI",
+      "name": "Asoom",
+      "email": "noplease@gmail.com",
+      "password": "Asmaa123456#",
+      "department": "Development",
+      "phone": "+962791454555"
     }
   ],
   "courses": [
@@ -71,7 +95,7 @@
       "name": "JavaScript",
       "description": "Learn JavaScript programming and modern web development concepts.",
       "category": "Programming",
-      "instructorId": "INS001"
+      "instructorId": "hRizkG1InOI"
     },
     {
       "id": "COURSE003",
@@ -86,6 +110,13 @@
       "description": "Learn user interface design principles and create effective user experiences.",
       "category": "Design",
       "instructorId": "Ux3XhQKWMls"
+    },
+    {
+      "name": "Test course",
+      "description": "fdsfds",
+      "category": "Development",
+      "instructorId": "68fJ348cDJI",
+      "id": "5jcDzc_TGzo"
     }
   ],
   "assessments": [
@@ -228,7 +259,7 @@
     },
     {
       "id": "2",
-      "instructorId": "1",
+      "instructorId": "",
       "studentId": "STU002",
       "name": "Lina Ahmad",
       "email": "lina.ahmad@gmail.com",

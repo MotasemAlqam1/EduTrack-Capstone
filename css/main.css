@@ -376,80 +376,60 @@ html[data-theme="dark"] .btn-outline-success:hover {
 
 .password-field {
   position: relative;
-
   width: 100%;
 }
-
 
 .password-field .form-control {
   width: 100%;
-
-  padding-right: 48px;
+  padding-right: 45px;
 }
-
 
 /* ================= PASSWORD EYE ================= */
 
-.toggle-password {
+.password-field .toggle-password {
   position: absolute;
-
-  right: 15px;
-
   top: 50%;
-
+  right: 12px;
   transform: translateY(-50%);
 
-  z-index: 5;
+  width: 32px;
+  height: 32px;
 
-  display: grid;
-
-  place-items: center;
-
-  width: 24px;
-  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   padding: 0;
+  margin: 0;
 
-  border: 0;
-
-  outline: 0;
-
+  border: none;
+  outline: none;
   background: transparent;
 
   color: var(--muted);
-
   cursor: pointer;
 
-  box-shadow: none;
+  z-index: 10;
 }
 
-
-.toggle-password i {
+.password-field .toggle-password i {
   font-size: 17px;
-
   line-height: 1;
+  pointer-events: none;
 }
 
-
-.toggle-password:hover {
+.password-field .toggle-password:hover {
   color: var(--g5);
 }
 
-
-.toggle-password:focus,
-.toggle-password:active,
-.toggle-password:focus-visible {
-  border: 0;
-
-  outline: 0;
-
+.password-field .toggle-password:focus,
+.password-field .toggle-password:active,
+.password-field .toggle-password:focus-visible {
+  border: none;
+  outline: none;
   background: transparent;
-
-  color: var(--g5);
-
   box-shadow: none;
 }
-
 
 /* ================= DARK MODE HELPERS ================= */
 
@@ -583,4 +563,91 @@ html[data-theme="dark"] .theme-logo {
 }/* More space between logo and name in dark mode (logo has a glow) */
 html[data-theme="dark"] .brand {
   gap: 1rem;
+}
+ 
+
+.password-rules div {
+  transition: color 0.2s ease;
+}
+.password-rules {
+  margin-top: 10px;
+  padding: 12px;
+
+  border: 1px solid var(--line);
+  border-radius: 10px;
+
+  background: var(--surface);
+
+  font-size: 0.82rem;
+}
+
+.password-rules > div {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 4px;
+
+  transition: color 0.2s ease;
+}
+
+.password-rules > div:last-child {
+  margin-bottom: 0;
+}
+
+.password-rules i {
+  font-size: 0.9rem;
+}
+
+
+/* Wrong rule */
+
+.password-rules .rule-invalid {
+  color: var(--red);
+}
+
+
+/* Correct rule - same green as Register button */
+
+.password-rules .rule-valid {
+  color: var(--g5);
+}
+.password-rules {
+  margin-top: 10px;
+  padding: 12px;
+
+  border: 1px solid var(--line);
+  border-radius: 10px;
+
+  background: var(--surface);
+
+  font-size: 0.82rem;
+}
+
+.password-rules > div {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 4px;
+
+  transition: color 0.2s ease;
+}
+
+.password-rules > div:last-child {
+  margin-bottom: 0;
+}
+
+.password-rules i {
+  font-size: 0.9rem;
+}
+
+.password-rules .rule-invalid {
+  color: var(--red);
+}
+
+.password-rules .rule-valid {
+  color: var(--g5);
 }

@@ -18,85 +18,13 @@
     />
     <link href="../css/main.css" rel="stylesheet" />
     <link href="../css/modal.css" rel="stylesheet" />
+    <link href="../css/resources.css" rel="stylesheet" />
     <script>
       document.documentElement.setAttribute(
         "data-theme",
         localStorage.getItem("theme") || "light",
       );
     </script>
-    <style>
-      .res-card {
-        background: var(--surface);
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        overflow: hidden;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-      }
-      .res-thumb {
-        height: 150px;
-        background: var(--g1);
-        color: var(--g5);
-        display: grid;
-        place-items: center;
-        font-size: 2.6rem;
-      }
-      .res-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .res-body {
-        padding: 1rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-      }
-      .res-body h3 {
-        font-size: 1rem;
-        font-weight: 600;
-        margin: 0;
-      }
-      .res-foot {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        margin-top: auto;
-        padding-top: 0.5rem;
-      }
-      .result-item {
-        display: flex;
-        gap: 0.75rem;
-        align-items: center;
-        padding: 0.5rem;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        cursor: pointer;
-        background: var(--surface);
-        width: 100%;
-        text-align: left;
-      }
-      .result-item:hover {
-        border-color: var(--g5);
-      }
-      .result-item img {
-        width: 64px;
-        height: 44px;
-        object-fit: cover;
-        border-radius: 8px;
-        flex: none;
-        background: var(--g1);
-      }
-      .student-modal select.form-select {
-        height: 60px;
-        border-radius: 14px;
-        background-color: var(--sm-field-bg);
-        border: 1px solid var(--sm-field-border);
-        font-size: 1.1rem;
-      }
-    </style>
   </head>
   <body>
     <input type="checkbox" id="navToggle" class="d-none" aria-hidden="true" />
@@ -136,7 +64,7 @@
           <a class="nav-link" id="coursesLink" href="courses.html">
             <i class="bi bi-book"></i>Courses
           </a>
-          <a class="nav-link active" href="resources.html">
+          <a class="nav-link active" id="resourcesLink" href="resources.html">
             <i class="bi bi-book"></i>Resources
           </a>
 

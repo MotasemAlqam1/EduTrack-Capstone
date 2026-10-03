@@ -1,6 +1,22 @@
-// TODO: add isDeleted to checks
 const API_URL = "http://localhost:3000";
-const INSTRUCTORID = 1; // Todo: the logged-in instructor's id.
+
+
+// Logged-in instructor (currentInstructor), Extract from session
+const readSession = (key) => {
+    try {
+        return JSON.parse(sessionStorage.getItem(key) || localStorage.getItem(key) || null);
+    } catch {
+        return null;
+    }
+};
+
+const instructor = readSession("currentInstructor");
+if (!instructor || !instructor.id) {
+    location.href = "index.html"; // Not logged in -> login page (pages/index.html)
+    throw new Error("No logged-in instructor");
+}
+
+const INSTRUCTORID = instructor.id;
 
 const COURSES = [
   { name: "Web Development", color: "var(--g5)" },

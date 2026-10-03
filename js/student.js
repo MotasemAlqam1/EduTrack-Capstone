@@ -3,35 +3,39 @@ let studentContainer = document.getElementById("students-list");
 let form = document.getElementById("studentForm");
 let editingStudentId = null;
 let submitStudentBtn = document.getElementById("submitStudentBtn");
-let archivedInput = document.getElementById("status-archived");
-let archivedLabel = document.querySelector('label[for="status-archived"]');
-let addStudentBtn = document.getElementById("addStudentBtn");
 let filterButtons = document.querySelectorAll("[data-filter]");
 let currentFilter = "all";
 let students = [];
 let courseFilter = document.getElementById("courseFilter");
 let exportBtn = document.getElementById("exportBtn");
+let addStudentBtn = document.getElementById("addStudentBtn");
+
+// let archivedInput = document.getElementById("status-archived");
+// let archivedLabel = document.querySelector('label[for="status-archived"]');
 
 // Hide Archived option 
-function hideArchived() {
-    archivedInput.hidden = true;
-    archivedLabel.hidden = true;
-    document.getElementById("status-active").checked = true;
+// function hideArchived() {
+//     archivedInput.hidden = true;
+//     archivedLabel.hidden = true;
+//     document.getElementById("status-active").checked = true;
 
-}
-// Show Archived option 
-function showArchived() {
-    archivedInput.hidden = false;
-    archivedLabel.hidden = false;
-}
+// }
+// // Show Archived option 
+// function showArchived() {
+//     archivedInput.hidden = false;
+//     archivedLabel.hidden = false;
+// }
 
 // Add Student button
 addStudentBtn.addEventListener("click", () => {
     editingStudentId = null;
+
     submitStudentBtn.textContent = "Add Student";
-    hideArchived();
+    document.getElementById("studentTitle").textContent = "Add New Student";
+
     form.reset();
-    document.getElementById("status-active").checked = true;
+
+    document.getElementById("statusField").style.display = "none";
 });
 
 // Get logged-in instructor
@@ -60,31 +64,52 @@ const INSTRUCTORID = instructor.id;
 
 // Render Student
 function RenderStudent(student) {
+
     studentContainer.insertAdjacentHTML("afterbegin", `
         <tr>
             <td>
                 <strong>${student.name}</strong>
-                <small>${student.studentId}</small>
+               
             </td>
+
             <td>${student.email}</td>
+
             <td>${student.phone || "N/A"}</td>
+
             <td>
                 ${student.courses
-                    .map(course => `<span class="badge rounded-pill course-pill">${course.name}</span>`)
-                    .join("")}
+            .map(course => `
+                        <span class="course">
+                            ${course.name}
+                        </span>
+                    `)
+            .join("")}
             </td>
+
             <td>
-                <span class="badge ${student.status === "active" ? "bg-success" : "bg-secondary"}">
-                    ${student.status === "active" ? "Active" : "Archived"}
+                <span class="status ${student.status}">
+                    ${student.status}
                 </span>
             </td>
-            <td class="text-end">
-                <button class="btn btn-sm btn-light" title="Edit" onclick="updatestudent('${student.id}')">
-                    <i class="bi bi-pencil-square"></i>
-                </button>
-                <button class="btn btn-sm btn-light text-danger" title="Delete" onclick="openDeleteModal('${student.id}')">
-                    <i class="bi bi-trash3"></i>
-                </button>
+
+            <td>
+                <div class="actions">
+
+                    <button
+                        class="action-btn update-btn"
+                        title="Update"
+                        onclick="updatestudent('${student.id}')">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+
+                    <button
+                        class="action-btn delete-btn"
+                        title="Delete"
+                        onclick="deletestudent('${student.id}')">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                </div>
             </td>
         </tr>
     `);
@@ -285,7 +310,7 @@ async function addstudent(event) {
         editingStudentId = null;
 
         // Reset button
-        submitStudentBtn.textContent = "Save student";
+        submitStudentBtn.textContent = "Add Student";
 
         // Refresh table
         studentContainer.innerHTML = "";
@@ -351,19 +376,14 @@ async function deletestudent(id) {
 
 // PUT - Update
 async function updatestudent(id) {
-
     try {
-
         let response = await fetch(`${Endpoint}/${id}`);
-
 
         if (!response.ok) {
             throw new Error("Failed to fetch student");
         }
 
-
         let student = await response.json();
-
 
         // Save ID
         editingStudentId = id;
@@ -372,20 +392,13 @@ async function updatestudent(id) {
         document.getElementById("studentTitle").textContent = "Edit student";
         submitStudentBtn.textContent = "Update student";
 
+         document.getElementById("statusField").style.display = "block";
 
         // Put student data inside form
-        document.getElementById("f-name").value =
-            student.name;
-
-        document.getElementById("f-code").value =
-            student.studentId;
-
-        document.getElementById("f-email").value =
-            student.email;
-
-        document.getElementById("f-phone").value =
-            student.phone || "";
-
+        document.getElementById("f-name").value = student.name;
+        // document.getElementById("f-code").value = student.studentId;
+        document.getElementById("f-email").value = student.email;
+        document.getElementById("f-phone").value = student.phone || "";
 
         // Convert courses objects back to text
         document.getElementById("f-courses").value =
@@ -393,10 +406,12 @@ async function updatestudent(id) {
                 .map(course => `${course.name}:${course.grade}`)
                 .join(", ");
 
-
         // Select status
-        document.getElementById("f-status").value = student.status;
-
+        if (student.status === "archived") {
+            document.getElementById("status-archived").checked = true;
+        } else {
+            document.getElementById("status-active").checked = true;
+        }
 
         // Open modal
         let modal = bootstrap.Modal.getOrCreateInstance(
@@ -406,84 +421,7 @@ async function updatestudent(id) {
         modal.show();
 
     } catch (error) {
-
         console.log("Error:", error);
-
     }
 }
-
-
 getstudent();
-
-
-// Reset form when modal closes
-document
-    .getElementById("studentModal")
-    .addEventListener("hidden.bs.modal", function () {
-        form.reset();
-        editingStudentId = null;
-        document.getElementById("studentTitle").textContent = "New student";
-        submitStudentBtn.textContent = "Save student";
-        document.getElementById("newStudentLink").classList.remove("active");
-        document.getElementById("studentsLink").classList.add("active");
-    });
-
-
-// Delete confirmation
-let deletingId = null;
-
-async function openDeleteModal(id) {
-    deletingId = id;
-    try {
-        let response = await fetch(`${Endpoint}/${id}`);
-        if (!response.ok) {
-            throw new Error("Failed to fetch student");
-        }
-        let student = await response.json();
-        document.getElementById("deleteStudentName").textContent = student.name;
-        bootstrap.Modal.getOrCreateInstance(
-            document.getElementById("deleteModal")
-        ).show();
-    } catch (error) {
-        console.log("Error:", error);
-    }
-}
-
-document
-    .getElementById("confirmDeleteBtn")
-    .addEventListener("click", function () {
-        deletestudent(deletingId);
-        document.getElementById("cancelDeleteBtn").click();
-    });
-
-
-// Light up "Add student" while the modal is open for a new student
-document
-    .getElementById("studentModal")
-    .addEventListener("show.bs.modal", function () {
-        if (editingStudentId === null) {
-            document.getElementById("studentsLink").classList.remove("active");
-            document.getElementById("newStudentLink").classList.add("active");
-            bootstrap.Collapse.getOrCreateInstance(document.getElementById("shortcutsMenu"), { toggle: false }).show();
-        }
-    });
-
-
-// Shortcut on this page: open the modal without reloading
-document
-    .getElementById("newStudentLink")
-    .addEventListener("click", function (event) {
-        event.preventDefault();
-        bootstrap.Modal.getOrCreateInstance(
-            document.getElementById("studentModal")
-        ).show();
-    });
-
-
-// Open the modal when coming from another page (students.html?new=true)
-if (new URLSearchParams(window.location.search).has("new")) {
-    bootstrap.Modal.getOrCreateInstance(
-        document.getElementById("studentModal")
-    ).show();
-    history.replaceState(null, "", "students.html");
-}

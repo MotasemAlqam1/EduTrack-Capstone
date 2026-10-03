@@ -1,115 +1,74 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>EduTrack – Students</title>
 
-    <!-- Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EduTrack – Students</title>
 
-    <!-- Bootstrap Icons -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!-- Main CSS -->
-    <link href="../css/main.css" rel="stylesheet" />
-    <!-- Student Modal CSS -->
-    <link href="../css/modal.css" rel="stylesheet" />
-    <script>
-      document.documentElement.setAttribute(
-        "data-theme",
-        localStorage.getItem("theme") || "light",
-      );
-    </script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <style>
-      /* Keep cells on one line (except courses) */
-      .table-assess th,
-      .table-assess td:not(:nth-child(4)) {
-        white-space: nowrap;
-      }
+  <!-- Main CSS -->
+  <link href="../css/main.css" rel="stylesheet" />
+  <!-- Student Modal CSS -->
+  <link href="../css/modal.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/students.css">
 
-      /* Student name + ID */
-      .table-assess td:first-child strong {
-        display: block;
-        font-weight: 600;
-      }
-      .table-assess td:first-child small {
-        display: block;
-        color: var(--muted);
-        font-size: 0.8rem;
-      }
-      .table-assess td:nth-child(2) {
-        color: var(--muted);
-      }
+</head>
 
-      /* Course pills */
-      .course-pill {
-        background: #dff9f0;
-        color: #0a6b52;
-        margin: 2px 4px 2px 0;
-      }
-    </style>
-  </head>
+<body>
+  <input type="checkbox" id="navToggle" class="d-none" aria-hidden="true" />
 
-  <body>
-    <input type="checkbox" id="navToggle" class="d-none" aria-hidden="true" />
+  <div class="layout">
 
-    <div class="layout">
-      <!-- Sidebar -->
-      <aside
-        class="sidebar offcanvas-lg offcanvas-start"
-        id="sidebar"
-        tabindex="-1"
-      >
-        <div class="d-flex justify-content-between align-items-start">
-          <a href="dashboard.html" class="brand">
-            <img
-              class="brand-logo theme-logo"
-              src="../images/light mode.png"
-              data-light-src="../images/light mode.png"
-              data-dark-src="../images/dark mode.png"
-              alt="EduTrack"
-            />
+    <!-- Sidebar -->
+    <aside class="sidebar offcanvas-lg offcanvas-start" id="sidebar" tabindex="-1">
+      <div class="d-flex justify-content-between align-items-start">
+        <a href="dashboard.html" class="brand">
+          <img class="brand-logo theme-logo" src="../images/light mode.png" data-light-src="../images/light mode.png"
+            data-dark-src="../images/dark mode.png" alt="EduTrack" />
 
-            <span>EduTrack</span>
-          </a>
-          <button
-            class="btn-close btn-close-white d-lg-none"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
+          <span>EduTrack</span>
+        </a>
+        <button class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
 
-        <nav class="nav flex-column gap-1">
-          <a class="nav-link" href="dashboard.html">
-            <i class="bi bi-grid-1x2-fill"></i>Dashboard
-          </a>
-          <a class="nav-link active" id="studentsLink" href="students.html">
-            <i class="bi bi-people"></i>Students
-          </a>
-          <a class="nav-link" id="assessmentsLink" href="assessments.html">
+      <nav class="nav flex-column gap-1">
+
+
+        <a class="nav-link" href="dashboard.html">
+
+          <i class="bi bi-grid-1x2-fill"></i>
+          Dashboard
+        </a>
+
+        <a class="nav-link active" href="students.html">
+          <i class="bi bi-people"></i>
+          Students
+        </a>
+         <a class="nav-link" id="assessmentsLink" href="assessments.html">
             <i class="bi bi-clipboard-check"></i>Assessments
           </a>
-          <a class="nav-link" id="coursesLink" href="courses.html">
-            <i class="bi bi-book"></i>Courses
-          </a>
-          <a class="nav-link" href="resources.html">
-            <i class="bi bi-book"></i>Resources
-          </a>
+        <a class="nav-link" href="courses.html">
 
+          <i class="bi bi-book"></i>
+
+          Courses
+
+        </a>
+        <a class="nav-link " href="resources.html">
+          <i class="bi bi-book"></i>
+          Resources
+        </a>
+        
           <a class="nav-link shortcuts-toggle" data-bs-toggle="collapse" href="#shortcutsMenu"
             role="button" aria-expanded="false" aria-controls="shortcutsMenu">
             <i class="bi bi-lightning-charge"></i>Shortcuts
@@ -129,574 +88,285 @@
               </a>
             </div>
           </div>
-        </nav>
+      </nav>
 
-        <nav class="nav flex-column bottom">
-          <a class="nav-link" href="../index.html">
-            <i class="bi bi-box-arrow-left"></i> Log out
-          </a>
-        </nav>
-      </aside>
+      <nav class="nav flex-column bottom">
+        <a class="nav-link" href="../index.html">
+          <i class="bi bi-box-arrow-left"></i> Log out
+        </a>
+      </nav>
+    </aside>
 
-      <!-- Main Content -->
-      <div class="content">
-        <!-- Top Navbar -->
-        <header class="topbar">
-          <button
-            class="icon-btn d-lg-none"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#sidebar"
-            aria-label="Open menu"
-          >
-            <i class="bi bi-list fs-5"></i>
-          </button>
+    <!-- Main Content -->
+    <div class="content">
 
-          <label
-            for="navToggle"
-            class="icon-btn d-none d-lg-grid"
-            style="place-items: center; cursor: pointer"
-            aria-label="Toggle menu"
-          >
-            <i class="bi bi-list fs-5"></i>
-          </label>
+      <!-- Top Navbar -->
+      <header class="topbar">
+        <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+          aria-label="Open menu">
+          <i class="bi bi-list fs-5"></i>
+        </button>
 
-          <h1 class="me-auto">Students</h1>
+        <label for="navToggle" class="icon-btn d-none d-lg-grid" style="place-items:center;cursor:pointer"
+          aria-label="Toggle menu">
+          <i class="bi bi-list fs-5"></i>
+        </label>
 
-          <!-- Search -->
-          <form class="search" role="search" action="students.html">
-            <i class="bi bi-search"></i>
-            <input
-              class="form-control"
-              type="search"
-              name="q"
-              placeholder="Search students"
-              aria-label="Search students"
-            />
-          </form>
-          <button
-            class="icon-btn"
-            id="themeToggle"
-            type="button"
-            aria-label="Change theme"
-          >
-            <i class="bi bi-moon-fill" id="themeIcon"></i>
-          </button>
+        <h1 class="me-auto">Students</h1>
 
-          <!-- Profile -->
-          <div class="dropdown">
-            <button
-              class="avatar"
-              id="topAvatar"
-              data-bs-toggle="dropdown"
-              aria-label="Profile menu"
-            ></button>
+        <!-- Search -->
+        <form class="search" role="search" action="students.html">
+          <i class="bi bi-search"></i>
+          <input class="form-control" type="search" name="q" placeholder="Search students"
+            aria-label="Search students" />
+        </form>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Change theme">
+          <i class="bi bi-moon-fill" id="themeIcon"></i>
+        </button>
 
-            <div class="dropdown-menu dropdown-menu-end p-3 shadow border-0 dd">
-              <div class="d-flex gap-3 align-items-center mb-2">
-                <span class="avatar avatar-lg" id="dropdownAvatar"></span>
+        <!-- Profile -->
+        <div class="dropdown">
+          <button class="avatar" data-bs-toggle="dropdown" aria-label="Profile menu">AM</button>
 
-                <div>
-                  <b id="dropdownName"></b>
-
-                  <div class="small text-muted" id="dropdownDepartment"></div>
-
-                  <div class="small text-muted" id="dropdownEmail"></div>
-                </div>
+          <div class="dropdown-menu dropdown-menu-end p-3 shadow border-0 dd">
+            <div class="d-flex gap-3 align-items-center mb-2">
+              <span class="avatar avatar-lg">AM</span>
+              <div>
+                <b>Dr. Ahmad Mohammad</b>
+                <div class="small text-muted">Instructor · Computer Science</div>
+                <div class="small text-muted">demo@edutrack.com</div>
               </div>
-
-              <hr class="my-2" />
-
-              <a
-                class="dropdown-item rounded"
-                href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#profileModal"
-              >
-                <i class="bi bi-person me-2"></i>
-
-                My profile
-              </a>
-
-              <a
-                class="dropdown-item rounded"
-                href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#changePasswordModal"
-              >
-                <i class="bi bi-lock me-2"></i>
-                Change password
-              </a>
-              <a
-                class="dropdown-item rounded text-danger"
-                href="#"
-                id="logoutBtn"
-              >
-                <i class="bi bi-box-arrow-right me-2"></i>
-
-                Log out
-              </a>
             </div>
+
+            <hr class="my-2" />
+
+            <a class="dropdown-item rounded" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
+              <i class="bi bi-person me-2"></i> My profile
+            </a>
+
+            <a class="dropdown-item rounded text-danger" href="../index.html">
+              <i class="bi bi-box-arrow-right me-2"></i> Log out
+            </a>
           </div>
-        </header>
+        </div>
+      </header>
 
-        <!-- Students Content -->
-        <main class="p-3 p-lg-4">
-          <!-- Header -->
-          <div
-            class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3"
-          >
-            <p class="text-muted mb-0">
-              Manage your students and track their progress.
-            </p>
+      <!-- Students Content -->
+      <main class="p-3 p-lg-4">
 
-            <button
-              class="btn btn-green px-3"
-              data-bs-toggle="modal"
-              data-bs-target="#studentModal"
-            >
-              <i class="bi bi-plus-lg me-1"></i> Add student
+        <!-- Header -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+          <p class="text-muted mb-0">Manage your students and track their progress.</p>
+
+          <button id="addStudentBtn" class="btn btn-green px-3" data-bs-toggle="modal" data-bs-target="#studentModal">
+            <i class="bi bi-plus-lg me-1"></i> Add student
+          </button>
+        </div>
+
+        <!-- Filters -->
+        <div class="nav-tabs-x mb-3">
+          <div class="nav-tabs-x">
+            <button class="btn active" data-filter="all">
+              All
+            </button>
+
+            <button class="btn" data-filter="active">
+              Active
+            </button>
+
+            <button class="btn" data-filter="archived">
+              Archived
             </button>
           </div>
+
+          <select id="courseFilter" class="form-select form-select-sm w-auto ms-auto" aria-label="Filter by course">
+            <option value="all">All courses</option>
+            <option value="Web Development">Web Development</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Databases">Databases</option>
+            <option value="UI Design">UI Design</option>
+          </select>
+
+          <button id="exportBtn" class="btn">
+            <i class="bi bi-download me-1"></i> Export CSV
+          </button>
+        </div>
+
+        <!-- Students Table -->
+        <div class="students-list">
+          <table class="students-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Courses</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <!-- Data will come from API -->
+            <tbody id="students-list"></tbody>
+          </table>
+        </div>
+    </div>
+  </div>
 
   </main>
   </div>
   </div>
 
-            <select
-              class="form-select form-select-sm w-auto ms-auto"
-              aria-label="Filter by course"
-            >
-              <option>All courses</option>
-              <option>Web Development</option>
-              <option>JavaScript</option>
-              <option>Databases</option>
-            </select>
+  <!-- Profile Modal -->
+  <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileTitle">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0" style="border-radius:16px">
+        <form action="#" id="add-student-form">
 
-            <button class="btn">
-              <i class="bi bi-download me-1"></i> Export CSV
-            </button>
+          <div class="modal-header border-0">
+            <h2 class="modal-title h5 fw-bold" id="profileTitle">My profile</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <!-- Students Table -->
-          <div class="box">
-            <div class="table-responsive">
-              <table class="table table-assess mb-0">
-                <thead>
-                  <tr>
-                    <th>Student</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Courses</th>
-                    <th>Status</th>
-                    <th class="text-end">Actions</th>
-                  </tr>
-                </thead>
-
-                <!-- Data will come from API -->
-                <tbody id="students-list"></tbody>
-              </table>
-            </div>
-          </div>
-        </main>
-      </div>
-    </div>
-
-    <!-- Add / Edit Student Modal -->
-    <div
-      class="modal fade"
-      id="studentModal"
-      tabindex="-1"
-      aria-labelledby="studentTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0" style="border-radius: 16px">
-          <form id="studentForm">
-            <div class="modal-header border-0">
-              <h2 class="modal-title h5 fw-bold" id="studentTitle">
-                New student
-              </h2>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-
-            <div class="modal-body">
-              <div class="row g-3">
-                <div class="col-12">
-                  <label class="form-label" for="f-name">Name</label>
-                  <input
-                    id="f-name"
-                    name="name"
-                    type="text"
-                    class="form-control"
-                    placeholder="e.g. Ahmad Khaled"
-                    required
-                  />
-                </div>
-
-                <div class="col-6">
-                  <label class="form-label" for="f-code">Student ID</label>
-                  <input
-                    id="f-code"
-                    name="studentId"
-                    type="text"
-                    class="form-control"
-                    placeholder="e.g. 31947"
-                    required
-                  />
-                </div>
-
-                <div class="col-6">
-                  <label class="form-label" for="f-email">Email</label>
-                  <input
-                    id="f-email"
-                    name="email"
-                    type="email"
-                    class="form-control"
-                    placeholder="name@example.com"
-                  />
-                </div>
-
-                <div class="col-12">
-                  <label class="form-label" for="f-courses"
-                    >Enrolled courses (comma-separated)</label
-                  >
-                  <input
-                    id="f-courses"
-                    name="courses"
-                    type="text"
-                    class="form-control"
-                    placeholder="e.g. JavaScript:90, React:85"
-                    required
-                  />
-                </div>
-
-                <div class="col-6">
-                  <label class="form-label" for="f-phone"
-                    >Phone
-                    <span class="text-muted small">(optional)</span></label
-                  >
-                  <input
-                    id="f-phone"
-                    name="phone"
-                    type="tel"
-                    class="form-control"
-                    placeholder="e.g. 07 9000 0000"
-                  />
-                </div>
-
-                <div class="col-6">
-                  <label class="form-label" for="f-status">Status</label>
-                  <select id="f-status" name="status" class="form-select">
-                    <option value="active">Active</option>
-                    <option value="archived">Archived</option>
-                  </select>
-                </div>
+          <div class="modal-body">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="avatar avatar-lg">AM</span>
+              <div>
+                <label class="btn btn-light btn-sm mb-1" for="pPhoto">Upload photo</label>
+                <input id="pPhoto" type="file" accept="image/*" class="d-none" />
+                <div class="small text-muted">JPG or PNG, up to 5 MB</div>
               </div>
             </div>
 
-            <div class="modal-footer border-0">
-              <button
-                type="button"
-                class="btn btn-light"
-                data-bs-dismiss="modal"
-              >
-                Cancel
-              </button>
-              <button type="submit" class="btn btn-green" id="submitStudentBtn">
-                Save student
-              </button>
+            <div class="row g-3">
+              <div class="col-12">
+                <label class="form-label" for="p-name">Full name</label>
+                <input id="p-name" class="form-control" value="Dr. Ahmad Mohammad" />
+              </div>
+
+              <div class="col-6">
+                <label class="form-label" for="p-role">Role</label>
+                <select id="p-role" class="form-select">
+                  <option selected>Instructor</option>
+                  <option>University lecturer</option>
+                  <option>Trainer</option>
+                </select>
+              </div>
+
+              <div class="col-6">
+                <label class="form-label" for="p-dept">Department / subject</label>
+                <input id="p-dept" class="form-control" value="Computer Science" />
+              </div>
+
+              <div class="col-6">
+                <label class="form-label" for="p-phone">Phone number</label>
+                <input id="p-phone" type="tel" class="form-control" placeholder="+962 7X XXX XXXX" />
+              </div>
+
+              <div class="col-6">
+                <label class="form-label" for="p-pemail">Personal email</label>
+                <input id="p-pemail" type="email" class="form-control" placeholder="you@gmail.com" />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Sign-in email</label>
+                <input class="form-control" value="demo@edutrack.com" disabled />
+              </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Delete confirmation -->
-    <div
-      class="modal fade"
-      id="deleteModal"
-      tabindex="-1"
-      aria-labelledby="deleteTitle"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0" style="border-radius: 16px">
-          <div class="modal-body text-center p-4">
-            <span
-              class="rounded-circle mb-3"
-              style="
-                display: inline-grid;
-                place-items: center;
-                width: 56px;
-                height: 56px;
-                background: #fde8e4;
-                color: var(--red);
-              "
-            >
-              <i class="bi bi-trash3 fs-4"></i>
-            </span>
-
-            <h2 class="h5 fw-bold mb-2" id="deleteTitle">Delete student?</h2>
-
-            <p class="text-muted mb-0">
-              "<span id="deleteStudentName"></span>" will be permanently
-              deleted. This cannot be undone.
-            </p>
           </div>
 
-          <div class="modal-footer border-0 justify-content-center pb-4">
-            <button
-              type="button"
-              class="btn btn-light px-4"
-              id="cancelDeleteBtn"
-              data-bs-dismiss="modal"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              class="btn btn-danger px-4"
-              id="confirmDeleteBtn"
-            >
-              Delete
-            </button>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-green">Save profile</button>
           </div>
-        </div>
+
+        </form>
       </div>
     </div>
+  </div>
 
-    <!-- Bootstrap JS -->
-    <!-- ================= PROFILE MODAL ================= -->
+  <!-- Add / Edit Student Modal -->
+  <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content student-modal">
 
-    <div
-      class="modal fade"
-      id="profileModal"
-      tabindex="-1"
-      aria-labelledby="profileTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <form id="profileForm">
-            <!-- HEADER -->
-            <div class="modal-header border-0">
-              <h2 class="modal-title h5 fw-bold" id="profileTitle">
-                My profile
-              </h2>
+        <form id="studentForm" class="d-flex flex-column overflow-hidden">
 
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
+          <div class="modal-header">
+            <h2 class="modal-title" id="studentTitle">Add New Student</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
 
-            <!-- BODY -->
-            <div class="modal-body">
-              <!-- PROFILE IMAGE -->
-              <div class="d-flex align-items-center gap-3 mb-4">
-                <span
-                  class="avatar profile-avatar-preview"
-                  id="profileAvatar"
-                ></span>
+          <div class="modal-body">
+            <div class="row g-4">
 
-                <div>
-                  <label
-                    for="profileImageInput"
-                    class="btn btn-outline-success btn-sm mb-1"
-                  >
-                    <i class="bi bi-camera me-1"></i>
-                    Choose photo
+              <div class="col-12">
+                <label class="form-label" for="f-name">Name</label>
+                <input id="f-name" name="name" type="text" class="form-control" placeholder="e.g. Ahmad Khaled"
+                  required />
+              </div>
+
+              <!-- <div class="col-md-6">
+                <label class="form-label" for="f-code">Student ID</label>
+                <input id="f-code" name="studentId" type="text" class="form-control" placeholder="e.g. 31947"
+                  required />
+              </div> -->
+
+              <div class="col-12">
+                <label class="form-label" for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" class="form-control" placeholder="name@example.com" />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label" for="f-courses">Enrolled courses (comma-separated)</label>
+                <input id="f-courses" name="courses" type="text" class="form-control"
+                  placeholder="e.g. JavaScript:90, React:85" required />
+              </div>
+
+              <div class="col-12">
+                <label class="form-label" for="f-phone">
+                  Phone <span class="label-optional">optional</span>
+                </label>
+                <input id="f-phone" name="phone" type="tel" class="form-control" placeholder="e.g. 07 9000 0000" />
+              </div>
+
+              <div class="col-12" id="statusField">
+                <label class="form-label" id="status-label">Status</label>
+
+                <div class="status-toggle" role="radiogroup" aria-labelledby="status-label">
+
+                  <input type="radio" class="btn-check" name="status" id="status-active" value="active" />
+
+                  <label class="status-option" for="status-active">
+                    Active
                   </label>
 
-                  <input
-                    type="file"
-                    id="profileImageInput"
-                    accept="image/*"
-                    class="d-none"
-                  />
+                  <input type="radio" class="btn-check" name="status" id="status-archived" value="archived" />
 
-                  <div class="small text-muted">JPG, PNG or WEBP</div>
-                </div>
-              </div>
-
-              <div class="row g-3">
-                <!-- NAME -->
-                <div class="col-12">
-                  <label class="form-label" for="p-name"> Full name </label>
-
-                  <input id="p-name" class="form-control" required />
-                </div>
-
-                <!-- DEPARTMENT -->
-                <div class="col-12">
-                  <label class="form-label" for="p-dept">
-                    Department / subject
+                  <label class="status-option" for="status-archived">
+                    Archived
                   </label>
 
-                  <input id="p-dept" class="form-control" required />
-                </div>
-
-                <!-- PHONE -->
-                <div class="col-12">
-                  <label class="form-label" for="p-phone"> Phone number </label>
-
-                  <input
-                    id="p-phone"
-                    type="tel"
-                    class="form-control"
-                    placeholder="+962 7X XXX XXXX"
-                    required
-                  />
-                </div>
-
-                <!-- EMAIL -->
-                <div class="col-12">
-                  <label class="form-label" for="p-email">
-                    Sign-in email
-                  </label>
-
-                  <input
-                    id="p-email"
-                    type="email"
-                    class="form-control"
-                    readonly
-                  />
                 </div>
               </div>
-            </div>
 
-            <!-- FOOTER -->
-            <div class="modal-footer border-0">
-              <button
-                type="button"
-                class="btn btn-light"
-                data-bs-dismiss="modal"
-              >
-                Cancel
-              </button>
-
-              <button type="submit" class="btn btn-green">Save profile</button>
             </div>
-          </form>
-        </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-add" id="submitStudentBtn">Add Student</button>
+          </div>
+
+        </form>
       </div>
     </div>
+  </div>
 
-    <!-- CHANGE PASSWORD MODAL -->
-    <div class="modal fade" id="changePasswordModal" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <form id="changePasswordForm">
-            <div class="modal-header border-0">
-              <h2 class="modal-title h5 fw-bold">Change password</h2>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-              ></button>
-            </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/student.js"></script>
+  <script src="../JS/theme.js"></script>
+</body>
 
-            <div class="modal-body">
-              <div class="mb-3">
-                <label class="form-label" for="currentPassword">
-                  Current password
-                </label>
-
-                <div class="password-field">
-                  <input
-                    id="currentPassword"
-                    type="password"
-                    class="form-control"
-                    required
-                  />
-
-                  <button
-                    type="button"
-                    class="toggle-password"
-                    data-target="currentPassword"
-                  >
-                    <i class="bi bi-eye"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label" for="newPassword">
-                  New password
-                </label>
-
-                <div class="password-field">
-                  <input
-                    id="newPassword"
-                    type="password"
-                    class="form-control"
-                    minlength="6"
-                    required
-                  />
-
-                  <button
-                    type="button"
-                    class="toggle-password"
-                    data-target="newPassword"
-                  >
-                    <i class="bi bi-eye"></i>
-                  </button>
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label" for="confirmNewPassword">
-                  Confirm new password
-                </label>
-
-                <div class="password-field">
-                  <input
-                    id="confirmNewPassword"
-                    type="password"
-                    class="form-control"
-                    minlength="6"
-                    required
-                  />
-
-                  <button
-                    type="button"
-                    class="toggle-password"
-                    data-target="confirmNewPassword"
-                  >
-                    <i class="bi bi-eye"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal-footer border-0">
-              <button
-                type="button"
-                class="btn btn-light"
-                data-bs-dismiss="modal"
-              >
-                Cancel
-              </button>
-              <button type="submit" class="btn btn-green">
-                Change password
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/profile.js"></script>
-    <script src="../js/passwordToggle.js"></script>
-    <script src="../js/theme.js"></script>
-    <script src="../js/student.js"></script>
-  </body>
 </html>
