@@ -318,20 +318,22 @@ html[data-theme="dark"] .modal .btn-close {
   border-color: var(--g5);
 }
 
-
 .btn-outline-success:hover {
-  background: var(--g5);
+  background: var(--g1);
 
-  color: #04271d;
+  color: var(--g7);
 
   border-color: var(--g5);
 }
 
 
-html[data-theme="dark"] .btn-outline-success {
-  color: var(--g5);
-}
+html[data-theme="dark"] .btn-outline-success:hover {
+  background: rgba(255, 255, 255, 0.08);
 
+  color: #ffffff;
+
+  border-color: var(--g5);
+}
 
 /* ================= DROPDOWN ================= */
 
@@ -574,4 +576,11 @@ html[data-theme="dark"] .course-badge:hover {
 
   box-shadow:
     0 0 8px rgba(25, 211, 154, 0.15);
+}
+/* Show dark logo immediately in dark mode */
+html[data-theme="dark"] .theme-logo {
+  content: url("../images/dark mode.png");
+}/* More space between logo and name in dark mode (logo has a glow) */
+html[data-theme="dark"] .brand {
+  gap: 1rem;
 }
