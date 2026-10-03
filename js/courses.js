@@ -14,6 +14,9 @@ const noCoursesMessage =
 const courseFormContainer =
     document.getElementById("courseFormContainer");
 
+const courseModal =
+    new bootstrap.Modal(courseFormContainer);
+
 const courseForm =
     document.getElementById("courseForm");
 
@@ -73,8 +76,7 @@ addCourseBtn.addEventListener("click", function () {
     submitCourseBtn.textContent =
         "Add Course";
 
-    courseFormContainer.style.display =
-        "block";
+    courseModal.show();
 
     courseName.focus();
 
@@ -85,16 +87,13 @@ addCourseBtn.addEventListener("click", function () {
 // CANCEL
 // ==================================================
 
-cancelCourseBtn.addEventListener(
-    "click",
+courseFormContainer.addEventListener(
+    "hidden.bs.modal",
     function () {
 
         editingCourseId = null;
 
         courseForm.reset();
-
-        courseFormContainer.style.display =
-            "none";
 
         courseFormTitle.textContent =
             "Add Course";
@@ -324,8 +323,7 @@ function renderCourses(courses) {
                     "Update Course";
 
 
-                courseFormContainer.style.display =
-                    "block";
+                courseModal.show();
 
 
                 courseName.focus();
@@ -586,8 +584,7 @@ courseForm.addEventListener(
                 courseForm.reset();
 
 
-                courseFormContainer.style.display =
-                    "none";
+                courseModal.hide();
 
 
                 courseFormTitle.textContent =
@@ -658,8 +655,7 @@ courseForm.addEventListener(
             courseForm.reset();
 
 
-            courseFormContainer.style.display =
-                "none";
+            courseModal.hide();
 
 
             courseFormTitle.textContent =

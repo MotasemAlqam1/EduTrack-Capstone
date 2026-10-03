@@ -7,52 +7,31 @@ let submitStudentBtn = document.getElementById("submitStudentBtn");
 
 // Render Student
 function RenderStudent(student) {
-
     studentContainer.insertAdjacentHTML("afterbegin", `
         <tr>
             <td>
                 <strong>${student.name}</strong>
                 <small>${student.studentId}</small>
             </td>
-
             <td>${student.email}</td>
-
             <td>${student.phone || "N/A"}</td>
-
             <td>
                 ${student.courses
-            .map(course => `
-                        <span class="course">
-                            ${course.name}
-                        </span>
-                    `)
-            .join("")}
+                    .map(course => `<span class="badge rounded-pill course-pill">${course.name}</span>`)
+                    .join("")}
             </td>
-
             <td>
-                <span class="status ${student.status}">
-                    ${student.status}
+                <span class="badge ${student.status === "active" ? "bg-success" : "bg-secondary"}">
+                    ${student.status === "active" ? "Active" : "Archived"}
                 </span>
             </td>
-
-            <td>
-                <div class="actions">
-
-                    <button
-                        class="action-btn update-btn"
-                        title="Update"
-                        onclick="updatestudent('${student.id}')">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-
-                    <button
-                        class="action-btn delete-btn"
-                        title="Delete"
-                        onclick="deletestudent('${student.id}')">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-
-                </div>
+            <td class="text-end">
+                <button class="btn btn-sm btn-light" title="Edit" onclick="updatestudent('${student.id}')">
+                    <i class="bi bi-pencil-square"></i>
+                </button>
+                <button class="btn btn-sm btn-light text-danger" title="Delete" onclick="openDeleteModal('${student.id}')">
+                    <i class="bi bi-trash3"></i>
+                </button>
             </td>
         </tr>
     `);
@@ -161,7 +140,7 @@ async function addstudent(event) {
         editingStudentId = null;
 
         // Reset button
-        submitStudentBtn.textContent = "Add Student";
+        submitStudentBtn.textContent = "Save student";
 
         // Refresh table
         studentContainer.innerHTML = "";
@@ -244,8 +223,9 @@ async function updatestudent(id) {
         // Save ID
         editingStudentId = id;
 
-        // Change button text
-        submitStudentBtn.textContent = "Update Student";
+        // Change title and button text
+        document.getElementById("studentTitle").textContent = "Edit student";
+        submitStudentBtn.textContent = "Update student";
 
 
         // Put student data inside form
@@ -270,13 +250,11 @@ async function updatestudent(id) {
 
 
         // Select status
-        document.querySelector(
-            `input[name="status"][value="${student.status}"]`
-        ).checked = true;
+        document.getElementById("f-status").value = student.status;
 
 
         // Open modal
-        let modal = new bootstrap.Modal(
+        let modal = bootstrap.Modal.getOrCreateInstance(
             document.getElementById("studentModal")
         );
 
@@ -291,3 +269,42 @@ async function updatestudent(id) {
 
 
 getstudent();
+
+
+// Reset form when modal closes
+document
+    .getElementById("studentModal")
+    .addEventListener("hidden.bs.modal", function () {
+        form.reset();
+        editingStudentId = null;
+        document.getElementById("studentTitle").textContent = "New student";
+        submitStudentBtn.textContent = "Save student";
+    });
+
+
+// Delete confirmation
+let deletingId = null;
+
+async function openDeleteModal(id) {
+    deletingId = id;
+    try {
+        let response = await fetch(`${Endpoint}/${id}`);
+        if (!response.ok) {
+            throw new Error("Failed to fetch student");
+        }
+        let student = await response.json();
+        document.getElementById("deleteStudentName").textContent = student.name;
+        bootstrap.Modal.getOrCreateInstance(
+            document.getElementById("deleteModal")
+        ).show();
+    } catch (error) {
+        console.log("Error:", error);
+    }
+}
+
+document
+    .getElementById("confirmDeleteBtn")
+    .addEventListener("click", function () {
+        deletestudent(deletingId);
+        document.getElementById("cancelDeleteBtn").click();
+    });
