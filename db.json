@@ -200,6 +200,15 @@
       "isDeleted": false,
       "instructorId": "1",
       "id": "rXOTW3U4QGE"
+    },
+    {
+      "title": "first",
+      "type": "Quiz",
+      "course": "JavaScript",
+      "dueDate": "2026-10-06",
+      "isDeleted": false,
+      "instructorId": "Odp7fhy2m0s",
+      "id": "cCnYHN6niLg"
     }
   ],
   "attendance": [],
