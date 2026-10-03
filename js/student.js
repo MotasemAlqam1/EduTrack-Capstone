@@ -34,6 +34,29 @@ addStudentBtn.addEventListener("click", () => {
     document.getElementById("status-active").checked = true;
 });
 
+// Get logged-in instructor
+const readSession = (key) => {
+    try {
+        return JSON.parse(
+            sessionStorage.getItem(key) ||
+            localStorage.getItem(key) ||
+            "null"
+        );
+    } catch {
+        return null;
+    }
+};
+
+const instructor = readSession("currentInstructor");
+
+if (!instructor || !instructor.id) {
+    location.href = "../index.html";
+    throw new Error("No logged-in instructor");
+}
+
+const INSTRUCTORID = instructor.id;
+
+
 
 // Render Student
 function RenderStudent(student) {
@@ -188,7 +211,10 @@ async function getstudent() {
 
         let data = await response.json();
 
-        students = data.filter(student => !student.isDeleted);
+        students = data.filter(student =>
+            !student.isDeleted &&
+            student.instructorId === INSTRUCTORID
+        );
 
         filterStudents();
 
@@ -209,7 +235,7 @@ async function addstudent(event) {
 
         // Get form data
         let student = Object.fromEntries(new FormData(form));
-
+        student.instructorId = INSTRUCTORID;
         student.isDeleted = false;
 
         if (!editingStudentId) {

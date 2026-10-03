@@ -1,22 +1,6 @@
 {
   "instructors": [
     {
-      "id": "1",
-      "name": "Nour jamal alsuhtt",
-      "email": "nour@gmail.com",
-      "password": "752003",
-      "department": "Computer Science",
-      "phone": "0797651441"
-    },
-    {
-      "id": "2",
-      "name": "Ahmad Ali",
-      "email": "ahmad@gmail.com",
-      "password": "123456",
-      "department": "Software Engineering",
-      "phone": "0791111111"
-    },
-    {
       "id": "RZor5ZxwOPQ",
       "name": "khoulod",
       "email": "kholud@gmail.com",
@@ -2049,6 +2033,22 @@
       "status": "active",
       "isDeleted": true,
       "id": "CPKAwMbDdVM"
+    },
+    {
+      "name": "studentone",
+      "studentId": "1234",
+      "email": "studentone@gmail.com",
+      "courses": [
+        {
+          "name": "react",
+          "grade": 90
+        }
+      ],
+      "phone": "12312413432",
+      "status": "archived",
+      "instructorId": "2nDVTOMPqIA",
+      "isDeleted": false,
+      "id": "09Nl3h6Omsc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
