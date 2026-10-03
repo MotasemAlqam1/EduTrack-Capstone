@@ -274,6 +274,7 @@ document.querySelectorAll(".nav-tabs-x [data-type]").forEach((btn) =>
     })
 );
 
+// Entry point
 const init = async () => {
     try {
         await loadCourses();
