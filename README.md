@@ -6,7 +6,7 @@
 
 Manage students, courses, assessments, and learning resources from one clean dashboard, in light or dark mode.
 
-<a href="#">🚀 Live Demo</a>
+<a href="https://motasemalqam1.github.io/EduTrack-Capstone/">🚀 Live Demo</a>
 &nbsp;·&nbsp;
 <a href="https://www.figma.com/design/cYBe5XA1PwdHCbFRa7am21/EduTrack-%E2%80%94-Wireframes---High-Fidelity?node-id=1-8&p=f&t=H3ZMowtieJqZBG8U-0">🎨 Figma</a>
 &nbsp;·&nbsp;
