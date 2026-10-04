@@ -260,11 +260,11 @@ Each team member documented the bugs they hit and how they solved them. It's a r
 
 | Name | GitHub |
 | --- | --- |
-| Asmaa Aljazzar | [@username](#) |
+| Asmaa Aljazzar | [@asmaa-aljazzar](https://github.com/asmaa-aljazzar) |
 | Motasem Alqam | [@MotasemAlqam1](https://github.com/MotasemAlqam1) |
-| Ahmad Kayali | [@username](#) |
-| Ahmad Hwari | [@username](#) |
-| Nour Alsuht | [@username](#) |
+| Ahmad Kayali | [@Kayyali10](https://github.com/Kayyali10) |
+| Ahmad Hwari | [@Ahmad-alhwari0](https://github.com/Ahmad-alhwari0) |
+| Nour Alsuht | [@nouralsuht](https://github.com/nouralsuht) |
 
 <div align="center">
 
