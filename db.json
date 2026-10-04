@@ -1060,7 +1060,7 @@
       "phone": "0792373128",
       "instructorId": "8-W8CwWXXFE",
       "isDeleted": false,
-      "status": "active",
+      "status": "archived",
       "courses": [
         {
           "name": "JavaScript",
@@ -1075,7 +1075,7 @@
       "phone": "0798254023",
       "instructorId": "8-W8CwWXXFE",
       "isDeleted": false,
-      "status": "active",
+      "status": "archived",
       "courses": [
         {
           "name": "Secure Coding",
