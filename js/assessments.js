@@ -1,4 +1,9 @@
-let Endpoint = "http://localhost:3000/assessments";
+import { API_URL, requireInstructor } from "./session.js";
+
+const currentInstructor = requireInstructor("../index.html");
+
+let Endpoint = `${API_URL}/assessments`;
+const COURSES_URL = `${API_URL}/courses`;
 let tableBody = document.getElementById("assessmentsTableBody");
 let form = document.getElementById("assessmentForm");
 let deletingId = null;
@@ -6,21 +11,49 @@ let editingId = null;
 let currentType = "All";
 let currentCourse = "All courses";
 let visibleAssessments = [];
- 
+let courses = []; // Current instructor courses
+
 let typeClasses = {
   Assignment: "t-assign",
   Quiz: "t-quiz",
   Exam: "t-exam",
 };
- 
+
 let statusClasses = {
   Active: "bg-success",
   Ended: "bg-secondary",
 };
- 
+
 let assessmentsLink = document.getElementById("assessmentsLink");
 let newAssessmentLink = document.getElementById("newAssessmentLink");
- 
+
+// Makes text safe to put inside HTML
+const esc = (s = "") =>
+  String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+// Only the logged-in instructor's courses: GET /courses?instructorId=<id>
+async function loadCourses() {
+  let response = await fetch(
+    `${COURSES_URL}?instructorId=${encodeURIComponent(currentInstructor.id)}`,
+  );
+  if (!response.ok) {
+    throw new Error("Failed to fetch courses");
+  }
+  courses = (await response.json()).filter((c) => !c.isDeleted);
+
+  let options = courses
+    .map((c) => `<option value="${esc(c.name)}">${esc(c.name)}</option>`)
+    .join("");
+  document.getElementById("a-course").innerHTML = options;
+  document.getElementById("courseFilter").innerHTML =
+    `<option value="All courses">All courses</option>${options}`;
+
+  // No courses yet: block creating assessments
+  document
+    .querySelectorAll('[data-bs-target="#assessmentModal"], #newAssessmentLink')
+    .forEach((el) => el.classList.toggle("disabled", courses.length === 0));
+}
+
 async function getAssessments() {
   try {
     let response = await fetch(Endpoint);
@@ -28,9 +61,6 @@ async function getAssessments() {
       throw new Error("Failed to fetch Assessments");
     }
     let data = await response.json();
-        let currentInstructor = JSON.parse(
-      sessionStorage.getItem("currentInstructor"),
-    );
     let assessments = data.filter(
       (assessment) =>
         !assessment.isDeleted &&
@@ -48,23 +78,23 @@ async function getAssessments() {
     console.log("Error:", error);
   }
 }
- 
+
 function RenderAssessment(assessment) {
   let status = getStatus(assessment);
   tableBody.insertAdjacentHTML(
     "beforeend",
     `
     <tr>
-      <td>${assessment.title}</td>
-      <td>${assessment.course}</td>
+      <td>${esc(assessment.title)}</td>
+      <td>${esc(assessment.course)}</td>
       <td><span class="badge rounded-pill ${typeClasses[assessment.type]}">${assessment.type}</span></td>
       <td>${assessment.dueDate}</td>
       <td><span class="badge ${statusClasses[status]}">${status}</span></td>
       <td class="text-end">
-        <button class="btn btn-sm btn-light" title="Edit" onclick="updateAssessment('${assessment.id}')">
+        <button class="btn btn-sm btn-light" title="Edit" data-action="edit" data-id="${assessment.id}">
           <i class="bi bi-pencil-square"></i>
         </button>
-        <button class="btn btn-sm btn-light text-danger" title="Delete" onclick="openDeleteModal('${assessment.id}')">
+        <button class="btn btn-sm btn-light text-danger" title="Delete" data-action="delete" data-id="${assessment.id}">
           <i class="bi bi-trash3"></i>
         </button>
       </td>
@@ -72,12 +102,12 @@ function RenderAssessment(assessment) {
     `,
   );
 }
- 
+
 function getStatus(assessment) {
   let today = new Date().toLocaleDateString("en-CA");
   return assessment.dueDate >= today ? "Active" : "Ended";
 }
- 
+
 function renderStats(assessments) {
   let graded = assessments.filter((a) => getStatus(a) === "Ended").length;
   let open = assessments.filter((a) => getStatus(a) === "Active").length;
@@ -85,7 +115,7 @@ function renderStats(assessments) {
   document.getElementById("gradedAssessments").textContent = graded;
   document.getElementById("openAssessments").textContent = open;
 }
- 
+
 function renderTabs(assessments) {
   let assignments = assessments.filter((a) => a.type === "Assignment").length;
   let quizzes = assessments.filter((a) => a.type === "Quiz").length;
@@ -100,28 +130,33 @@ function renderTabs(assessments) {
   setActiveTab("quizzesTab", "Quiz");
   setActiveTab("examsTab", "Exam");
 }
- 
+
 function setActiveTab(id, type) {
   document.getElementById(id).classList.toggle("active", currentType === type);
 }
- 
+
 function filterByType(type) {
   currentType = type;
   tableBody.innerHTML = "";
   getAssessments();
 }
- 
+
 function filterByCourse(course) {
   currentCourse = course;
   tableBody.innerHTML = "";
   getAssessments();
 }
- 
+
 async function addAssessment(event) {
   event.preventDefault();
   try {
     let assessment = Object.fromEntries(new FormData(form));
     assessment.isDeleted = false;
+    let course = courses.find((c) => c.name === assessment.course);
+    if (!course) {
+      throw new Error("Choose one of your courses");
+    }
+    assessment.courseId = course.id;
     let response;
     if (editingId) {
       response = await fetch(`${Endpoint}/${editingId}`, {
@@ -130,9 +165,6 @@ async function addAssessment(event) {
         body: JSON.stringify(assessment),
       });
     } else {
-      let currentInstructor = JSON.parse(
-        sessionStorage.getItem("currentInstructor"),
-      );
       assessment.instructorId = currentInstructor.id;
       response = await fetch(Endpoint, {
         method: "POST",
@@ -151,14 +183,14 @@ async function addAssessment(event) {
     console.log("Error:", error);
   }
 }
- 
+
 form.addEventListener("submit", addAssessment);
- 
+
 document
   .getElementById("assessmentModal")
   .addEventListener("show.bs.modal", function () {
     let dueInput = document.getElementById("a-due");
- 
+
     if (editingId === null) {
       assessmentsLink.classList.remove("active");
       newAssessmentLink.classList.add("active");
@@ -168,7 +200,7 @@ document
       dueInput.removeAttribute("min");
     }
   });
- 
+
 document
   .getElementById("assessmentModal")
   .addEventListener("hidden.bs.modal", function () {
@@ -178,7 +210,7 @@ document
     newAssessmentLink.classList.remove("active");
     assessmentsLink.classList.add("active");
   });
- 
+
 async function updateAssessment(id) {
   try {
     let response = await fetch(`${Endpoint}/${id}`);
@@ -199,7 +231,7 @@ async function updateAssessment(id) {
     console.log("Error:", error);
   }
 }
- 
+
 async function deleteAssessment(id) {
   try {
     let response = await fetch(`${Endpoint}/${id}`, {
@@ -216,7 +248,7 @@ async function deleteAssessment(id) {
     console.log("Error:", error);
   }
 }
- 
+
 async function openDeleteModal(id) {
   deletingId = id;
   try {
@@ -234,14 +266,14 @@ async function openDeleteModal(id) {
     console.log("Error:", error);
   }
 }
- 
+
 document
   .getElementById("confirmDeleteBtn")
   .addEventListener("click", function () {
     deleteAssessment(deletingId);
     document.getElementById("cancelDeleteBtn").click();
   });
- 
+
 function exportCsv() {
   let rows = [["Assessment", "Course", "Type", "Due", "Status"]];
   visibleAssessments.forEach((a) => {
@@ -258,7 +290,7 @@ function exportCsv() {
   link.download = "assessments.csv";
   link.click();
 }
- 
+
 // Shortcut on this page: open the modal without reloading
 newAssessmentLink.addEventListener("click", function (event) {
   event.preventDefault();
@@ -266,12 +298,39 @@ newAssessmentLink.addEventListener("click", function (event) {
     document.getElementById("assessmentModal"),
   ).show();
 });
- 
+
 if (new URLSearchParams(window.location.search).has("new")) {
   bootstrap.Modal.getOrCreateInstance(
     document.getElementById("assessmentModal"),
   ).show();
   history.replaceState(null, "", "assessments.html");
 }
- 
-getAssessments();
+
+// Table buttons + tabs + export (replaces inline onclick in HTML and render)
+tableBody.addEventListener("click", (event) => {
+  let btn = event.target.closest("[data-action]");
+  if (!btn) return;
+  if (btn.dataset.action === "edit") updateAssessment(btn.dataset.id);
+  if (btn.dataset.action === "delete") openDeleteModal(btn.dataset.id);
+});
+
+document.getElementById("allTab").addEventListener("click", () => filterByType("All"));
+document.getElementById("assignmentsTab").addEventListener("click", () => filterByType("Assignment"));
+document.getElementById("quizzesTab").addEventListener("click", () => filterByType("Quiz"));
+document.getElementById("examsTab").addEventListener("click", () => filterByType("Exam"));
+document.getElementById("exportCsvBtn").addEventListener("click", exportCsv);
+document.getElementById("courseFilter").addEventListener("change", (e) => filterByCourse(e.target.value));
+
+// Load the instructor's courses first so the dropdowns are filled
+// before assessments are rendered or an edit tries to select a course.
+async function init() {
+  try {
+    await loadCourses();
+  } catch (error) {
+    console.log("Error:", error);
+    return;
+  }
+  getAssessments();
+}
+
+init();

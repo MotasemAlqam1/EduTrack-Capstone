@@ -47,6 +47,10 @@ const toast = (msg) => {
 // Extract youtubeId using reqular expression (regex)
 const youtubeId = (url) => (url.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/) || [])[1];
 
+// Open Library covers: -S is a tiny image (blurry when stretched), use -M instead.
+// Also upgrades already-saved resources that still hold the -S link.
+const bigCover = (url = "") => url.replace(/-S\.jpg$/, "-M.jpg");
+
 //? Read
 const getResources = async () => {
     // Create a query string in URL
@@ -77,13 +81,13 @@ const renderResources = (items) => {
         .map((r) => {
             // thumb: short preview image if it is not exist
             // the image comes from YouTube's thumbnail server
-            const thumb = r.thumbnail || (r.type === "video" && youtubeId(r.link) ? `https://i.ytimg.com/vi/${youtubeId(r.link)}/mqdefault.jpg` : "");
+            const thumb = bigCover(r.thumbnail) || (r.type === "video" && youtubeId(r.link) ? `https://i.ytimg.com/vi/${youtubeId(r.link)}/mqdefault.jpg` : "");
             //   Decide whitch icon to use later for video or pdf
             const icon = r.type === "video" ? "bi-play-circle" : "bi-file-earmark-pdf";
             return `
       <div class="col-sm-6 col-xl-4">
         <div class="res-card">
-          <div class="res-thumb">${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy">` : `<i class="bi ${icon}"></i>`}</div>
+          <div class="res-thumb ${r.type === "pdf" ? "is-pdf" : ""}">${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy" onerror="this.remove()">` : `<i class="bi ${icon}"></i>`}</div>
           <div class="res-body">
             <div><span class="badge-soft b-ok">${esc(r.course)}</span>
                  <span class="badge-soft b-arch">${r.type === "video" ? "Video" : "PDF"}</span></div>
@@ -137,7 +141,8 @@ const searchResources = async (topic, course, type) => {
         .map((d) => ({
             title: d.title,
             link: `https://archive.org/details/${d.ia[0]}`,
-            thumbnail: d.cover_i ? `https://covers.openlibrary.org/b/id/${d.cover_i}-S.jpg` : "",
+            // -M (medium) so the card thumbnail is not blurry
+            thumbnail: d.cover_i ? `https://covers.openlibrary.org/b/id/${d.cover_i}-M.jpg` : "",
         }));
 };
 

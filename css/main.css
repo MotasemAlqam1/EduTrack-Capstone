@@ -559,7 +559,7 @@ html[data-theme="dark"] .course-badge:hover {
 }
 /* Show dark logo immediately in dark mode */
 html[data-theme="dark"] .theme-logo {
-  content: url("../images/dark mode.png");
+  content: url("../images/darkMode.png");
 }/* More space between logo and name in dark mode (logo has a glow) */
 html[data-theme="dark"] .brand {
   gap: 1rem;

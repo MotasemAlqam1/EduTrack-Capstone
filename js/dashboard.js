@@ -1,28 +1,18 @@
-const API_URL = "http://localhost:3000";
+import { API_URL, requireInstructor } from "./session.js";
+import { esc, getInitials } from "./utils.js";
 
-
-// Logged-in instructor (currentInstructor), Extract from session
-const readSession = (key) => {
-    try {
-        return JSON.parse(sessionStorage.getItem(key) || localStorage.getItem(key) || null);
-    } catch {
-        return null;
-    }
-};
-
-const instructor = readSession("currentInstructor");
-if (!instructor || !instructor.id) {
-    location.href = "index.html"; // Not logged in -> login page (pages/index.html)
-    throw new Error("No logged-in instructor");
-}
-
+// Not logged in -> login page (pages/index.html)
+const instructor = requireInstructor("index.html");
 const INSTRUCTORID = instructor.id;
 
-const COURSES = [
-  { name: "Web Development", color: "var(--g5)" },
-  { name: "JavaScript", color: "var(--blue)" },
-  { name: "Databases", color: "var(--amber)" },
-  { name: "UI Design", color: "#8b7cf6" },
+// Colors are reused in order when there are more courses than colors
+const COURSE_COLORS = [
+  "var(--g5)",
+  "var(--blue)",
+  "var(--amber)",
+  "#8b7cf6",
+  "#ec4899",
+  "#14b8a6",
 ];
 
 const ATTENTION_GRADE = 60; // below 60 needs attention
@@ -30,20 +20,27 @@ const ATTENTION_GRADE = 60; // below 60 needs attention
 const average = (arr) =>
   arr.length ? arr.reduce((sum, n) => sum + n, 0) / arr.length : 0;
 
-// -------- [ Students DATA ] --------
+// -------- [ DATA ] --------
 const getStudents = async (instructorId) => {
-  const res = await fetch(`${API_URL}/students?instructorId=${instructorId}`);
-  if (!res.ok) throw new Error(`Faild to load studnets (${res.status})`);
+  const res = await fetch(`${API_URL}/students?instructorId=${encodeURIComponent(instructorId)}`);
+  if (!res.ok) throw new Error(`Failed to load students (${res.status})`);
   const data = await res.json(); // res.json itself is asynchronous
-  return data;
-}
+  // Same rule as the Students page: hide soft-deleted, and only count active students
+  return data.filter((s) => !s.isDeleted && s.status !== "archived");
+};
+
+const getCourses = async (instructorId) => {
+  const res = await fetch(`${API_URL}/courses?instructorId=${encodeURIComponent(instructorId)}`);
+  if (!res.ok) throw new Error(`Failed to load courses (${res.status})`);
+  return (await res.json()).filter((c) => !c.isDeleted);
+};
 
 // -------- [ RENDER ] --------
-const renderDashboard = (students) => {
+const renderDashboard = (students, courses) => {
   // Each student's grade = average of their course grades (must run before the stats)
   const stdWithGrade = students.map((s) => ({
     ...s,
-    grade: Math.round(average(s.courses.map((x) => x.grade)))
+    grade: Math.round(average((s.courses || []).map((x) => x.grade)))
   }));
 
   const needAttention = stdWithGrade
@@ -87,42 +84,37 @@ const renderDashboard = (students) => {
       `${(count / maxCount) * 100}%`; // What is the height of the current group
   });
 
-  // Average by course 
-  document.getElementById("course-averages").innerHTML = COURSES.map((course) => { // Will write for each course
-    // Does the student have the course I want? -> courses.filter
-    // Give me the grade.
-    // Who is the student? -> s
-    //! Without flatMap => [[90], [80]]
-    //* With flatMap => [90, 80]
-    const grades = students.flatMap((s) => //?flatMap: flattens the array that its callback returns by one level.
-      s.courses.filter((x) => x.name === course.name).map((x) => x.grade)
-    );
+  // Average by course: the instructor's courses + any course name found on a student
+  const courseNames = [
+    ...new Set([
+      ...courses.map((c) => c.name),
+      ...students.flatMap((s) => (s.courses || []).map((x) => x.name)),
+    ]),
+  ];
 
-    // Display the average
-    const avg = Math.round(average(grades));
-    return `
+  document.getElementById("course-averages").innerHTML = courseNames.length
+    ? courseNames.map((name, i) => {
+        // Every grade of this course, across all students
+        //* flatMap => [90, 80] instead of [[90], [80]]
+        const grades = students.flatMap((s) =>
+          (s.courses || []).filter((x) => x.name === name).map((x) => x.grade)
+        );
+
+        // No grades yet -> show a dash instead of a misleading 0%
+        const hasGrades = grades.length > 0;
+        const courseAvg = Math.round(average(grades));
+        return `
       <div class="hbar">
-        <span class="n">${course.name}</span>
+        <span class="n">${esc(name)}</span>
         <div class="prog">
-          <span style="width: ${avg}%; background: ${course.color}"></span>
+          <span style="width: ${courseAvg}%; background: ${COURSE_COLORS[i % COURSE_COLORS.length]}"></span>
         </div>
-        <span class="v">${avg}%</span>
+        <span class="v">${hasGrades ? `${courseAvg}%` : "–"}</span>
       </div>`;
-  }).join("");
+      }).join("")
+    : `<p class="text-muted mb-0">No courses yet</p>`;
 
   //? Students needing attention (3 lowest grades)
-  // First character form both first and last name
-  const getInitials = (name) => {
-    const parts = name.trim().split (/\s+/);
-
-    if (parts.length == 1)
-      return parts[0][0].toUpperCase ();
-
-    return (
-      parts[0][0] + parts[parts.length - 1][0] // Only firstname and lastname
-    ).toUpperCase ();
-  }
-
   const topAttention = [...needAttention] // Copy to not sort the original one
   .sort ((a, b) => a.grade - b.grade) // lowest grade first
   .slice (0, 3); // Only first 3
@@ -134,7 +126,7 @@ const renderDashboard = (students) => {
       <div class="q">
         <span class="av">${getInitials(s.name)}</span>
         <div class="t">
-          ${s.name}<small> Grade ${s.grade}%</small>
+          ${esc(s.name)}<small> Grade ${s.grade}%</small>
         </div>
       </div>`
         )
@@ -156,7 +148,7 @@ const renderDashboard = (students) => {
       <div class="q">
         <span class="av">${getInitials(s.name)}</span>
         <div class="t">
-          ${s.name}<small> Grade ${s.grade}%</small>
+          ${esc(s.name)}<small> Grade ${s.grade}%</small>
         </div>
       </div>`
         )
@@ -166,9 +158,18 @@ const renderDashboard = (students) => {
 }
 
 
-const init = async () => {
-  const students = await getStudents(INSTRUCTORID);
-  renderDashboard(students);
+try {
+  const [students, courses] = await Promise.all([
+    getStudents(INSTRUCTORID),
+    getCourses(INSTRUCTORID),
+  ]);
+  renderDashboard(students, courses);
+} catch (error) {
+  console.error("Dashboard error:", error);
+  // Show the problem on the page instead of leaving empty cards
+  const message = `<p class="text-danger mb-0">Could not load dashboard data: ${esc(error.message)}. Is json-server running?</p>`;
+  ["course-averages", "attention-list", "performers-list"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = message;
+  });
 }
-
-init();

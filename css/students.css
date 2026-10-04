@@ -1,195 +1,301 @@
-   .students-list {
-      width: 100%;
-      margin-top: 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow-x: auto;
-      box-shadow: 0 4px 16px rgba(17, 24, 39, 0.05);
-    }
+.students-list {
+  width: 100%;
+  margin-top: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  box-shadow: 0 4px 16px rgba(17, 24, 39, 0.05);
+}
 
-    .students-table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 850px;
-    }
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 850px;
+}
 
-    /* Table Header */
+/* Table Header */
 
-    .students-table thead {
-      background: #f8f9fc;
-    }
+.students-table thead {
+  background: #f8f9fc;
+}
 
-    .students-table th {
-      padding: 16px 20px;
-      text-align: left;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      border-bottom: 1px solid var(--border);
-    }
+.students-table th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--border);
+}
 
-    /* Table Body */
+/* Table Body */
 
-    .students-table td {
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text);
-      font-size: 14px;
-      vertical-align: middle;
-    }
+.students-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: 14px;
+  vertical-align: middle;
+}
 
-    /* Remove border from last row */
+/* Remove border from last row */
 
-    .students-table tbody tr:last-child td {
-      border-bottom: none;
-    }
+.students-table tbody tr:last-child td {
+  border-bottom: none;
+}
 
-    /* Hover */
+/* Hover */
 
-    .students-table tbody tr {
-      transition: background 0.2s ease;
-    }
+.students-table tbody tr {
+  transition: background 0.2s ease;
+}
 
-    .students-table tbody tr:hover {
-      background: #f8f9ff;
-    }
+.students-table tbody tr:hover {
+  background: #f8f9ff;
+}
 
-    /* Student Name */
+/* Student Name */
 
-    .students-table td:first-child {
-      min-width: 180px;
-    }
+.students-table td:first-child {
+  min-width: 180px;
+}
 
-    .students-table td:first-child strong {
-      display: block;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-    }
+.students-table td:first-child strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
 
-    .students-table td:first-child small {
-      display: block;
-      margin-top: 4px;
-      font-size: 12px;
-      color: var(--muted);
-    }
+.students-table td:first-child small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
 
-    /* Email */
+/* Email */
 
-    .students-table td:nth-child(2) {
-      color: var(--muted);
-    }
+.students-table td:nth-child(2) {
+  color: var(--muted);
+}
 
-    /* Courses */
+/* Courses */
 
-    .course {
-      display: inline-block;
-      padding: 5px 10px;
-      margin: 2px 4px 2px 0;
-      background: #eef0ff;
-      color: var(--primary);
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 500;
-    }
+.course {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  margin: 2px 4px 2px 0;
+  background: #eef0ff;
+  color: var(--primary);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
 
-    /* Status */
+/* Grade badge inside a course chip */
 
-    .status {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: capitalize;
-    }
+.course .course-grade {
+  padding: 1px 7px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+}
 
-    .status.active {
-      background: #e8f7ee;
-      color: #218739;
-    }
+/* Status */
 
-    .status.archived {
-      background: #f1f2f4;
-      color: #6b7280;
-    }
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
 
-    /* Actions */
+.status.active {
+  background: #e8f7ee;
+  color: #218739;
+}
 
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+.status.archived {
+  background: #f1f2f4;
+  color: #6b7280;
+}
 
-    .action-btn {
-      width: 36px;
-      height: 36px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--surface);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
+/* Actions */
 
-    .action-btn i {
-      font-size: 14px;
-    }
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    /* Update */
+.action-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-    .update-btn {
-      color: var(--primary);
-    }
+.action-btn i {
+  font-size: 14px;
+}
 
-    .update-btn:hover {
-      background: #eef0ff;
-      border-color: var(--primary-soft);
-    }
+/* Update */
 
-    /* Delete */
+.update-btn {
+  color: var(--primary);
+}
 
-    .delete-btn {
-      color: #dc3545;
-    }
+.update-btn:hover {
+  background: #eef0ff;
+  border-color: var(--primary-soft);
+}
 
-    .delete-btn:hover {
-      background: #fff0f0;
-      border-color: #f5b5b5;
-    }
+/* Delete */
 
-    /* Responsive*/
+.delete-btn {
+  color: #dc3545;
+}
 
-    @media (max-width: 900px) {
+.delete-btn:hover {
+  background: #fff0f0;
+  border-color: #f5b5b5;
+}
 
-      .students-list {
-        overflow-x: auto;
-      }
+/* ==============================
+   Course rows (Add / Edit student modal)
+   One row = course dropdown + grade + remove
+   ============================== */
 
-      .students-table {
-        min-width: 800px;
-      }
-    }
+.course-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 
-    @media (max-width: 640px) {
+.course-row {
+  display: grid;
+  grid-template-columns: 1fr 96px 40px;
+  gap: 8px;
+  align-items: center;
+}
 
-      .students-table th,
-      .students-table td {
-        padding: 14px 12px;
-      }
+.course-row .grade-input {
+  text-align: center;
+}
 
-      .students-table th {
-        font-size: 12px;
-      }
+.remove-course-btn {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
-      .students-table td {
-        font-size: 13px;
-      }
-    }
+.remove-course-btn:hover:not(:disabled) {
+  background: #fff0f0;
+  border-color: #f5b5b5;
+}
+
+.remove-course-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-add-course {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border: 1px dashed var(--primary);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-add-course:hover:not(:disabled) {
+  background: #eef0ff;
+}
+
+.btn-add-course:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Dark theme: keep the light hard-coded backgrounds readable */
+
+[data-theme="dark"] .students-table thead {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .students-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .course,
+[data-theme="dark"] .btn-add-course:hover:not(:disabled) {
+  background: rgba(124, 140, 255, 0.15);
+}
+
+/* Responsive*/
+
+@media (max-width: 900px) {
+
+  .students-list {
+    overflow-x: auto;
+  }
+
+  .students-table {
+    min-width: 800px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .students-table th,
+  .students-table td {
+    padding: 14px 12px;
+  }
+
+  .students-table th {
+    font-size: 12px;
+  }
+
+  .students-table td {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .course-row {
+    grid-template-columns: 1fr 80px 40px;
+  }
+}

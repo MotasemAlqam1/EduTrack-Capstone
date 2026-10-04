@@ -1,80 +1,98 @@
-    .res-card {
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 18px;
-        overflow: hidden;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
+.res-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 
-    .res-thumb {
-        height: 150px;
-        background: var(--g1);
-        color: var(--g5);
-        display: grid;
-        place-items: center;
-        font-size: 2.6rem;
-    }
+/* Fixed-height thumbnail box: the image is positioned inside it,
+   so it can never grow past 150px or cover the card body. */
+.res-thumb {
+    position: relative;
+    flex: none;
+    height: 150px;
+    overflow: hidden;
+    background: var(--g1);
+    color: var(--g5);
+    display: grid;
+    place-items: center;
+    font-size: 2.6rem;
+}
 
-    .res-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+.res-thumb img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
 
-    .res-body {
-        padding: 1rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: .4rem;
-    }
+/* Book covers are portrait: show the whole cover instead of cropping it */
+.res-thumb.is-pdf img {
+    object-fit: contain;
+}
 
-    .res-body h3 {
-        font-size: 1rem;
-        font-weight: 600;
-        margin: 0;
-    }
+.res-body {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
 
-    .res-foot {
-        display: flex;
-        gap: .5rem;
-        align-items: center;
-        margin-top: auto;
-        padding-top: .5rem;
-    }
+.res-body h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    /* keep long titles from stretching the card: max 2 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
-    .result-item {
-        display: flex;
-        gap: .75rem;
-        align-items: center;
-        padding: .5rem;
-        border: 1px solid var(--line);
-        border-radius: 12px;
-        cursor: pointer;
-        background: #fff;
-        width: 100%;
-        text-align: left;
-    }
+.res-foot {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    margin-top: auto;
+    padding-top: .5rem;
+}
 
-    .result-item:hover {
-        border-color: var(--g5);
-    }
+.result-item {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    padding: .5rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    cursor: pointer;
+    background: #fff;
+    width: 100%;
+    text-align: left;
+}
 
-    .result-item img {
-        width: 64px;
-        height: 44px;
-        object-fit: cover;
-        border-radius: 8px;
-        flex: none;
-        background: var(--g1);
-    }
+.result-item:hover {
+    border-color: var(--g5);
+}
 
-    .student-modal select.form-select {
-        height: 60px;
-        border-radius: 14px;
-        background-color: var(--sm-field-bg);
-        border: 1px solid var(--sm-field-border);
-        font-size: 1.1rem;
-    }
+.result-item img {
+    width: 64px;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex: none;
+    background: var(--g1);
+}
+
+.student-modal select.form-select {
+    height: 60px;
+    border-radius: 14px;
+    background-color: var(--sm-field-bg);
+    border: 1px solid var(--sm-field-border);
+    font-size: 1.1rem;
+}
