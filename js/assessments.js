@@ -1,4 +1,5 @@
 import { API_URL, requireInstructor } from "./session.js";
+import { toast } from "./utils.js";
 
 const currentInstructor = requireInstructor("../index.html");
 
@@ -233,7 +234,7 @@ async function addAssessment(event) {
     assessment.courseId = course.id;
     assessment.studentIds = getSelectedStudentIds();
     if (assessment.studentIds.length === 0) {
-      alert("Select at least one student");
+      toast("Select at least one student", "error");
       return;
     }
     let response;
@@ -254,6 +255,8 @@ async function addAssessment(event) {
     if (!response.ok) {
       throw new Error("Failed to save assessment");
     }
+    toast(editingId ? "Assessment updated" : "Assessment added");
+
     form.reset();
     tableBody.innerHTML = "";
     getAssessments();
@@ -332,6 +335,7 @@ async function deleteAssessment(id) {
     if (!response.ok) {
       throw new Error("Failed to delete assessment");
     }
+    toast("Assessment deleted");
     tableBody.innerHTML = "";
     getAssessments();
   } catch (error) {

@@ -3,6 +3,9 @@
 // with profile.js / theme.js. If any of them declares the same name
 // (instructor, readSession, ...), the browser throws
 // "Identifier '...' has already been declared" and NOTHING in this file runs
+
+import { toast } from "./utils.js";
+
 // (no button, no form, no courses). Inside the IIFE nothing can clash.
 (function () {
     const API_URL = "http://localhost:3000/courses";
@@ -146,10 +149,11 @@
                 try {
                     const response = await fetch(`${API_URL}/${course.id}`, { method: "DELETE" });
                     if (!response.ok) throw new Error("Failed to delete course");
+                    toast("Course deleted");
                     await getCourses();
                 } catch (error) {
                     console.error("Delete error:", error);
-                    alert("Failed to delete course");
+                    toas("Failed to delete course");
                 }
             });
         });
@@ -170,7 +174,7 @@
             renderCourses(getVisibleCourses());
         } catch (error) {
             console.error("Get courses error:", error);
-            alert("Failed to load courses. Is json-server running?");
+            toast("Failed to load courses. Is json-server running?", "error");
         }
     }
 
@@ -223,7 +227,7 @@
         };
 
         if (!courseData.name || !courseData.description || !courseData.category) {
-            alert("Please fill all fields");
+            toast("Please fill all fields", "error");
             return;
         }
 
@@ -237,12 +241,12 @@
             });
 
             if (!response.ok) throw new Error(isEditing ? "Failed to update course" : "Failed to add course");
-
+            toast(isEditing ? "Course updated" : "Course added");
             await getCourses();
             courseModal.hide(); // the "hidden.bs.modal" handler resets the form
         } catch (error) {
             console.error("Save course error:", error);
-            alert(isEditing ? "Failed to update course" : "Failed to add course");
+            toast(isEditing ? "Failed to update course" : "Failed to add course", "error");
         }
     });
 

@@ -230,6 +230,13 @@
       "category": "Data",
       "instructorId": "v06MRRtXXLh",
       "id": "ANcMmjQdMkg"
+    },
+    {
+      "name": "Test course",
+      "description": "dfdf",
+      "category": "Development",
+      "instructorId": "v06MRRtXXLh",
+      "id": "YIZefK0GxQc"
     }
   ],
   "assessments": [
@@ -307,7 +314,7 @@
       "type": "Project",
       "course": "Motion Design",
       "dueDate": "2026-11-21",
-      "isDeleted": false,
+      "isDeleted": true,
       "courseId": "EZmpRKoJXKs",
       "instructorId": "v06MRRtXXLh",
       "id": "Rws8dj8TDD5"
@@ -421,6 +428,32 @@
       ],
       "instructorId": "v06MRRtXXLh",
       "id": "kdvDs4EVw9U"
+    },
+    {
+      "title": "motion",
+      "type": "Assignment",
+      "course": "Motion Design",
+      "dueDate": "2026-10-05",
+      "isDeleted": false,
+      "courseId": "EZmpRKoJXKs",
+      "studentIds": [
+        "HNgXRdBCzbm"
+      ],
+      "instructorId": "v06MRRtXXLh",
+      "id": "QZmOPRj9Z5U"
+    },
+    {
+      "title": "bhhhhh",
+      "type": "Assignment",
+      "course": "C++ Fundamentals",
+      "dueDate": "2026-10-20",
+      "isDeleted": false,
+      "courseId": "072RKQBse1t",
+      "studentIds": [
+        "HNgXRdBCzbm"
+      ],
+      "instructorId": "v06MRRtXXLh",
+      "id": "KlcRk4VfAD4"
     }
   ],
   "students": [
@@ -1878,7 +1911,7 @@
     },
     {
       "name": "Maya Zureiqat",
-      "email": "maya.zureiqat@gmail.com",
+      "email": "",
       "phone": "0793922317",
       "instructorId": "v06MRRtXXLh",
       "isDeleted": false,
@@ -1915,7 +1948,7 @@
       "email": "yara.nasser@gmail.com",
       "phone": "0798295959",
       "instructorId": "v06MRRtXXLh",
-      "isDeleted": false,
+      "isDeleted": true,
       "status": "active",
       "courses": [
         {
@@ -1960,7 +1993,7 @@
       "email": "aljazzarasm@gmail.com",
       "phone": "07987654321",
       "instructorId": "v06MRRtXXLh",
-      "isDeleted": false,
+      "isDeleted": true,
       "status": "active",
       "courses": [
         {
@@ -1969,6 +2002,51 @@
         }
       ],
       "id": "yPITmiObA5M"
+    },
+    {
+      "name": "Asmaa Aljazzar",
+      "email": "aljazzarasmaa3@gmail.com",
+      "phone": "07987654321",
+      "instructorId": "v06MRRtXXLh",
+      "isDeleted": true,
+      "status": "active",
+      "courses": [
+        {
+          "name": "Data Visualization",
+          "grade": 90
+        }
+      ],
+      "id": "pYi2kExb1lI"
+    },
+    {
+      "name": "Asmaa Aljazzar",
+      "email": "aljazzarasmaa3@gmail.com",
+      "phone": "",
+      "instructorId": "v06MRRtXXLh",
+      "isDeleted": true,
+      "status": "active",
+      "courses": [
+        {
+          "name": "C++ Fundamentals",
+          "grade": 90
+        }
+      ],
+      "id": "9qCJuoMckNo"
+    },
+    {
+      "name": "fdsfdsf",
+      "email": "aljazzarasmaa3@gmail.com",
+      "phone": "sdfasd",
+      "instructorId": "v06MRRtXXLh",
+      "isDeleted": true,
+      "status": "active",
+      "courses": [
+        {
+          "name": "Data Visualization",
+          "grade": 79
+        }
+      ],
+      "id": "UQYXygLohcM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
