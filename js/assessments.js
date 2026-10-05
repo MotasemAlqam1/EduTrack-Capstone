@@ -303,9 +303,16 @@ async function updateAssessment(id) {
     document.getElementById("a-type").value = assessment.type;
     document.getElementById("a-course").value = assessment.course;
     document.getElementById("a-due").value = assessment.dueDate;
-    document.querySelectorAll("#studentList .student-check").forEach((box) => {
+
+    let boxes = [...document.querySelectorAll("#studentList .student-check")];
+    boxes.forEach((box) => {
       box.checked = (assessment.studentIds || []).map(String).includes(box.value);
     });
+
+    let all = document.getElementById("std-all");
+    if (all) all.checked = boxes.length > 0 && boxes.every((box) => box.checked);
+
+    updateStudentLabel();
     document.getElementById("assessmentTitle").textContent = "Edit assessment";
     bootstrap.Modal.getOrCreateInstance(
       document.getElementById("assessmentModal"),

@@ -4,10 +4,7 @@
 <head>
   <meta charset="UTF-8" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>
     EduTrack – Dashboard
@@ -16,34 +13,22 @@
 
   <!-- Bootstrap -->
 
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 
   <!-- Bootstrap Icons -->
 
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
 
   <!-- Google Font -->
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 
   <!-- Main CSS -->
 
-  <link
-    href="../css/main.css"
-    rel="stylesheet"
-  />
+  <link href="../css/main.css" rel="stylesheet" />
 
 
   <!-- Load Theme Before Page Appears -->
@@ -67,12 +52,7 @@
   <!-- NAV TOGGLE -->
   <!-- ================================= -->
 
-  <input
-    type="checkbox"
-    id="navToggle"
-    class="d-none"
-    aria-hidden="true"
-  />
+  <input type="checkbox" id="navToggle" class="d-none" aria-hidden="true" />
 
 
   <div class="layout">
@@ -82,31 +62,17 @@
     <!-- SIDEBAR -->
     <!-- ================================= -->
 
-    <aside
-      class="sidebar offcanvas-lg offcanvas-start"
-      id="sidebar"
-      tabindex="-1"
-    >
+    <aside class="sidebar offcanvas-lg offcanvas-start" id="sidebar" tabindex="-1">
 
 
       <!-- Logo -->
 
-      <div
-        class="d-flex justify-content-between align-items-start"
-      >
+      <div class="d-flex justify-content-between align-items-start">
 
-        <a
-          href="dashboard.html"
-          class="brand"
-        >
+        <a href="dashboard.html" class="brand">
 
-          <img
-            class="brand-logo theme-logo"
-            src="../images/lightMode.png"
-            data-light-src="../images/lightMode.png"
-            data-dark-src="../images/darkMode.png"
-            alt="EduTrack"
-          />
+          <img class="brand-logo theme-logo" src="../images/lightMode.png" data-light-src="../images/lightMode.png"
+            data-dark-src="../images/darkMode.png" alt="EduTrack" />
 
           <span>
             EduTrack
@@ -115,28 +81,21 @@
         </a>
 
 
-          <button class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebar"
+        <button class="btn-close btn-close-white d-lg-none" data-bs-dismiss="offcanvas" data-bs-target="#sidebar"
           aria-label="Close"></button>
       </div>
 
 
       <!-- Navigation -->
 
-      <nav
-        class="nav flex-column gap-1"
-      >
+      <nav class="nav flex-column gap-1">
 
 
         <!-- Dashboard -->
 
-        <a
-          class="nav-link active"
-          href="dashboard.html"
-        >
+        <a class="nav-link active" href="dashboard.html">
 
-          <i
-            class="bi bi-grid-1x2-fill"
-          ></i>
+          <i class="bi bi-grid-1x2-fill"></i>
 
           Dashboard
 
@@ -145,15 +104,9 @@
 
         <!-- Students -->
 
-        <a
-          class="nav-link"
-          id="studentsLink"
-          href="students.html"
-        >
+        <a class="nav-link" id="studentsLink" href="students.html">
 
-          <i
-            class="bi bi-people"
-          ></i>
+          <i class="bi bi-people"></i>
 
           Students
 
@@ -162,15 +115,9 @@
 
         <!-- Assessments -->
 
-        <a
-          class="nav-link"
-          id="assessmentsLink"
-          href="assessments.html"
-        >
+        <a class="nav-link" id="assessmentsLink" href="assessments.html">
 
-          <i
-            class="bi bi-clipboard-check"
-          ></i>
+          <i class="bi bi-clipboard-check"></i>
 
           Assessments
 
@@ -179,15 +126,9 @@
 
         <!-- Courses -->
 
-        <a
-          class="nav-link"
-          id="coursesLink"
-          href="courses.html"
-        >
+        <a class="nav-link" id="coursesLink" href="courses.html">
 
-          <i
-            class="bi bi-book"
-          ></i>
+          <i class="bi bi-book"></i>
 
           Courses
 
@@ -196,14 +137,9 @@
 
         <!-- Resources -->
 
-        <a
-          class="nav-link"
-          href="resources.html"
-        >
+        <a class="nav-link" href="resources.html">
 
-          <i
-            class="bi bi-book"
-          ></i>
+          <i class="bi bi-book"></i>
 
           Resources
 
@@ -212,51 +148,30 @@
 
         <!-- Shortcuts -->
 
-        <a
-          class="nav-link shortcuts-toggle"
-          data-bs-toggle="collapse"
-          href="#shortcutsMenu"
-          role="button"
-          aria-expanded="false"
-          aria-controls="shortcutsMenu"
-        >
+        <a class="nav-link shortcuts-toggle" data-bs-toggle="collapse" href="#shortcutsMenu" role="button"
+          aria-expanded="false" aria-controls="shortcutsMenu">
 
-          <i
-            class="bi bi-lightning-charge"
-          ></i>
+          <i class="bi bi-lightning-charge"></i>
 
           Shortcuts
 
-          <i
-            class="bi bi-chevron-down chev"
-          ></i>
+          <i class="bi bi-chevron-down chev"></i>
 
         </a>
 
 
         <!-- Shortcut Menu -->
 
-        <div
-          class="collapse"
-          id="shortcutsMenu"
-        >
+        <div class="collapse" id="shortcutsMenu">
 
-          <div
-            class="nav flex-column gap-1"
-          >
+          <div class="nav flex-column gap-1">
 
 
             <!-- Add Student -->
 
-            <a
-              class="nav-link"
-              id="newStudentLink"
-              href="students.html?new=true"
-            >
+            <a class="nav-link" id="newStudentLink" href="students.html?new=true">
 
-              <i
-                class="bi bi-plus-lg"
-              ></i>
+              <i class="bi bi-plus-lg"></i>
 
               Add student
 
@@ -265,15 +180,9 @@
 
             <!-- New Assessment -->
 
-            <a
-              class="nav-link"
-              id="newAssessmentLink"
-              href="assessments.html?new=true"
-            >
+            <a class="nav-link" id="newAssessmentLink" href="assessments.html?new=true">
 
-              <i
-                class="bi bi-plus-lg"
-              ></i>
+              <i class="bi bi-plus-lg"></i>
 
               New assessment
 
@@ -282,15 +191,9 @@
 
             <!-- Add Course -->
 
-            <a
-              class="nav-link"
-              id="newCourseLink"
-              href="courses.html?new=true"
-            >
+            <a class="nav-link" id="newCourseLink" href="courses.html?new=true">
 
-              <i
-                class="bi bi-plus-lg"
-              ></i>
+              <i class="bi bi-plus-lg"></i>
 
               Add course
 
@@ -307,19 +210,11 @@
 
       <!-- Sidebar Logout -->
 
-      <nav
-        class="nav flex-column bottom"
-      >
+      <nav class="nav flex-column bottom">
 
-        <a
-          class="nav-link"
-          href="#"
-          id="sidebarLogout"
-        >
+        <a class="nav-link" href="#" id="sidebarLogout">
 
-          <i
-            class="bi bi-box-arrow-left"
-          ></i>
+          <i class="bi bi-box-arrow-left"></i>
 
           Log out
 
@@ -347,36 +242,22 @@
 
         <!-- Mobile Sidebar Button -->
 
-        <button
-          class="icon-btn d-lg-none"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#sidebar"
-          aria-label="Open menu"
-        >
+        <button class="icon-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+          aria-label="Open menu">
 
-          <i
-            class="bi bi-list fs-5"
-          ></i>
+          <i class="bi bi-list fs-5"></i>
 
         </button>
 
 
         <!-- Desktop Sidebar Toggle -->
 
-        <label
-          for="navToggle"
-          class="icon-btn d-none d-lg-grid"
-          style="
+        <label for="navToggle" class="icon-btn d-none d-lg-grid" style="
             place-items: center;
             cursor: pointer;
-          "
-          aria-label="Toggle menu"
-        >
+          " aria-label="Toggle menu">
 
-          <i
-            class="bi bi-list fs-5"
-          ></i>
+          <i class="bi bi-list fs-5"></i>
 
         </label>
 
@@ -388,40 +269,21 @@
 
         <!-- Search -->
 
-        <form
-          class="search"
-          role="search"
-          action="students.html"
-        >
+        <form class="search" role="search" action="students.html">
 
-          <i
-            class="bi bi-search"
-          ></i>
+          <i class="bi bi-search"></i>
 
-          <input
-            class="form-control"
-            type="search"
-            name="q"
-            placeholder="Search students"
-            aria-label="Search students"
-          />
+          <input class="form-control" type="search" name="q" placeholder="Search students"
+            aria-label="Search students" />
 
         </form>
 
 
         <!-- Theme Toggle -->
 
-        <button
-          class="icon-btn"
-          id="themeToggle"
-          type="button"
-          aria-label="Change theme"
-        >
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Change theme">
 
-          <i
-            class="bi bi-moon-fill"
-            id="themeIcon"
-          ></i>
+          <i class="bi bi-moon-fill" id="themeIcon"></i>
 
         </button>
 
@@ -433,51 +295,31 @@
         <div class="dropdown">
 
 
-          <button
-            class="avatar"
-            id="topAvatar"
-            data-bs-toggle="dropdown"
-            aria-label="Profile menu"
-          >
+          <button class="avatar" id="topAvatar" data-bs-toggle="dropdown" aria-label="Profile menu">
           </button>
 
 
-          <div
-            class="dropdown-menu dropdown-menu-end p-3 shadow border-0 dd"
-          >
+          <div class="dropdown-menu dropdown-menu-end p-3 shadow border-0 dd">
 
 
             <!-- Instructor Info -->
 
-            <div
-              class="d-flex gap-3 align-items-center mb-2"
-            >
+            <div class="d-flex gap-3 align-items-center mb-2">
 
-              <span
-                class="avatar avatar-lg"
-                id="dropdownAvatar"
-              >
+              <span class="avatar avatar-lg" id="dropdownAvatar">
               </span>
 
 
               <div>
 
-                <b
-                  id="dropdownName"
-                ></b>
+                <b id="dropdownName"></b>
 
 
-                <div
-                  class="small text-muted"
-                  id="dropdownDepartment"
-                >
+                <div class="small text-muted" id="dropdownDepartment">
                 </div>
 
 
-                <div
-                  class="small text-muted"
-                  id="dropdownEmail"
-                >
+                <div class="small text-muted" id="dropdownEmail">
                 </div>
 
               </div>
@@ -490,16 +332,9 @@
 
             <!-- My Profile -->
 
-            <a
-              class="dropdown-item rounded"
-              href="#"
-              data-bs-toggle="modal"
-              data-bs-target="#profileModal"
-            >
+            <a class="dropdown-item rounded" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">
 
-              <i
-                class="bi bi-person me-2"
-              ></i>
+              <i class="bi bi-person me-2"></i>
 
               My profile
 
@@ -508,16 +343,9 @@
 
             <!-- Change Password -->
 
-            <a
-              class="dropdown-item rounded"
-              href="#"
-              data-bs-toggle="modal"
-              data-bs-target="#changePasswordModal"
-            >
+            <a class="dropdown-item rounded" href="#" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
 
-              <i
-                class="bi bi-lock me-2"
-              ></i>
+              <i class="bi bi-lock me-2"></i>
 
               Change password
 
@@ -526,15 +354,9 @@
 
             <!-- Logout -->
 
-            <a
-              class="dropdown-item rounded text-danger"
-              href="#"
-              id="logoutBtn"
-            >
+            <a class="dropdown-item rounded text-danger" href="#" id="logoutBtn">
 
-              <i
-                class="bi bi-box-arrow-right me-2"
-              ></i>
+              <i class="bi bi-box-arrow-right me-2"></i>
 
               Log out
 
@@ -553,31 +375,23 @@
       <!-- MAIN -->
       <!-- ================================= -->
 
-      <main
-        class="p-3 p-lg-4"
-      >
+      <main class="p-3 p-lg-4">
 
 
         <!-- Welcome -->
 
-        <div
-          class="mb-3"
-        >
+        <div class="mb-3">
 
           <h1>
 
             Welcome back,
 
-            <span
-              id="instructorName"
-            ></span>
+            <span id="instructorName"></span>
 
           </h1>
 
 
-          <p
-            class="text-muted mb-0"
-          >
+          <p class="text-muted mb-0">
 
             Here's how your classes are doing.
 
@@ -590,37 +404,26 @@
         <!-- STATISTICS -->
         <!-- ================================= -->
 
-        <div
-          class="box strip mb-3"
-        >
+        <div class="box strip mb-3">
 
 
           <!-- Active Students -->
 
-          <div
-            class="it"
-          >
+          <div class="it">
 
-            <span
-              class="ico"
-              style="
+            <span class="ico" style="
                 background: var(--g1);
                 color: var(--g5);
-              "
-            >
+              ">
 
-              <i
-                class="bi bi-people-fill"
-              ></i>
+              <i class="bi bi-people-fill"></i>
 
             </span>
 
 
             <div>
 
-              <b
-                id="state-active"
-              >
+              <b id="state-active">
                 0
               </b>
 
@@ -635,30 +438,21 @@
 
           <!-- Average Grade -->
 
-          <div
-            class="it"
-          >
+          <div class="it">
 
-            <span
-              class="ico"
-              style="
+            <span class="ico" style="
                 background: #e3f3fb;
                 color: var(--blue);
-              "
-            >
+              ">
 
-              <i
-                class="bi bi-journal-check"
-              ></i>
+              <i class="bi bi-journal-check"></i>
 
             </span>
 
 
             <div>
 
-              <b
-                id="state-avg-grade"
-              >
+              <b id="state-avg-grade">
                 0%
               </b>
 
@@ -673,30 +467,21 @@
 
           <!-- Need Attention -->
 
-          <div
-            class="it"
-          >
+          <div class="it">
 
-            <span
-              class="ico"
-              style="
+            <span class="ico" style="
                 background: #fdf1d6;
                 color: var(--amber);
-              "
-            >
+              ">
 
-              <i
-                class="bi bi-exclamation-lg"
-              ></i>
+              <i class="bi bi-exclamation-lg"></i>
 
             </span>
 
 
             <div>
 
-              <b
-                id="state-attention"
-              >
+              <b id="state-attention">
                 0
               </b>
 
@@ -716,16 +501,12 @@
         <!-- DASHBOARD CARDS -->
         <!-- ================================= -->
 
-        <div
-          class="row g-3"
-        >
+        <div class="row g-3">
 
 
           <!-- Grade Distribution -->
 
-          <div
-            class="col-lg-6"
-          >
+          <div class="col-lg-6">
 
             <div class="box">
 
@@ -739,19 +520,13 @@
 
                 <div>
 
-                  <span
-                    id="grade-0-49"
-                    class="cnt"
-                  >
+                  <span id="grade-0-49" class="cnt">
                     0
                   </span>
 
                   <div class="col">
 
-                    <i
-                      id="bar-0-49"
-                      class="b"
-                    ></i>
+                    <i id="bar-0-49" class="b"></i>
 
                   </div>
 
@@ -762,19 +537,13 @@
 
                 <div>
 
-                  <span
-                    id="grade-50-59"
-                    class="cnt"
-                  >
+                  <span id="grade-50-59" class="cnt">
                     0
                   </span>
 
                   <div class="col">
 
-                    <i
-                      id="bar-50-59"
-                      class="b"
-                    ></i>
+                    <i id="bar-50-59" class="b"></i>
 
                   </div>
 
@@ -785,19 +554,13 @@
 
                 <div>
 
-                  <span
-                    id="grade-60-69"
-                    class="cnt"
-                  >
+                  <span id="grade-60-69" class="cnt">
                     0
                   </span>
 
                   <div class="col">
 
-                    <i
-                      id="bar-60-69"
-                      class="b"
-                    ></i>
+                    <i id="bar-60-69" class="b"></i>
 
                   </div>
 
@@ -808,19 +571,13 @@
 
                 <div>
 
-                  <span
-                    id="grade-70-79"
-                    class="cnt"
-                  >
+                  <span id="grade-70-79" class="cnt">
                     0
                   </span>
 
                   <div class="col">
 
-                    <i
-                      id="bar-70-79"
-                      class="b"
-                    ></i>
+                    <i id="bar-70-79" class="b"></i>
 
                   </div>
 
@@ -831,19 +588,13 @@
 
                 <div>
 
-                  <span
-                    id="grade-80-89"
-                    class="cnt"
-                  >
+                  <span id="grade-80-89" class="cnt">
                     0
                   </span>
 
                   <div class="col">
 
-                    <i
-                      id="bar-80-89"
-                      class="b"
-                    ></i>
+                    <i id="bar-80-89" class="b"></i>
 
                   </div>
 
@@ -854,19 +605,13 @@
 
                 <div>
 
-                  <span
-                    id="grade-90-100"
-                    class="cnt"
-                  >
+                  <span id="grade-90-100" class="cnt">
                     0
                   </span>
 
                   <div class="col">
 
-                    <i
-                      id="bar-90-100"
-                      class="a"
-                    ></i>
+                    <i id="bar-90-100" class="a"></i>
 
                   </div>
 
@@ -884,9 +629,7 @@
 
           <!-- Average By Course -->
 
-          <div
-            class="col-lg-6"
-          >
+          <div class="col-lg-6">
 
             <div class="box">
 
@@ -894,10 +637,7 @@
                 Average by course
               </h2>
 
-              <div
-                class="mt-3"
-                id="course-averages"
-              >
+              <div class="mt-3" id="course-averages">
               </div>
 
             </div>
@@ -907,15 +647,11 @@
 
           <!-- Students Needing Attention -->
 
-          <div
-            class="col-lg-6"
-          >
+          <div class="col-lg-6">
 
             <div class="box">
 
-              <div
-                class="d-flex justify-content-between"
-              >
+              <div class="d-flex justify-content-between">
 
                 <h2>
                   Students needing attention
@@ -927,9 +663,7 @@
               <!-- IMPORTANT:
                    Only one attention-list ID -->
 
-              <div
-                id="attention-list"
-              >
+              <div id="attention-list">
               </div>
 
             </div>
@@ -939,9 +673,7 @@
 
           <!-- Top Performers -->
 
-          <div
-            class="col-lg-6"
-          >
+          <div class="col-lg-6">
 
             <div class="box">
 
@@ -949,9 +681,7 @@
                 Top performers
               </h2>
 
-              <div
-                id="performers-list"
-              >
+              <div id="performers-list">
               </div>
 
             </div>
@@ -975,50 +705,28 @@
   <!-- PROFILE MODAL -->
   <!-- ================================= -->
 
-  <div
-    class="modal fade"
-    id="profileModal"
-    tabindex="-1"
-    aria-labelledby="profileTitle"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileTitle" aria-hidden="true">
 
-    <div
-      class="modal-dialog modal-dialog-centered"
-    >
+    <div class="modal-dialog modal-dialog-centered">
 
-      <div
-        class="modal-content"
-      >
+      <div class="modal-content">
 
 
-        <form
-          id="profileForm"
-        >
+        <form id="profileForm">
 
 
           <!-- Header -->
 
-          <div
-            class="modal-header border-0"
-          >
+          <div class="modal-header border-0">
 
-            <h2
-              class="modal-title h5 fw-bold"
-              id="profileTitle"
-            >
+            <h2 class="modal-title h5 fw-bold" id="profileTitle">
 
               My profile
 
             </h2>
 
 
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
             </button>
 
           </div>
@@ -1026,52 +734,33 @@
 
           <!-- Body -->
 
-          <div
-            class="modal-body"
-          >
+          <div class="modal-body">
 
 
             <!-- Profile Image -->
 
-            <div
-              class="d-flex align-items-center gap-3 mb-4"
-            >
+            <div class="d-flex align-items-center gap-3 mb-4">
 
-              <span
-                class="avatar profile-avatar-preview"
-                id="profileAvatar"
-              >
+              <span class="avatar profile-avatar-preview" id="profileAvatar">
               </span>
 
 
               <div>
 
 
-                <label
-                  for="profileImageInput"
-                  class="btn btn-outline-success btn-sm mb-1"
-                >
+                <label for="profileImageInput" class="btn btn-outline-success btn-sm mb-1">
 
-                  <i
-                    class="bi bi-camera me-1"
-                  ></i>
+                  <i class="bi bi-camera me-1"></i>
 
                   Choose photo
 
                 </label>
 
 
-                <input
-                  type="file"
-                  id="profileImageInput"
-                  accept="image/*"
-                  class="d-none"
-                />
+                <input type="file" id="profileImageInput" accept="image/*" class="d-none" />
 
 
-                <div
-                  class="small text-muted"
-                >
+                <div class="small text-muted">
 
                   JPG, PNG or WEBP
 
@@ -1083,90 +772,56 @@
             </div>
 
 
-            <div
-              class="row g-3"
-            >
+            <div class="row g-3">
 
 
               <!-- Name -->
 
-              <div
-                class="col-12"
-              >
+              <div class="col-12">
 
-                <label
-                  class="form-label"
-                  for="p-name"
-                >
+                <label class="form-label" for="p-name">
 
                   Full name
 
                 </label>
 
 
-                <input
-                  id="p-name"
-                  class="form-control"
-                  required
-                />
+                <input id="p-name" class="form-control" required />
 
               </div>
 
 
               <!-- Department -->
 
-              <div
-                class="col-12"
-              >
+              <div class="col-12">
 
-                <label
-                  class="form-label"
-                  for="p-dept"
-                >
+                <label class="form-label" for="p-dept">
 
                   Department / subject
 
                 </label>
 
 
-                <input
-                  id="p-dept"
-                  class="form-control"
-                  required
-                />
+                <input id="p-dept" class="form-control" required />
 
               </div>
 
 
               <!-- Phone -->
 
-              <div
-                class="col-12"
-              >
+              <div class="col-12">
 
-                <label
-                  class="form-label"
-                  for="p-phone"
-                >
+                <label class="form-label" for="p-phone">
 
                   Phone number
 
                 </label>
 
 
-                <input
-                  id="p-phone"
-                  type="tel"
-                  class="form-control"
-                  placeholder="+962 7X XXX XXXX"
-                  required
-                />
+                <input id="p-phone" type="tel" class="form-control" placeholder="+962 7X XXX XXXX" required />
 
 
-                <small
-                  id="phoneError"
-                  class="text-danger d-block mt-1"
-                >
+                <small id="phoneError" class="text-danger d-block mt-1">
                 </small>
 
               </div>
@@ -1174,26 +829,16 @@
 
               <!-- Email -->
 
-              <div
-                class="col-12"
-              >
+              <div class="col-12">
 
-                <label
-                  class="form-label"
-                  for="p-email"
-                >
+                <label class="form-label" for="p-email">
 
                   Sign-in email
 
                 </label>
 
 
-                <input
-                  id="p-email"
-                  type="email"
-                  class="form-control"
-                  readonly
-                />
+                <input id="p-email" type="email" class="form-control" readonly />
 
               </div>
 
@@ -1205,25 +850,16 @@
 
           <!-- Footer -->
 
-          <div
-            class="modal-footer border-0"
-          >
+          <div class="modal-footer border-0">
 
-            <button
-              type="button"
-              class="btn btn-light"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">
 
               Cancel
 
             </button>
 
 
-            <button
-              type="submit"
-              class="btn btn-green"
-            >
+            <button type="submit" class="btn btn-green">
 
               Save profile
 
@@ -1248,46 +884,28 @@
   <!-- CHANGE PASSWORD MODAL -->
   <!-- ================================= -->
 
-  <div
-    class="modal fade"
-    id="changePasswordModal"
-    tabindex="-1"
-  >
+  <div class="modal fade" id="changePasswordModal" tabindex="-1">
 
-    <div
-      class="modal-dialog modal-dialog-centered"
-    >
+    <div class="modal-dialog modal-dialog-centered">
 
-      <div
-        class="modal-content"
-      >
+      <div class="modal-content">
 
 
-        <form
-          id="changePasswordForm"
-        >
+        <form id="changePasswordForm">
 
 
           <!-- Header -->
 
-          <div
-            class="modal-header border-0"
-          >
+          <div class="modal-header border-0">
 
-            <h2
-              class="modal-title h5 fw-bold"
-            >
+            <h2 class="modal-title h5 fw-bold">
 
               Change password
 
             </h2>
 
 
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" class="btn-close" data-bs-dismiss="modal">
             </button>
 
           </div>
@@ -1295,48 +913,28 @@
 
           <!-- Body -->
 
-          <div
-            class="modal-body"
-          >
+          <div class="modal-body">
 
 
             <!-- Current Password -->
 
-            <div
-              class="mb-3"
-            >
+            <div class="mb-3">
 
-              <label
-                class="form-label"
-                for="currentPassword"
-              >
+              <label class="form-label" for="currentPassword">
 
                 Current password
 
               </label>
 
 
-              <div
-                class="password-field"
-              >
+              <div class="password-field">
 
-                <input
-                  id="currentPassword"
-                  type="password"
-                  class="form-control"
-                  required
-                />
+                <input id="currentPassword" type="password" class="form-control" required />
 
 
-                <button
-                  type="button"
-                  class="toggle-password"
-                  data-target="currentPassword"
-                >
+                <button type="button" class="toggle-password" data-target="currentPassword">
 
-                  <i
-                    class="bi bi-eye"
-                  ></i>
+                  <i class="bi bi-eye"></i>
 
                 </button>
 
@@ -1348,42 +946,23 @@
 
             <!-- New Password -->
 
-            <div
-              class="mb-3"
-            >
+            <div class="mb-3">
 
-              <label
-                class="form-label"
-                for="newPassword"
-              >
+              <label class="form-label" for="newPassword">
 
                 New password
 
               </label>
 
 
-              <div
-                class="password-field"
-              >
+              <div class="password-field">
 
-                <input
-                  id="newPassword"
-                  type="password"
-                  class="form-control"
-                  minlength="6"
-                  required
-                />
+                <input id="newPassword" type="password" class="form-control" minlength="6" required />
 
 
-                <button
-                  type="button"
-                  class="toggle-password"
-                  data-target="newPassword"
-                >
+                <button type="button" class="toggle-password" data-target="newPassword">
 
-                  <i
-                    class="bi bi-eye"
-                  ></i>
+                  <i class="bi bi-eye"></i>
 
                 </button>
 
@@ -1395,42 +974,23 @@
 
             <!-- Confirm New Password -->
 
-            <div
-              class="mb-3"
-            >
+            <div class="mb-3">
 
-              <label
-                class="form-label"
-                for="confirmNewPassword"
-              >
+              <label class="form-label" for="confirmNewPassword">
 
                 Confirm new password
 
               </label>
 
 
-              <div
-                class="password-field"
-              >
+              <div class="password-field">
 
-                <input
-                  id="confirmNewPassword"
-                  type="password"
-                  class="form-control"
-                  minlength="6"
-                  required
-                />
+                <input id="confirmNewPassword" type="password" class="form-control" minlength="6" required />
 
 
-                <button
-                  type="button"
-                  class="toggle-password"
-                  data-target="confirmNewPassword"
-                >
+                <button type="button" class="toggle-password" data-target="confirmNewPassword">
 
-                  <i
-                    class="bi bi-eye"
-                  ></i>
+                  <i class="bi bi-eye"></i>
 
                 </button>
 
@@ -1440,10 +1000,7 @@
 
               <!-- Change Password Error -->
 
-              <small
-                id="passwordError"
-                class="text-danger d-block mt-1"
-              >
+              <small id="passwordError" class="text-danger d-block mt-1">
               </small>
 
 
@@ -1455,25 +1012,16 @@
 
           <!-- Footer -->
 
-          <div
-            class="modal-footer border-0"
-          >
+          <div class="modal-footer border-0">
 
-            <button
-              type="button"
-              class="btn btn-light"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">
 
               Cancel
 
             </button>
 
 
-            <button
-              type="submit"
-              class="btn btn-green"
-            >
+            <button type="submit" class="btn btn-green">
 
               Change password
 
@@ -1494,33 +1042,22 @@
 
 
 
-  <!-- ================================= -->
   <!-- SCRIPTS -->
-  <!-- ================================= -->
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
-  <script type="module"
-    src="../js/profile.js"
-  ></script>
+  <script type="module" src="../js/profile.js"></script>
 
 
-  <script type="module"
-    src="../js/theme.js"
-  ></script>
+  <script type="module" src="../js/theme.js"></script>
 
 
-  <script type="module"
-    src="../js/passwordToggle.js"
-  ></script>
+  <script type="module" src="../js/passwordToggle.js"></script>
 
 
-  <script type="module"
-    src="../js/dashboard.js"
-  ></script>
+  <script type="module" src="../js/dashboard.js"></script>
+  <script src="../js/indicators.js"></script>
 
 
 </body>

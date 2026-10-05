@@ -117,7 +117,7 @@ const renderDashboard = (students, courses) => {
   //? Students needing attention (3 lowest grades)
   const topAttention = [...needAttention] // Copy to not sort the original one
   .sort ((a, b) => a.grade - b.grade) // lowest grade first
-  .slice (0, 3); // Only first 3
+  .slice (0, 10); // Only first 10
 
   document.getElementById("attention-list").innerHTML = topAttention.length
     ? topAttention
@@ -139,7 +139,7 @@ const renderDashboard = (students, courses) => {
 
     const topStudents = [...aboveAvg]
     .sort ((a, b) => b.grade - a.grade)
-    .slice (0, 3);
+    .slice (0, 5);
 
     document.getElementById("performers-list").innerHTML = topStudents.length
     ? topStudents

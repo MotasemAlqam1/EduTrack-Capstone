@@ -1,0 +1,20 @@
+.crumbs a {
+  color: var(--g5);
+  text-decoration: none;
+}
+
+.crumbs a:hover {
+  text-decoration: underline;
+}
+
+.crumbs .breadcrumb-item.active {
+  color: inherit;
+  font-weight: 600;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: var(--g5);
+    font-weight: 500;
+    padding: 0 8px;
+}
