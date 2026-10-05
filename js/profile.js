@@ -1,3 +1,5 @@
+import { toast } from "./utils.js";
+
 let instructor = JSON.parse(
   sessionStorage.getItem("currentInstructor")
 );
@@ -233,7 +235,7 @@ if (profileImageInput) {
       // Must be image
       if (!file.type.startsWith("image/")) {
 
-        alert("Please choose an image");
+        toast("Please choose an image", "error");
 
         profileImageInput.value = "";
 
@@ -244,9 +246,7 @@ if (profileImageInput) {
       // Maximum 1MB
       if (file.size > 1024 * 1024) {
 
-        alert(
-          "Image must be less than 1MB"
-        );
+        toast("Image must be less than 1MB", "error");
 
         profileImageInput.value = "";
 
@@ -352,8 +352,9 @@ if (profileForm) {
             "Please enter a valid Jordanian phone number: 077, 078, 079 or +962.";
         } else {
 
-          alert(
-            "Please enter a valid Jordanian phone number: 077, 078, 079 or +962."
+          toast(
+            "Please enter a valid Jordanian phone number: 077, 078, 079 or +962.",
+            "error"
           );
         }
 
@@ -423,12 +424,8 @@ if (profileForm) {
           );
         }
 
-alert(
-  "Profile updated successfully"
-);
-
-window.location.href =
-  "dashboard.html";
+        toast("Profile updated successfully");
+        setTimeout(() => { window.location.href = "dashboard.html"; }, 1200);
 
 
       } catch (error) {
@@ -439,8 +436,8 @@ window.location.href =
         );
 
 
-        alert(
-          "Failed to update profile"
+        toast(
+          "Failed to update profile", "error"
         );
       }
 
@@ -491,7 +488,7 @@ if (sidebarLogout) {
 
 
 
-  // ================================
+// ================================
 // Change Password
 // ================================
 

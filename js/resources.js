@@ -231,13 +231,33 @@ window.editResource = async (id) => {
 };
 
 // -------- [ DELETE ] --------
+let deletingId = null;
+
 window.deleteResource = async (id) => {
-    if (!confirm("Delete this resource?")) return;
-    const res = await fetch(`${RES_URL}/${id}`, { method: "DELETE" });
+    const modalEl = document.getElementById("deleteModal");
+    if (!modalEl) return toast("Delete modal is missing in resources.html");
+
+    const res = await fetch(`${RES_URL}/${id}`);
+    if (!res.ok) return toast("Failed to load resource");
+    const resource = await res.json();
+
+    deletingId = id;
+    document.getElementById("deleteResourceName").textContent = resource.title;
+    bootstrap.Modal.getOrCreateInstance(modalEl).show();
+};
+
+// Listen on the document, so it works even if the button is added later
+document.addEventListener("click", async (e) => {
+    if (!e.target.closest("#confirmDeleteBtn")) return;
+
+    bootstrap.Modal.getOrCreateInstance(document.getElementById("deleteModal")).hide();
+
+    const res = await fetch(`${RES_URL}/${deletingId}`, { method: "DELETE" });
     if (!res.ok) return toast("Failed to delete");
+
     toast("Resource deleted");
     loadResources();
-};
+});
 
 // -------- [ FILTERS + INIT ] --------
 // Only the logged-in instructor's courses: GET /courses?instructorId=<id>

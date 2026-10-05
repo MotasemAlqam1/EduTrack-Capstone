@@ -1,5 +1,5 @@
 import { API_URL, requireInstructor } from "./session.js";
-import { esc } from "./utils.js";
+import { esc, toast } from "./utils.js";
 
 let Endpoint = `${API_URL}/students`;
 let studentContainer = document.getElementById("students-list");
@@ -263,7 +263,7 @@ exportBtn.addEventListener("click", () => {
     let filteredStudents = filterStudents();
 
     if (filteredStudents.length === 0) {
-        alert("No students to export.");
+        toast("No students to export.", "info");
         return;
     }
 
@@ -383,7 +383,7 @@ async function addstudent(event) {
             throw new Error("Failed to save student");
         }
 
-
+        toast(editingStudentId ? "Student updated" : "Student added");
         // Reset form
         form.reset();
         setCourseRows([]);
@@ -442,7 +442,7 @@ async function deletestudent(id) {
         if (!response.ok) {
             throw new Error("Failed to delete student");
         }
-
+        toast("Student deleted");
 
         studentContainer.innerHTML = "";
 
