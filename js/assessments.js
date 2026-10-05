@@ -4,14 +4,17 @@ const currentInstructor = requireInstructor("../index.html");
 
 let Endpoint = `${API_URL}/assessments`;
 const COURSES_URL = `${API_URL}/courses`;
+const STUDENTS_URL = `${API_URL}/students`;
 let tableBody = document.getElementById("assessmentsTableBody");
 let form = document.getElementById("assessmentForm");
 let deletingId = null;
 let editingId = null;
 let currentType = "All";
 let currentCourse = "All courses";
+let currentStudent = "All students";
 let visibleAssessments = [];
 let courses = []; // Current instructor courses
+let students = []; // Current instructor students
 
 let typeClasses = {
   Assignment: "t-assign",
@@ -35,6 +38,7 @@ const esc = (s = "") =>
 async function loadCourses() {
   let response = await fetch(
     `${COURSES_URL}?instructorId=${encodeURIComponent(currentInstructor.id)}`,
+    // encodeURL is important when strincg have spaces and special characters
   );
   if (!response.ok) {
     throw new Error("Failed to fetch courses");
@@ -53,6 +57,70 @@ async function loadCourses() {
     .querySelectorAll('[data-bs-target="#assessmentModal"], #newAssessmentLink')
     .forEach((el) => el.classList.toggle("disabled", courses.length === 0));
 }
+
+async function loadStudents() {
+  let response = await fetch(
+    `${STUDENTS_URL}?instructorId=${encodeURIComponent(currentInstructor.id)}`,
+  );
+  if (!response.ok) {
+    throw new Error("Failed to fetch students");
+  }
+  students = (await response.json()).filter((s) => !s.isDeleted);
+
+  let checkboxes = students
+    .map(
+      (s) => `
+    <div class="form-check">
+      <input class="form-check-input student-check" type="checkbox"
+        id="std-${esc(s.id)}" value="${esc(s.id)}">
+      <label class="form-check-label w-100" for="std-${esc(s.id)}">${esc(s.name)}</label>
+    </div>`,
+    )
+    .join("");
+
+  document.getElementById("studentList").innerHTML =
+    students.length === 0
+      ? `<div class="text-muted small">No students yet</div>`
+      : `<div class="form-check select-all">
+         <input class="form-check-input" type="checkbox" id="std-all">
+         <label class="form-check-label" for="std-all">All students</label>
+       </div>
+       <div class="student-scroll">${checkboxes}</div>`;
+
+  // No students yet: block choosing students
+  document
+    .getElementById("a-std")
+    .classList.toggle("disabled", students.length === 0);
+}
+
+function updateStudentLabel() {
+  let boxes = [...document.querySelectorAll("#studentList .student-check")];
+  let checked = boxes.filter((box) => box.checked);
+  let button = document.getElementById("a-std");
+
+  if (checked.length === 0) {
+    button.textContent = "Select students";
+  } else if (checked.length === boxes.length) {
+    button.textContent = "All students";
+  } else if (checked.length === 1) {
+    button.textContent = checked[0].nextElementSibling.textContent;
+  } else {
+    button.textContent = `${checked.length} students`;
+  }
+}
+
+document.getElementById("studentList").addEventListener("change", (e) => {
+  let all = document.getElementById("std-all");
+  let boxes = document.querySelectorAll(".student-check");
+
+  if (e.target.id === "std-all") {
+    boxes.forEach((box) => (box.checked = e.target.checked));
+  } else {
+    all.checked = [...boxes].every((box) => box.checked);
+  }
+
+  updateStudentLabel();
+});
 
 async function getAssessments() {
   try {
@@ -147,6 +215,12 @@ function filterByCourse(course) {
   getAssessments();
 }
 
+function getSelectedStudentIds() {
+  return [
+    ...document.querySelectorAll("#studentList .student-check:checked"),
+  ].map((box) => box.value);
+}
+
 async function addAssessment(event) {
   event.preventDefault();
   try {
@@ -157,6 +231,11 @@ async function addAssessment(event) {
       throw new Error("Choose one of your courses");
     }
     assessment.courseId = course.id;
+    assessment.studentIds = getSelectedStudentIds();
+    if (assessment.studentIds.length === 0) {
+      alert("Select at least one student");
+      return;
+    }
     let response;
     if (editingId) {
       response = await fetch(`${Endpoint}/${editingId}`, {
@@ -205,6 +284,7 @@ document
   .getElementById("assessmentModal")
   .addEventListener("hidden.bs.modal", function () {
     form.reset();
+    document.querySelectorAll("#studentList input").forEach((box) => (box.checked = false));
     editingId = null;
     document.getElementById("assessmentTitle").textContent = "New assessment";
     newAssessmentLink.classList.remove("active");
@@ -223,6 +303,9 @@ async function updateAssessment(id) {
     document.getElementById("a-type").value = assessment.type;
     document.getElementById("a-course").value = assessment.course;
     document.getElementById("a-due").value = assessment.dueDate;
+    document.querySelectorAll("#studentList .student-check").forEach((box) => {
+      box.checked = (assessment.studentIds || []).map(String).includes(box.value);
+    });
     document.getElementById("assessmentTitle").textContent = "Edit assessment";
     bootstrap.Modal.getOrCreateInstance(
       document.getElementById("assessmentModal"),
@@ -326,6 +409,7 @@ document.getElementById("courseFilter").addEventListener("change", (e) => filter
 async function init() {
   try {
     await loadCourses();
+    await loadStudents();
   } catch (error) {
     console.log("Error:", error);
     return;

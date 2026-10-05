@@ -283,19 +283,30 @@
 
               <div class="col-6">
                 <label class="form-label" for="a-course"> Course </label>
-
                 <!-- Options are filled by assessments.js from the instructor's courses -->
                 <select id="a-course" name="course" class="form-select" required></select>
               </div>
 
-              <div class="col-12">
+              <div class="col-6">
                 <label class="form-label" for="a-due"> Due date </label>
-
                 <input id="a-due" name="dueDate" type="date" class="form-control" required />
               </div>
+
+              <div class="col-6">
+                <label class="form-label" for="a-std">Students</label>
+                <div class="dropdown">
+                  <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" id="a-std"
+                    data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                    Select students
+                  </button>
+                  <div class="dropdown-menu w-100 p-3" id="studentList">
+                    <!-- JavaScript checkboxes -->
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
-
           <div class="modal-footer border-0">
             <button type="button" class="btn btn-light" data-bs-dismiss="modal">
               Cancel

@@ -34,3 +34,71 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* Students checklist dropdown */
+#a-std {
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#studentList {
+  padding: 8px;
+}
+
+/* Rows */
+#studentList .form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#studentList .form-check:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+#studentList .form-check-input {
+  float: none;
+  margin: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+#studentList .form-check-input:checked {
+  background-color: var(--g5);
+  border-color: var(--g5);
+}
+
+#studentList .form-check-label {
+  flex: 1;
+  cursor: pointer;
+}
+
+/* "All students" row stays fixed above the scrolling list */
+#studentList .select-all {
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 6px;
+}
+
+/* Scrolls inside itself: about 5 rows visible */
+.student-scroll {
+  max-height: 200px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.student-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.student-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+}
