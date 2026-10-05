@@ -107,7 +107,7 @@
       "link": "https://www.youtube.com/results?search_query=Firebase%20for%20Mobile%20tutorial",
       "thumbnail": "https://picsum.photos/seed/vYNtechUxcy/320/180",
       "instructorId": "v06MRRtXXLh",
-      "courseId": "TM2F0r2Xtsd",
+      "courseId": null,
       "id": "vYNtechUxcy"
     },
     {
@@ -120,6 +120,17 @@
       "instructorId": "v06MRRtXXLh",
       "courseId": "072RKQBse1t",
       "id": "7DHWs0h3la2"
+    },
+    {
+      "course": "Data Visualization",
+      "type": "video",
+      "topic": "how",
+      "title": "Data Visualization Tutorial For Beginners | Big Data Analytics Tutorial | Simplilearn",
+      "link": "https://www.youtube.com/watch?v=MiiANxRHSv4",
+      "thumbnail": "https://i.ytimg.com/vi/MiiANxRHSv4/mqdefault.jpg",
+      "instructorId": "v06MRRtXXLh",
+      "courseId": "svx98I2FrJo",
+      "id": "9Cv490-T2P4"
     }
   ],
   "instructors": [
@@ -133,11 +144,27 @@
     },
     {
       "id": "v06MRRtXXLh",
-      "name": "Test Instructor",
+      "name": "new",
       "email": "testInstructor@gmail.com",
-      "password": "Test123456",
+      "password": "Test123456#",
       "department": "Testing",
       "phone": "0790000000"
+    },
+    {
+      "id": "j9MWyd28eUs",
+      "name": "Asmaa Aljazzar",
+      "email": "aljazzarasma3@gmail.com",
+      "password": "Asmaa123456.",
+      "department": "Development",
+      "phone": "0791234567"
+    },
+    {
+      "id": "UAodo6juKvQ",
+      "name": "Asmaa Aljazzar",
+      "email": "testInstructo@gmail.com",
+      "password": "Test123456#",
+      "department": "testInstructor@gmail.com",
+      "phone": "0791234567"
     }
   ],
   "courses": [
@@ -182,13 +209,6 @@
       "category": "Data",
       "instructorId": "v06MRRtXXLh",
       "id": "svx98I2FrJo"
-    },
-    {
-      "name": "Firebase for Mobile",
-      "description": "Firebase for Mobile: practical, project-based learning",
-      "category": "Mobile",
-      "instructorId": "v06MRRtXXLh",
-      "id": "TM2F0r2Xtsd"
     },
     {
       "name": "C++ Fundamentals",
@@ -318,7 +338,7 @@
       "course": "Firebase for Mobile",
       "dueDate": "2026-10-22",
       "isDeleted": false,
-      "courseId": "TM2F0r2Xtsd",
+      "courseId": null,
       "instructorId": "v06MRRtXXLh",
       "id": "4kYg7MbDjnr"
     },
@@ -331,6 +351,16 @@
       "courseId": "072RKQBse1t",
       "instructorId": "v06MRRtXXLh",
       "id": "XHhr70Xn4PS"
+    },
+    {
+      "title": "new",
+      "type": "Assignment",
+      "course": "C++ Fundamentals",
+      "dueDate": "2026-10-05",
+      "isDeleted": false,
+      "courseId": "072RKQBse1t",
+      "instructorId": "v06MRRtXXLh",
+      "id": "wmKgoy61NTk"
     }
   ],
   "students": [
@@ -1806,7 +1836,7 @@
       "email": "adam.hijazi@gmail.com",
       "phone": "0798661533",
       "instructorId": "v06MRRtXXLh",
-      "isDeleted": false,
+      "isDeleted": true,
       "status": "active",
       "courses": [
         {
@@ -1849,6 +1879,36 @@
         }
       ],
       "id": "oLSwWzdWr27"
+    },
+    {
+      "name": "Asmaa Aljazzar",
+      "email": "aljazzarasmaa3@gmail.com",
+      "phone": "0798254023",
+      "instructorId": "v06MRRtXXLh",
+      "isDeleted": true,
+      "status": "archived",
+      "courses": [
+        {
+          "name": "Data Visualization",
+          "grade": 20
+        }
+      ],
+      "id": "M2RbukBZvCc"
+    },
+    {
+      "name": "Asmaa Aljazzar",
+      "email": "aljazzarasm@gmail.com",
+      "phone": "07987654321",
+      "instructorId": "v06MRRtXXLh",
+      "isDeleted": false,
+      "status": "active",
+      "courses": [
+        {
+          "name": "C++ Fundamentals",
+          "grade": 0
+        }
+      ],
+      "id": "yPITmiObA5M"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
